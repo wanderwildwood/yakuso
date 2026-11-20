@@ -70,7 +70,8 @@ words "cure" or "treats".
 
 ## Status
 
-Early. The herb text is a **draft** that has not yet been read and approved: each page says so
+Early. Every herb was checked line by line against its cited sources before the first release.
+An herb added later is marked as a draft until it has been, and its page says so
 at the top.
 
 ## Building

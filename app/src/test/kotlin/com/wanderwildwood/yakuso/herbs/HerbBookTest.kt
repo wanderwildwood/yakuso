@@ -151,8 +151,8 @@ class HerbBookTest {
         assertTrue(lines > 400)
     }
 
-    @Test fun everyHerbIsStillMarkedDraft() {
-        assertTrue(herbs.all { it.draft })
+    @Test fun noHerbIsADraftAnyMore() {
+        assertTrue(herbs.none { it.draft })
     }
 
     @Test fun searchFindsByNameLatinAndOtherNames() {
