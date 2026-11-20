@@ -15,9 +15,10 @@ class HerbBookTest {
     private val herbs = HerbBook.parse(File("src/main/assets/herbs.json").readText())
 
     @Test fun theBookHasTheStarterListAtoZ() {
-        assertEquals(45, herbs.size)
+        assertEquals(44, herbs.size)
         assertEquals("Black tea", herbs.first().name)
         assertEquals("Yarrow", herbs.last().name)
+        assertTrue(herbs.none { it.id == "oat-straw" })
         assertEquals(HerbBook.sortedAtoZ(herbs.shuffled()).map { it.id }, herbs.map { it.id })
         assertEquals(herbs.size, herbs.map { it.id }.toSet().size)
     }
@@ -61,7 +62,7 @@ class HerbBookTest {
             setOf(
                 "cinnamon", "comfrey", "elderberry", "elderflower", "ephedra", "fennel", "feverfew", "ginkgo",
                 "ginseng", "hawthorn", "kava", "licorice", "passionflower", "pennyroyal", "red-clover", "sage",
-                "st-johns-wort", "turmeric", "valerian",
+                "st-johns-wort", "turmeric", "valerian", "yarrow",
             ),
             marked,
         )
@@ -96,7 +97,7 @@ class HerbBookTest {
         val avoid = herbs.filter { h ->
             h.cautions.any { it.severity == Severity.AVOID && "pregnan" in it.text.lowercase() }
         }.map { it.id }
-        assertTrue(avoid.containsAll(listOf("passionflower", "feverfew", "sage", "st-johns-wort")))
+        assertTrue(avoid.containsAll(listOf("passionflower", "feverfew", "sage", "st-johns-wort", "yarrow")))
         assertTrue(HerbBook.forNeed(herbs, "pregnancy").none { it.id in avoid })
     }
 

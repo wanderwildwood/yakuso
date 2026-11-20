@@ -1,0 +1,8 @@
+{
+  "uniqueId": "herb-book-articles",
+  "name": "Herb book: pregnancy and nursing notes from journal articles",
+  "description": "Some pregnancy and nursing cautions for hibiscus, raspberry leaf and yarrow are written from open-access journal articles under Creative Commons Attribution licenses: Journal of Medicine and Life 2021 (PMC8811673, CC BY 3.0); BMC Complementary Medicine and Therapies 2024 (PMC11034164, CC BY 4.0); International Journal of Molecular Sciences 2025 (PMC12347892, CC BY 4.0); Cureus 2023 (PMC10676230, CC BY, version not stated). Each herb names its articles among its sources (assets/herbs.json). The wording in this app is its own.",
+  "developers": [{ "name": "The articles' authors" }],
+  "website": "https://pmc.ncbi.nlm.nih.gov/",
+  "licenses": ["CC-BY-4.0", "CC-BY-3.0"]
+}

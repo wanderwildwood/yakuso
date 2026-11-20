@@ -1,5 +1,5 @@
 {
-  "_about": "The herb book. DRAFT: every entry marked \"draft\": true is waiting to be read before it goes in a release. Cautions and research lines are from US government pages, which are public domain: NCCIH Herbs at a Glance, and from the NIH's LiverTox (NIDDK) and LactMed (NICHD) and the FDA where NCCIH has no page; the wording here is our own plain-English rendering of them. Where those are silent, traditional uses and preparation draw on Wikipedia, whose text is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); each such entry credits the article and revision it used, in a source marked with its license. Preparation amounts, times and tastes are ordinary kitchen practice and are not tied to a source. Each use carries the Finder's needs (sleep, calm, digestion, colds, sore-throat, nausea, headache, period-cramps, pregnancy, nursing). tools/check-cautions.py checks this file.",
+  "_about": "The herb book. DRAFT: every entry marked \"draft\": true is waiting to be read before it goes in a release. Cautions and research lines are from US government pages, which are public domain: NCCIH Herbs at a Glance, and from the NIH's LiverTox (NIDDK) and LactMed (NICHD) and the FDA where NCCIH has no page; the wording here is our own plain-English rendering of them. Where those are silent, traditional uses and preparation draw on Wikipedia, whose text is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); each such entry credits the article and revision it used, in a source marked with its license. For the pregnancy and nursing safety of hibiscus, raspberry leaf and yarrow, open-access journal articles licensed CC BY are used, each credited with its license in that herb's sources. Preparation amounts, times and tastes are ordinary kitchen practice and are not tied to a source. Each use carries the Finder's needs (sleep, calm, digestion, colds, sore-throat, nausea, headache, period-cramps, pregnancy, nursing). tools/check-cautions.py checks this file.",
   "version": 1,
   "herbs": [
     {
@@ -758,12 +758,13 @@
       "parts": "Calyces (the red cups around the flower)",
       "taste": "Tart, like cranberry",
       "cautions": [
+        {"severity": "caution", "text": "Pregnancy: it has not been studied in pregnant people. In pregnant rats, large doses of an extract harmed the newborns' cells, and the researchers advise using it only with a health professional's guidance. Ask your midwife or doctor first."},
+        {"severity": "caution", "text": "Nursing: nothing is known about whether it reaches breast milk or is safe for a nursing baby. Ask your midwife or doctor first."},
+        {"severity": "caution", "text": "It can lower blood pressure, and it might interact with blood pressure medicines (ACE inhibitors such as ramipril); this has not been studied. Ask your doctor or pharmacist first if you take any medicine."},
         {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."},
-        {"severity": "note", "text": "It is generally well tolerated, but allergic reactions are possible, including in people allergic to marshmallow."}
+        {"severity": "note", "text": "It is generally well tolerated, but allergic reactions are possible, including in people allergic to marshmallow. Very large doses of extract affected liver tests in one study."}
       ],
-      "interactions": [],
+      "interactions": ["blood pressure medicines (ACE inhibitors)"],
       "uses": [
         {"for": "flavor and color, as an everyday tea", "evidence": "no research summary to cite", "needs": []}
       ],
@@ -778,6 +779,8 @@
       },
       "sources": [
         {"title": "LactMed (NICHD), Hibiscus", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501882/", "retrieved": "2026-11-20"},
+        {"title": "Exploring the Health Benefits and Therapeutic Potential of Roselle (Hibiscus sabdariffa) in Human Studies (Cureus, 2023)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10676230/", "retrieved": "2026-11-20", "license": "CC BY"},
+        {"title": "Genomic and Cytotoxic Damage in Wistar Rats and Their Newborns After Transplacental Exposure to Hibiscus sabdariffa Hydroalcoholic Extract (International Journal of Molecular Sciences, 2025)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12347892/", "retrieved": "2026-11-20", "license": "CC BY 4.0"},
         {"title": "Wikipedia, Hibiscus tea (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Hibiscus_tea&oldid=1385534293", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
       ]
     },
@@ -825,8 +828,7 @@
       "cautions": [
         {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."},
-        {"severity": "note", "text": "The hairs inside the hips irritate. Use cut, sifted hips, or strain the tea well."}
+        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."}
       ],
       "interactions": [],
       "uses": [
@@ -839,7 +841,7 @@
         "tempF": 212,
         "steepMin": 10,
         "steepMax": 15,
-        "note": "Strain through a fine cloth or paper."
+        "note": "Strain through a fine cloth or paper: the hairs inside the hips irritate."
       },
       "sources": [
         {"title": "Wikipedia, Rose hip (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Rose_hip&oldid=1386640366", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
@@ -1021,7 +1023,7 @@
       "parts": "Leaves",
       "taste": "Like a mild black tea",
       "cautions": [
-        {"severity": "caution", "text": "Pregnancy: it is traditionally drunk late in pregnancy, but this book found no US government source on whether it is safe then. Ask your midwife or doctor before using it."},
+        {"severity": "caution", "text": "Pregnancy: it is traditionally drunk late in pregnancy to prepare for birth, and it may make the womb contract. There is too little research to call it safe: one small study saw no safety problems, but its authors warn that this is not proof of safety. Ask your midwife or doctor before using it."},
         {"severity": "caution", "text": "Nursing: as a tea it is usually without side effects, but there is no information on safety while nursing. Ask your midwife or doctor first."},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
         {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."}
@@ -1031,7 +1033,7 @@
         {"for": "preparing for childbirth, late in pregnancy", "evidence": "no research summary to cite", "needs": []},
         {"for": "milk supply while nursing", "evidence": "no good studies", "needs": []}
       ],
-      "research": "NCCIH has no page on it. LactMed finds no good studies on milk supply; no US government summary covers its use in pregnancy.",
+      "research": "NCCIH has no page on it. LactMed finds no good studies on milk supply. For birth, one small study saw fewer labors needing to be sped up, but it cannot be relied on; a proper trial is needed.",
       "preparation": {
         "method": "infusion",
         "amount": "1 to 2 teaspoons of dried leaves per cup",
@@ -1042,6 +1044,8 @@
       },
       "sources": [
         {"title": "LactMed (NICHD), Raspberry", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501785/", "retrieved": "2026-11-20"},
+        {"title": "Raspberry leaf (Rubus idaeus) use in pregnancy: a prospective observational study (BMC Complementary Medicine and Therapies, 2024)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11034164/", "retrieved": "2026-11-20", "license": "CC BY 4.0"},
+        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"},
         {"title": "Wikipedia, Red raspberry leaf (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Red_raspberry_leaf&oldid=1334059217", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
       ]
     },
@@ -1055,10 +1059,10 @@
       "parts": "Leaves and flowering tops",
       "taste": "Bitter and aromatic",
       "cautions": [
+        {"severity": "avoid", "text": "Pregnancy: don't use it. It is one of the herbs that stimulate the womb, which risks miscarriage or early birth. Ask your midwife or doctor."},
+        {"severity": "caution", "text": "Nursing: it is listed among herbs that may lower or stop milk supply. Ask your midwife or doctor before using it."},
         {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "caution", "text": "Pregnancy and nursing: nothing reliable is known about whether it is safe. Ask your midwife or doctor before using it."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "When picking it, be sure of the plant: it looks a little like poison hemlock."}
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."}
       ],
       "interactions": [],
       "uses": [
@@ -1075,36 +1079,8 @@
         "note": null
       },
       "sources": [
+        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"},
         {"title": "Wikipedia, Achillea millefolium (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Achillea_millefolium&oldid=1383115478", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
-    },
-    {
-      "id": "oat-straw",
-      "name": "Oat straw",
-      "latin": "Avena sativa",
-      "alsoCalled": ["oats", "green oats"],
-      "draft": true,
-      "dontUse": false,
-      "parts": "Green stems and leaves",
-      "taste": "Mild, grassy and sweet",
-      "cautions": [
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."}
-      ],
-      "interactions": [],
-      "uses": [],
-      "research": "This book found no public-domain or openly licensed source for oat straw's traditional uses, so it lists none.",
-      "preparation": {
-        "method": "infusion",
-        "amount": "1 to 2 tablespoons of cut straw per cup",
-        "tempF": 212,
-        "steepMin": 10,
-        "steepMax": 15,
-        "note": null
-      },
-      "sources": [
-        {"title": "Wikipedia, Oat (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Oat&oldid=1385199432", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
       ]
     },
     {
@@ -1150,7 +1126,6 @@
       "taste": "Earthy and sweet",
       "cautions": [
         {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "caution", "text": "When digging it, be sure of the plant: young burdock can be confused with rhubarb, whose leaves are poisonous."},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
         {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."}
       ],
