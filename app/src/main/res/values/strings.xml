@@ -99,6 +99,8 @@
     <string name="ring_title">Your tea is ready</string>
     <!-- %1$s is what was brewing, %2$s its minutes ("4", "2:30") -->
     <string name="ring_text">%1$s, %2$s min</string>
+    <!-- Under a minute. %1$s is what was brewing, %2$d its seconds: "Chamomile, 30 s" -->
+    <string name="ring_text_seconds">%1$s, %2$d s</string>
     <string name="ring_stop">Stop</string>
     <string name="channel_ringing">Brew timer ringing</string>
     <string name="channel_ringing_about">The alarm when a brew is done. The app plays the sound itself, on the alarm volume.</string>

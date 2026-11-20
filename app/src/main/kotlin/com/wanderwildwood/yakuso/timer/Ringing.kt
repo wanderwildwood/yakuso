@@ -105,8 +105,12 @@ object Ringing {
 
     fun title(context: Context): String = context.getString(R.string.ring_title)
 
-    fun text(context: Context, b: Brew): String =
-        context.getString(R.string.ring_text, b.label.ifBlank { context.getString(R.string.timer_title) }, BrewMath.minutes(b.seconds))
+    /** "Chamomile, 30 s" under a minute; "Chamomile, 4 min" or "Chamomile, 4:30 min" from a minute up. */
+    fun text(context: Context, b: Brew): String {
+        val name = b.label.ifBlank { context.getString(R.string.timer_title) }
+        return if (b.seconds < 60) context.getString(R.string.ring_text_seconds, name, b.seconds)
+        else context.getString(R.string.ring_text, name, BrewMath.minutes(b.seconds))
+    }
 
     /** The ringing notification: it stays until Stop, and a tap on it opens the timer. */
     fun loud(context: Context, b: Brew, channel: String = RINGING): Notification =
