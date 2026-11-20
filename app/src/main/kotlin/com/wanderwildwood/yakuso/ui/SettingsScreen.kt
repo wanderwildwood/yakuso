@@ -77,7 +77,7 @@ fun SettingsScreen(onBack: () -> Unit, onAbout: () -> Unit) {
 /** A row that does something: its name, and a note only where the name cannot carry the fact. */
 @Composable
 private fun SettingsRow(title: String, note: String?, onClick: () -> Unit) {
-    Column(Modifier.fillMaxWidth().heightIn(min = 48.dp).clickable(onClick = onClick).padding(vertical = 12.dp)) {
+    Column(Modifier.fillMaxWidth().heightIn(min = 48.dp).clickable(onClick = onClick).padding(vertical = 14.dp)) {
         TextMMD(title, style = MaterialTheme.typography.bodyMedium)
         note?.let { TextMMD(it, style = MaterialTheme.typography.labelSmall) }
     }
