@@ -931,7 +931,7 @@
       },
       "sources": [
         {"id": "lactmed", "title": "LactMed (NICHD), Hibiscus", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501882/", "retrieved": "2026-11-20", "license": "public-domain"},
-        {"id": "pmc-PMC10676230", "title": "Exploring the Health Benefits and Therapeutic Potential of Roselle (Hibiscus sabdariffa) in Human Studies (Cureus, 2023)", "authors": "Almajid A, Bazroon A, AlAhmed A, Bakhurji O", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10676230/", "retrieved": "2026-11-20", "license": "cc-by-3.0", "licenseNote": "The article says it is distributed under the Creative Commons Attribution License without naming a version; recorded as 4.0, Cureus's usual license."},
+        {"id": "pmc-PMC10676230", "title": "Exploring the Health Benefits and Therapeutic Potential of Roselle (Hibiscus sabdariffa) in Human Studies (Cureus, 2023)", "authors": "Almajid A, Bazroon A, AlAhmed A, Bakhurji O", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10676230/", "retrieved": "2026-11-20", "license": "cc-by-3.0", "licenseNote": "The article says it is distributed under the Creative Commons Attribution License; its PubMed Central record names CC BY 3.0."},
         {"id": "pmc-PMC12347892", "title": "Genomic and Cytotoxic Damage in Wistar Rats and Their Newborns After Transplacental Exposure to Hibiscus sabdariffa Hydroalcoholic Extract (International Journal of Molecular Sciences, 2025)", "authors": "Tobanche Mireles Y, Zamora-Pérez AL, Galván Valencia M, et al.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12347892/", "retrieved": "2026-11-20", "license": "cc-by-4.0"},
         {"id": "wikipedia", "title": "Wikipedia, Hibiscus tea (traditional use and preparation only)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Hibiscus_tea&oldid=1385534293", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
@@ -1136,7 +1136,7 @@
       "id": "turmeric",
       "name": "Turmeric",
       "latin": "Curcuma longa",
-      "alsoCalled": ["Curcuma domestica", "curcumin"],
+      "alsoCalled": ["Curcuma domestica"],
       "draft": true,
       "dontUse": false,
       "parts": "Rhizome (the underground stem)",
@@ -1147,7 +1147,8 @@
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["nccih"]},
         {"severity": "note", "text": "By mouth it can cause nausea, vomiting, reflux, an upset stomach, diarrhea or constipation. On the skin it can cause hives or itching.", "src": ["nccih"]}
       ],
-      "interactions": [],
+      "interactions": ["warfarin and other blood thinners", "antiplatelet drugs"],
+      "interactionsSrc": ["lactmed"],
       "uses": [
         {"for": "indigestion", "evidence": "not enough evidence", "needs": ["digestion"], "src": ["nccih"]},
         {"for": "colds", "evidence": "not enough evidence", "needs": ["colds"], "src": ["nccih"]},
@@ -1165,7 +1166,8 @@
         "src": ["kitchen"]
       },
       "sources": [
-        {"id": "nccih", "title": "NCCIH, Turmeric (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/turmeric", "retrieved": "2026-11-20", "license": "public-domain"}
+        {"id": "nccih", "title": "NCCIH, Turmeric (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/turmeric", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "lactmed", "title": "LactMed (NICHD), Turmeric", "url": "https://www.ncbi.nlm.nih.gov/books/n/lactmed/LM930/", "retrieved": "2026-11-20", "license": "public-domain"}
       ],
       "researchSrc": ["nccih"],
       "tasteSrc": ["kitchen"],
@@ -1225,6 +1227,7 @@
       "taste": "Like a mild black tea",
       "cautions": [
         {"severity": "caution", "text": "Pregnancy: it is traditionally drunk late in pregnancy to prepare for birth, and it may make the womb contract. There is too little research to call it safe: one small study saw no safety problems, but its authors warn that this is not proof of safety. Ask your midwife or doctor before using it.", "src": ["pmc-PMC11034164", "pmc-PMC8811673"]},
+        {"severity": "caution", "text": "Diabetes in pregnancy: a 2021 review lists low blood sugar among its side effects. Ask your midwife or doctor before using it if you have diabetes in pregnancy.", "src": ["pmc-PMC8811673"]},
         {"severity": "caution", "text": "Nursing: as a tea it is usually without side effects, but there is no information on safety while nursing. Ask your midwife or doctor first.", "src": ["lactmed"]},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
         {"severity": "caution", "text": "The NIH's only summary of it (LactMed) is about mothers' milk, so little is known about its safety beyond its use in food and tea.", "src": ["lactmed"]}
@@ -1270,7 +1273,8 @@
         {"severity": "caution", "text": "Nursing: it is listed among herbs that may lower or stop milk supply. Ask your midwife or doctor before using it.", "src": ["pmc-PMC8811673"]},
         {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
-        {"severity": "caution", "text": "When picking it, be sure of the plant: it looks a little like poison hemlock, which can kill.", "src": ["wikipedia"]}
+        {"severity": "caution", "text": "When picking it, be sure of the plant: it looks a little like poison hemlock, which can kill.", "src": ["wikipedia"]},
+        {"severity": "note", "text": "It can cause an allergic skin rash in some people.", "src": ["wikipedia"]}
       ],
       "interactions": [],
       "uses": [
@@ -1346,6 +1350,7 @@
       "cautions": [
         {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
         {"severity": "caution", "text": "When gathering it, be sure of the plant: burdock can be confused with rhubarb, whose leaves are poisonous.", "src": ["wikipedia"]},
+        {"severity": "avoid", "text": "Store-bought burdock root tea has poisoned people when it was contaminated with another plant that acts like atropine (as deadly nightshade does). Buy it only from a seller you trust.", "src": ["pubmed-6535850"]},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
         {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]}
       ],
@@ -1365,7 +1370,8 @@
         "src": ["kitchen"]
       },
       "sources": [
-        {"id": "wikipedia", "title": "Wikipedia, Arctium lappa (traditional use, preparation and the look-alike warning)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Arctium_lappa&oldid=1375558472", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "wikipedia", "title": "Wikipedia, Arctium lappa (traditional use, preparation and the look-alike warning)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Arctium_lappa&oldid=1375558472", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"},
+        {"id": "pubmed-6535850", "title": "Anticholinergic poisonings associated with commercial burdock root tea (Journal of Toxicology: Clinical Toxicology, 1984), PubMed record", "url": "https://pubmed.ncbi.nlm.nih.gov/6535850/", "retrieved": "2026-11-20", "license": "public-domain"}
       ],
       "researchSrc": ["editorial"],
       "tasteSrc": ["kitchen"],
@@ -1416,7 +1422,7 @@
       "id": "milk-thistle",
       "name": "Milk thistle",
       "latin": "Silybum marianum",
-      "alsoCalled": ["silymarin", "Mary thistle"],
+      "alsoCalled": ["Mary thistle"],
       "draft": true,
       "dontUse": false,
       "parts": "Seeds",
@@ -1506,6 +1512,7 @@
       "cautions": [
         {"severity": "avoid", "text": "Don't take it with blood thinners such as warfarin: it may raise the risk of bleeding.", "src": ["nccih"]},
         {"severity": "avoid", "text": "Don't eat the seeds or the crude plant. Fresh seeds are toxic, and roasted seeds have caused serious harm.", "src": ["nccih"]},
+        {"severity": "caution", "text": "The safety findings are for standardized leaf extracts. Serious harm has followed use of the crude plant, and a tea of the dried leaf is not what was studied. Ask your doctor or pharmacist first.", "src": ["nccih"]},
         {"severity": "avoid", "text": "Pregnancy: it may be unsafe; near the birth it might bring on early labor or extra bleeding. Ask your midwife or doctor. Nursing: little is known.", "src": ["nccih"]},
         {"severity": "caution", "text": "It may interact with other medicines too. Ask your doctor or pharmacist first if you take any medicine.", "src": ["nccih"]},
         {"severity": "note", "text": "Leaf extract is usually well tolerated; the most common side effects are dizziness, stomach upset and headache.", "src": ["nccih"]}
@@ -1672,7 +1679,7 @@
       "cautions": [
         {"severity": "avoid", "text": "Don't take pennyroyal oil by mouth in any amount. Even a tablespoon has killed people.", "src": ["livertox"]},
         {"severity": "avoid", "text": "Pregnancy: never use it. It has been taken to end pregnancies, and the amounts used can kill. Ask your midwife or doctor about anything you have already taken.", "src": ["livertox"]},
-        {"severity": "caution", "text": "The tea and leaf have been used without serious harm, but they hold the same poison (pulegone) as the oil. This book does not recommend them.", "src": ["livertox"]}
+        {"severity": "avoid", "text": "The tea and leaf hold the same poison (pulegone) as the oil. Two babies given a home-made mint tea with pennyroyal in it had seizures and organ failure. Never give it to a child. This book does not recommend it in any form.", "src": ["livertox"]}
       ],
       "interactions": [],
       "uses": [
@@ -1696,7 +1703,7 @@
       "alsoCalled": ["kava kava", "kawa", "intoxicating pepper"],
       "draft": true,
       "dontUse": true,
-      "dontUseReason": "Kava has been linked to liver injury, sometimes serious or fatal, including from drinks made with water. No one can yet say who is at risk.",
+      "dontUseReason": "Kava has been linked to liver injury, sometimes serious or fatal, including from drinks made with water. It is not known why some people are harmed.",
       "parts": "Root",
       "taste": null,
       "cautions": [
@@ -1709,7 +1716,7 @@
       "uses": [
         {"for": "anxiety", "evidence": "not a reason to take it", "needs": [], "src": ["nccih", "livertox"]}
       ],
-      "research": "Kava supplements may help anxiety, but the risk to the liver outweighs that.",
+      "research": "Kava supplements may help some anxiety, though not generalized anxiety disorder; this book judges the risk to the liver too great.",
       "preparation": null,
       "sources": [
         {"id": "nccih", "title": "NCCIH, Kava (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/kava", "retrieved": "2026-11-20", "license": "public-domain"},
@@ -1725,10 +1732,10 @@
       "id": "ephedra",
       "name": "Ephedra",
       "latin": "Ephedra sinica",
-      "alsoCalled": ["ma huang", "Chinese ephedra", "Mormon tea"],
+      "alsoCalled": ["ma huang", "Chinese ephedra"],
       "draft": true,
       "dontUse": true,
-      "dontUseReason": "Ephedra has been linked to high blood pressure, heart attack, seizure, stroke and psychosis, even at low doses and for a short time. The FDA banned it in dietary supplements.",
+      "dontUseReason": "Ephedra has been linked to high blood pressure, heart attack, seizure, stroke and psychosis, even at low doses and for a short time, and to acute liver injury. The FDA banned it in dietary supplements.",
       "parts": "Stems",
       "taste": null,
       "cautions": [

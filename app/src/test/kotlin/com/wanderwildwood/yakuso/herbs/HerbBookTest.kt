@@ -71,7 +71,7 @@ class HerbBookTest {
         val marked = herbs.filter { it.serious }.map { it.id }.toSet()
         assertEquals(
             setOf(
-                "cinnamon", "comfrey", "elderberry", "elderflower", "ephedra", "fennel", "feverfew", "ginkgo",
+                "burdock", "cinnamon", "comfrey", "elderberry", "elderflower", "ephedra", "fennel", "feverfew", "ginkgo",
                 "ginseng", "hawthorn", "kava", "licorice", "passionflower", "pennyroyal", "red-clover", "sage",
                 "st-johns-wort", "turmeric", "valerian", "yarrow",
             ),
