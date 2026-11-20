@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Herbal: PLACEHOLDER launcher icon (the house ring and a plain leaf) until the author picks the real
-     one. Mudita Kompakt stock style: 81 grid, ring r=19.25 x 2.5, glyph stroke 2.5, black on transparent. -->
+<!-- Herbal launcher icon: the house ring and a plain leaf (chosen 2026-11-20). Mudita Kompakt stock style: 81 grid, ring r=19.25 x 2.5, glyph stroke 2.5, black on transparent. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="81dp"
     android:height="81dp"
