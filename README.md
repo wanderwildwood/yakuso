@@ -3,6 +3,11 @@
 A small offline book of herbs for tea, for the [Mudita Kompakt](https://mudita.com/products/kompakt/),
 built for its E Ink screen.
 
+| | |
+|---|---|
+| ![The herbs, A to Z](screenshots/1-herbs.png) | ![Chamomile's page: uses, research, how to prepare it](screenshots/2-chamomile.png) |
+| ![The finder: herbs traditionally used for sleep](screenshots/3-finder-sleep.png) | ![The journal of what was brewed](screenshots/4-journal.png) |
+
 Not a fork. Written from scratch in Kotlin and Jetpack Compose, using Mudita's own
 [MMD](https://github.com/mudita/MMD) design system so it looks like the apps the phone
 already ships with.
