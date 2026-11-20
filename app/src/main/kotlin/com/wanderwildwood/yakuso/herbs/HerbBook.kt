@@ -12,8 +12,19 @@ enum class Severity { AVOID, CAUTION, NOTE }
 
 data class Caution(val severity: Severity, val text: String)
 
-/** One thing an herb is traditionally used for, and what the research says about it. */
-data class Use(val forWhat: String, val evidence: String)
+/**
+ * One thing an herb is traditionally used for, what the research says about it, and the Finder's
+ * [needs] it answers (ids from [NEEDS]).
+ */
+data class Use(val forWhat: String, val evidence: String, val needs: List<String> = emptyList())
+
+/**
+ * The Finder's everyday needs, in the order it lists them. tools/check-cautions.py keeps the book to
+ * these, and never lets an herb a source says to avoid in pregnancy or nursing carry those two.
+ */
+val NEEDS: List<String> = listOf(
+    "sleep", "calm", "digestion", "colds", "sore-throat", "nausea", "headache", "period-cramps", "pregnancy", "nursing",
+)
 
 data class Preparation(
     /** "infusion" or "decoction". */
@@ -52,6 +63,10 @@ data class Herb(
     /** A serious caution: the row in the list carries the mark. */
     val serious: Boolean get() = dontUse || cautions.any { it.severity == Severity.AVOID }
 
+    /** Every need the herb's uses answer, in [NEEDS] order; none for a "don't use" page. */
+    val needs: List<String> get() =
+        if (dontUse) emptyList() else uses.flatMap { it.needs }.toSet().let { got -> NEEDS.filter { it in got } }
+
     /** Cautions in the order they are read: avoid, then caution, then note; the book's order within each. */
     val cautionsInOrder: List<Caution> get() = cautions.sortedBy { it.severity.ordinal }
 }
@@ -81,6 +96,9 @@ object HerbBook {
         return herbs.sortedWith { a, b -> collator.compare(a.name, b.name) }
     }
 
+    /** The herbs for one of the Finder's [NEEDS], A to Z as [herbs] already are. */
+    fun forNeed(herbs: List<Herb>, need: String): List<Herb> = herbs.filter { need in it.needs }
+
     /** The herbs whose name, Latin name or other names hold [query]; all of them for a blank one. */
     fun matching(herbs: List<Herb>, query: String): List<Herb> {
         val q = fold(query.trim())
@@ -106,7 +124,9 @@ object HerbBook {
             Caution(Severity.valueOf(it.getString("severity").uppercase(Locale.US)), it.getString("text"))
         },
         interactions = o.optJSONArray("interactions").strings(),
-        uses = o.optJSONArray("uses").objects().map { Use(it.getString("for"), it.optString("evidence")) },
+        uses = o.optJSONArray("uses").objects().map {
+            Use(it.getString("for"), it.optString("evidence"), it.optJSONArray("needs").strings())
+        },
         research = o.text("research"),
         preparation = o.optJSONObject("preparation")?.let {
             Preparation(

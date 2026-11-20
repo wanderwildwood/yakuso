@@ -11,6 +11,11 @@ Exits 1 and says what is wrong when any herb:
   - is an ordinary entry without a preparation
   - mentions pregnancy or nursing in a caution without saying to ask a midwife or doctor
   - repeats an id
+  - tags a use with a need the Finder doesn't have, or a "don't use" entry with any need
+  - is tagged "pregnancy" (or "nursing") while a caution says to avoid it then: an "avoid" caution
+    that names it, or a caution that names it beside "don't", "never", "avoid", "unsafe" and the like
+  - is tagged "pregnancy" (or "nursing") without a caution that names it and says to ask a
+    midwife or doctor
 
 Default path: app/src/main/assets/herbs.json, next to this folder.
 """
@@ -23,6 +28,14 @@ SEVERITIES = {"avoid", "caution", "note"}
 FORBIDDEN = re.compile(r"\b(cure[sd]?|curing|treats?|treated)\b", re.IGNORECASE)
 PREGNANCY = re.compile(r"\b(pregnan\w*|nursing|breastfeed\w*)\b", re.IGNORECASE)
 ASK = re.compile(r"\bmidwife\b|\bdoctor\b", re.IGNORECASE)
+NEEDS = {"sleep", "calm", "digestion", "colds", "sore-throat", "nausea", "headache", "period-cramps", "pregnancy", "nursing"}
+STATES = {
+    "pregnancy": re.compile(r"\bpregnan\w*", re.IGNORECASE),
+    "nursing": re.compile(r"\bnursing\b|\bbreastfeed\w*|\bbreast ?milk\b", re.IGNORECASE),
+}
+AVOID_WORDS = re.compile(
+    r"\b(don'?t|do not|never|avoid\w*|unsafe|should not|must not|not be used|not safe|stop)\b|\bdon’t\b",
+    re.IGNORECASE)
 
 
 def strings(value):
@@ -74,6 +87,25 @@ def problems(book):
             m = FORBIDDEN.search(text)
             if m:
                 out.append(f"{hid}: says {m.group(0)!r} (\"{text[:60]}\")")
+
+        needs = set()
+        for use in herb.get("uses") or []:
+            for n in use.get("needs") or []:
+                if n not in NEEDS:
+                    out.append(f"{hid}: unknown need {n!r} on \"{use.get('for')}\"")
+                needs.add(n)
+        if herb.get("dontUse") and needs:
+            out.append(f"{hid}: a don't-use entry is tagged for the Finder ({', '.join(sorted(needs))})")
+        for state, word in STATES.items():
+            if state not in needs:
+                continue
+            naming = [c for c in cautions if word.search(c.get("text") or "")]
+            for c in naming:
+                text = c.get("text") or ""
+                if c.get("severity") == "avoid" or AVOID_WORDS.search(text):
+                    out.append(f"{hid}: tagged {state!r} but a caution says to avoid it then (\"{text[:60]}\")")
+            if not any(ASK.search(c.get("text") or "") for c in naming):
+                out.append(f"{hid}: tagged {state!r} without a caution that names it and says to ask a midwife or doctor")
 
         if herb.get("dontUse"):
             if herb.get("preparation"):
