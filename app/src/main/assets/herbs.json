@@ -19,7 +19,7 @@
         {"severity": "caution", "text": "Allergy: it can cause allergic reactions, rarely severe ones (anaphylaxis). These are more likely if you are allergic to ragweed, chrysanthemums, marigolds or daisies.", "src": ["nccih"]},
         {"severity": "caution", "text": "It may act a little like estrogen. It might make birth control pills work less well, and might worsen a condition sensitive to estrogen, such as breast or uterine cancer.", "src": ["nccih"]},
         {"severity": "caution", "text": "Interactions have been reported with warfarin (a blood thinner) and with some drugs the liver breaks down, and it might add to sedatives. If you take any medicine, ask your doctor or pharmacist first.", "src": ["nccih"]},
-        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe. Ask your midwife or doctor first.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe. A 2021 review links drinking a lot of chamomile tea in pregnancy to early birth. Ask your midwife or doctor first.", "src": ["nccih", "pmc-PMC8811673"]},
         {"severity": "note", "text": "Side effects are uncommon: nausea and dizziness. Near the eyes it can irritate them.", "src": ["nccih"]}
       ],
       "interactions": ["blood thinners (warfarin)", "drugs broken down by the liver", "sedatives", "birth control pills"],
@@ -41,7 +41,8 @@
         "src": ["kitchen"]
       },
       "sources": [
-        {"id": "nccih", "title": "NCCIH, Chamomile (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/chamomile", "retrieved": "2026-11-20", "license": "public-domain"}
+        {"id": "nccih", "title": "NCCIH, Chamomile (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/chamomile", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "authors": "Grigoriu C, Varlas V, Călinescu G, et al.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
       ],
       "researchSrc": ["nccih"],
       "interactionsSrc": ["nccih"],
@@ -61,7 +62,7 @@
       "taste": null,
       "cautions": [
         {"severity": "avoid", "text": "Don't take comfrey by mouth, as a tea or in any other form.", "src": ["livertox", "pubmed"]},
-        {"severity": "avoid", "text": "Pregnancy, nursing and children: don't use it at all. Ask your midwife or doctor about anything you have already taken.", "src": ["livertox", "pubmed"]}
+        {"severity": "avoid", "text": "Babies and children seem especially sensitive to its poison. Pregnancy, nursing and children: don't use it. Ask your midwife or doctor about anything you have already taken.", "src": ["livertox", "editorial"]}
       ],
       "interactions": [],
       "uses": [
@@ -95,13 +96,13 @@
       ],
       "interactions": [],
       "uses": [
-        {"for": "nausea", "evidence": "some evidence, for nausea in pregnancy", "needs": ["nausea", "pregnancy"], "src": ["nccih"]},
-        {"for": "period cramps", "evidence": "some evidence", "needs": ["period-cramps"], "src": ["nccih"]},
+        {"for": "nausea", "evidence": "some evidence, for ginger supplements in pregnancy", "needs": ["nausea", "pregnancy"], "src": ["nccih"]},
+        {"for": "period cramps", "evidence": "some evidence, for supplements", "needs": ["period-cramps"], "src": ["nccih"]},
         {"for": "motion sickness", "evidence": "most studies found no help", "needs": ["nausea"], "src": ["nccih"]},
         {"for": "indigestion and an upset stomach", "evidence": "not enough evidence", "needs": ["digestion"], "src": ["nccih"]},
         {"for": "colds and flu", "evidence": "not enough evidence", "needs": ["colds"], "src": ["nccih"]}
       ],
-      "research": "Research suggests it may help nausea and vomiting in pregnancy and may ease period cramps; most studies found it no help for motion sickness.",
+      "research": "Research, mostly on supplements rather than tea, suggests it may help nausea and vomiting in pregnancy and may ease period cramps; most studies found it no help for motion sickness.",
       "preparation": {
         "method": "decoction",
         "amount": "About an inch of fresh root, sliced thin, per cup",
@@ -130,7 +131,7 @@
       "taste": "Cool and sharp",
       "cautions": [
         {"severity": "caution", "text": "Children: never put peppermint oil on the face of a baby or young child, or let them breathe it in. The menthol in it can cause serious breathing problems.", "src": ["nccih"]},
-        {"severity": "caution", "text": "It can cause heartburn, nausea, stomach pain and a dry mouth, and on its own it may make indigestion worse for some people.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Peppermint oil taken by mouth can cause heartburn, nausea, stomach pain and a dry mouth, and on its own it may make indigestion worse for some people.", "src": ["nccih"]},
         {"severity": "caution", "text": "Pregnancy and nursing: peppermint in food amounts is likely safe; little is known about larger, medicinal amounts. Ask your midwife or doctor first.", "src": ["nccih"]},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist before using any herbal product.", "src": ["nccih"]},
         {"severity": "note", "text": "On the skin the oil can cause rashes and irritation. Rarely, it causes allergic reactions.", "src": ["nccih"]},
@@ -140,7 +141,7 @@
       "uses": [
         {"for": "indigestion and other stomach complaints", "evidence": "not enough evidence for the leaf", "needs": ["digestion"], "src": ["nccih"]},
         {"for": "irritable bowel (IBS)", "evidence": "some evidence, for the oil in coated capsules", "needs": ["digestion"], "src": ["nccih"]},
-        {"for": "nausea", "evidence": "a small amount of evidence, for the oil", "needs": ["nausea"], "src": ["nccih"]},
+        {"for": "nausea", "evidence": "a small amount of evidence, for the oil during chemotherapy", "needs": ["nausea"], "src": ["nccih"]},
         {"for": "headaches", "evidence": "a little evidence, for the oil on the skin", "needs": ["headache"], "src": ["nccih"]}
       ],
       "research": "Very little research on the leaf tea; some evidence that peppermint oil in coated capsules eases IBS.",
@@ -343,7 +344,7 @@
       "cautions": [
         {"severity": "avoid", "text": "Don't take it with alcohol or sedatives (medicines that make you sleepy).", "src": ["nccih"]},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["nccih"]},
-        {"severity": "caution", "text": "It seems safe for most adults for a few weeks; the safety of long use is unknown. Stopping suddenly after long use can bring anxiety, irritability, a racing heart and trouble sleeping.", "src": ["nccih"]},
+        {"severity": "caution", "text": "It seems safe for most adults for a few weeks; the safety of long use is unknown. Stopping suddenly after long use can bring anxiety, irritability, heart disturbances, trouble sleeping and, rarely, hallucinations.", "src": ["nccih"]},
         {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe. Ask your midwife or doctor first.", "src": ["nccih"]},
         {"severity": "note", "text": "Side effects can include headache, upset stomach, dullness, restlessness and vivid dreams. Very rarely, liver injury has been reported, mostly with other herbs.", "src": ["nccih"]}
       ],
@@ -424,7 +425,7 @@
       "parts": "Flowers with their pale bracts",
       "taste": "Mild, sweet and honeyed",
       "cautions": [
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
+        {"severity": "caution", "text": "The NIH's only summary of it (LactMed) is about mothers' milk, so little is known about its safety beyond its use in food and tea.", "src": ["lactmed"]},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
         {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]}
       ],
@@ -620,7 +621,7 @@
       "cautions": [
         {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]},
         {"severity": "caution", "text": "Nursing: A 2021 review lists it among herbs that may lower milk supply. Ask your midwife or doctor before using it.", "src": ["editorial", "pmc-PMC8811673"]}
       ],
       "interactions": [],
@@ -701,7 +702,7 @@
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
         {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]},
         {"severity": "caution", "text": "Nursing: it has not been studied, but it is unlikely to harm a nursing baby. Ask your midwife or doctor first.", "src": ["lactmed"]},
-        {"severity": "note", "text": "It is generally well tolerated. Rarely, it causes allergic reactions; people allergic to hibiscus may react to it.", "src": ["lactmed"]}
+        {"severity": "note", "text": "It is generally well tolerated. Rarely, it causes allergic reactions.", "src": ["lactmed"]}
       ],
       "interactions": [],
       "uses": [
@@ -745,7 +746,7 @@
         {"severity": "caution", "text": "Interactions with corticosteroids (steroid medicines) have been reported. Ask your doctor or pharmacist first if you take any medicine.", "src": ["nccih"]},
         {"severity": "note", "text": "Licorice without glycyrrhizin (DGL) might be safe for up to 4 months. On the skin it can cause irritation.", "src": ["nccih"]}
       ],
-      "interactions": ["corticosteroids", "blood pressure medicines"],
+      "interactions": ["corticosteroids"],
       "uses": [
         {"for": "coughs", "evidence": "not studied enough", "needs": ["colds"], "src": ["nccih"]},
         {"for": "a sore throat", "evidence": "some evidence, for a gargle or lozenge after surgery", "needs": ["sore-throat"], "src": ["nccih"]},
@@ -863,11 +864,12 @@
       "parts": "Leaves (dried or cooked; the root is used apart)",
       "taste": "Green and grassy, like spinach",
       "cautions": [
-        {"severity": "caution", "text": "Fresh leaves sting. Drying or cooking takes the sting away.", "src": ["livertox"]},
+        {"severity": "caution", "text": "Fresh leaves sting; don't eat or drink them raw. Drying or cooking takes the sting away.", "src": ["livertox"]},
         {"severity": "caution", "text": "Nursing: don't put nettle on the breast; one nursing baby got a rash. A 2021 review lists it among herbs that may lower milk supply. Ask your midwife or doctor before using it while nursing.", "src": ["lactmed", "pmc-PMC8811673"]},
         {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor first.", "src": ["editorial", "pmc-PMC8811673"]},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
-        {"severity": "note", "text": "It is generally well tolerated, and has not been linked to liver harm.", "src": ["livertox", "lactmed"]}
+        {"severity": "note", "text": "It is generally well tolerated, and has not been linked to liver harm.", "src": ["livertox", "lactmed"]},
+        {"severity": "note", "text": "Rarely, weeks of nettle tea have been linked to hormone effects such as breast swelling or milk leaking; these went away after stopping.", "src": ["lactmed"]}
       ],
       "interactions": [],
       "uses": [
@@ -909,7 +911,7 @@
         {"severity": "caution", "text": "Pregnancy: it has not been studied in pregnant people. In pregnant rats, large doses of an extract harmed the newborns' cells, and the researchers advise using it only with a health professional's guidance. Ask your midwife or doctor first.", "src": ["pmc-PMC12347892"]},
         {"severity": "caution", "text": "Nursing: nothing is known about whether it reaches breast milk or is safe for a nursing baby. Ask your midwife or doctor first.", "src": ["lactmed"]},
         {"severity": "caution", "text": "It can lower blood pressure, and it might interact with blood pressure medicines (ACE inhibitors such as ramipril); this has not been studied. Ask your doctor or pharmacist first if you take any medicine.", "src": ["pmc-PMC10676230"]},
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
+        {"severity": "caution", "text": "The NIH's only summary of it (LactMed) is about mothers' milk, so little is known about its safety beyond its use in food and tea.", "src": ["lactmed"]},
         {"severity": "note", "text": "It is generally well tolerated, but allergic reactions are possible, including in people allergic to marshmallow. Very large doses of extract affected liver tests in one study.", "src": ["lactmed", "pmc-PMC10676230"]}
       ],
       "interactions": ["blood pressure medicines (ACE inhibitors)"],
@@ -1028,7 +1030,7 @@
         {"severity": "caution", "text": "Nursing: nothing is known about taking it by mouth while nursing. Ask your midwife or doctor first.", "src": ["lactmed"]},
         {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor first.", "src": ["editorial", "pmc-PMC8811673"]},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]}
+        {"severity": "caution", "text": "The NIH's only summary of it (LactMed) is about mothers' milk, so little is known about its safety beyond its use in food and tea.", "src": ["lactmed"]}
       ],
       "interactions": [],
       "uses": [
@@ -1225,7 +1227,7 @@
         {"severity": "caution", "text": "Pregnancy: it is traditionally drunk late in pregnancy to prepare for birth, and it may make the womb contract. There is too little research to call it safe: one small study saw no safety problems, but its authors warn that this is not proof of safety. Ask your midwife or doctor before using it.", "src": ["pmc-PMC11034164", "pmc-PMC8811673"]},
         {"severity": "caution", "text": "Nursing: as a tea it is usually without side effects, but there is no information on safety while nursing. Ask your midwife or doctor first.", "src": ["lactmed"]},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]}
+        {"severity": "caution", "text": "The NIH's only summary of it (LactMed) is about mothers' milk, so little is known about its safety beyond its use in food and tea.", "src": ["lactmed"]}
       ],
       "interactions": [],
       "uses": [
