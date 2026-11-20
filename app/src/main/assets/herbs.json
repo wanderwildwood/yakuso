@@ -1,0 +1,179 @@
+{
+  "_about": "The herb book. DRAFT: every entry marked \"draft\": true is waiting to be read before it goes in a release. Cautions and research lines are from US government pages (NCCIH Herbs at a Glance; NIDDK LiverTox), which are public domain; the wording here is our own plain-English rendering of them. Preparation lines and tastes are ordinary kitchen practice and are not yet tied to a source. tools/check-cautions.py checks this file.",
+  "version": 1,
+  "herbs": [
+    {
+      "id": "chamomile",
+      "name": "Chamomile",
+      "latin": "Matricaria chamomilla",
+      "alsoCalled": ["German chamomile", "Matricaria recutita", "Chamomilla recutita"],
+      "draft": true,
+      "dontUse": false,
+      "parts": "Flowers",
+      "taste": "Mild and sweet, a little like apples",
+      "cautions": [
+        {"severity": "caution", "text": "Allergy: it can cause allergic reactions, rarely severe ones (anaphylaxis). These are more likely if you are allergic to ragweed, chrysanthemums, marigolds or daisies."},
+        {"severity": "caution", "text": "It may act a little like estrogen. It might make birth control pills work less well, and might worsen a condition sensitive to estrogen, such as breast or uterine cancer."},
+        {"severity": "caution", "text": "Interactions have been reported with warfarin (a blood thinner) and with some drugs the liver breaks down, and it might add to sedatives. If you take any medicine, ask your doctor or pharmacist first."},
+        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe. Ask your midwife or doctor first."},
+        {"severity": "note", "text": "Side effects are uncommon: nausea and dizziness. Near the eyes it can irritate them."}
+      ],
+      "interactions": ["blood thinners (warfarin)", "drugs broken down by the liver", "sedatives", "birth control pills"],
+      "uses": [
+        {"for": "anxiety", "evidence": "some early evidence"},
+        {"for": "sleeplessness", "evidence": "little evidence"},
+        {"for": "an upset stomach", "evidence": "not enough evidence"},
+        {"for": "colds", "evidence": "not enough evidence"}
+      ],
+      "research": "Not enough reliable evidence to say; some early studies suggest it may help anxiety, and the one study on sleeplessness found no benefit.",
+      "preparation": {
+        "method": "infusion",
+        "amount": "1 to 2 teaspoons of dried flowers per cup",
+        "tempF": 212,
+        "steepMin": 5,
+        "steepMax": 10,
+        "note": "Cover the cup while it steeps."
+      },
+      "sources": [
+        {"title": "NCCIH, Chamomile (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/chamomile", "retrieved": "2026-11-20"}
+      ]
+    },
+    {
+      "id": "comfrey",
+      "name": "Comfrey",
+      "latin": "Symphytum officinale",
+      "alsoCalled": ["knitbone"],
+      "draft": true,
+      "dontUse": true,
+      "dontUseReason": "Comfrey contains pyrrolizidine alkaloids. Taken by mouth it can block the small veins of the liver (sinusoidal obstruction syndrome) and cause severe liver injury.",
+      "parts": "Leaves and roots",
+      "taste": null,
+      "cautions": [
+        {"severity": "avoid", "text": "Don't take comfrey by mouth, as a tea or in any other form."},
+        {"severity": "avoid", "text": "Pregnancy, nursing and children: don't use it at all. Ask your midwife or doctor about anything you have already taken."}
+      ],
+      "interactions": [],
+      "uses": [
+        {"for": "wounds", "evidence": "not a reason to take it"},
+        {"for": "pain and swelling from arthritis, sprains and broken bones", "evidence": "not a reason to take it"}
+      ],
+      "research": "Whatever it was used for, it is not safe to take by mouth.",
+      "preparation": null,
+      "sources": [
+        {"title": "LiverTox (NIDDK), Comfrey", "url": "https://www.ncbi.nlm.nih.gov/books/NBK548370/", "retrieved": "2026-11-20"},
+        {"title": "PubMed record of the LiverTox entry", "url": "https://pubmed.ncbi.nlm.nih.gov/31643691/", "retrieved": "2026-11-20"}
+      ]
+    },
+    {
+      "id": "ginger",
+      "name": "Ginger",
+      "latin": "Zingiber officinale",
+      "alsoCalled": [],
+      "draft": true,
+      "dontUse": false,
+      "parts": "Rhizome (the underground stem, called the root)",
+      "taste": "Hot and spicy",
+      "cautions": [
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
+        {"severity": "caution", "text": "Pregnancy: it may be safe and has been studied for morning sickness, but ask your midwife or doctor first. Nursing: little is known about whether it is safe."},
+        {"severity": "note", "text": "Side effects can include stomach discomfort, heartburn, diarrhea, and mouth and throat irritation."}
+      ],
+      "interactions": [],
+      "uses": [
+        {"for": "nausea", "evidence": "some evidence, for nausea in pregnancy"},
+        {"for": "period cramps", "evidence": "some evidence"},
+        {"for": "motion sickness", "evidence": "most studies found no help"},
+        {"for": "indigestion and an upset stomach", "evidence": "not enough evidence"},
+        {"for": "colds and flu", "evidence": "not enough evidence"}
+      ],
+      "research": "Research suggests it may help nausea and vomiting in pregnancy and may ease period cramps; most studies found it no help for motion sickness.",
+      "preparation": {
+        "method": "decoction",
+        "amount": "About an inch of fresh root, sliced thin, per cup",
+        "tempF": 212,
+        "steepMin": 10,
+        "steepMax": 15,
+        "note": "Simmer it gently in a covered pan, then strain."
+      },
+      "sources": [
+        {"title": "NCCIH, Ginger (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/ginger", "retrieved": "2026-11-20"}
+      ]
+    },
+    {
+      "id": "peppermint",
+      "name": "Peppermint",
+      "latin": "Mentha × piperita",
+      "alsoCalled": ["peppermint oil"],
+      "draft": true,
+      "dontUse": false,
+      "parts": "Leaves; the oil comes from the leaves and flowering tops",
+      "taste": "Cool and sharp",
+      "cautions": [
+        {"severity": "caution", "text": "Children: never put peppermint oil on the face of a baby or young child, or let them breathe it in. The menthol in it can cause serious breathing problems."},
+        {"severity": "caution", "text": "It can cause heartburn, nausea, stomach pain and a dry mouth, and on its own it may make indigestion worse for some people."},
+        {"severity": "caution", "text": "Pregnancy and nursing: peppermint in food amounts is likely safe; little is known about larger, medicinal amounts. Ask your midwife or doctor first."},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist before using any herbal product."},
+        {"severity": "note", "text": "On the skin the oil can cause rashes and irritation. Rarely, it causes allergic reactions."},
+        {"severity": "note", "text": "Peppermint tea appears to be safe, but the long-term safety of large amounts of the leaf is unknown."}
+      ],
+      "interactions": [],
+      "uses": [
+        {"for": "indigestion and other stomach complaints", "evidence": "not enough evidence for the leaf"},
+        {"for": "irritable bowel (IBS)", "evidence": "some evidence, for the oil in coated capsules"},
+        {"for": "nausea", "evidence": "a small amount of evidence, for the oil"},
+        {"for": "headaches", "evidence": "a little evidence, for the oil on the skin"}
+      ],
+      "research": "Very little research on the leaf tea; some evidence that peppermint oil in coated capsules eases IBS.",
+      "preparation": {
+        "method": "infusion",
+        "amount": "1 to 2 teaspoons of dried leaves per cup",
+        "tempF": 212,
+        "steepMin": 5,
+        "steepMax": 10,
+        "note": null
+      },
+      "sources": [
+        {"title": "NCCIH, Peppermint Oil (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/peppermint-oil", "retrieved": "2026-11-20"}
+      ]
+    },
+    {
+      "id": "st-johns-wort",
+      "name": "St John's wort",
+      "latin": "Hypericum perforatum",
+      "alsoCalled": ["hypericum", "Klamath weed", "goatweed"],
+      "draft": true,
+      "dontUse": false,
+      "parts": "Flowering tops",
+      "taste": "Bitter",
+      "cautions": [
+        {"severity": "avoid", "text": "It interacts in dangerous, sometimes life-threatening ways with many medicines. If you take any medicine at all, don't use it without asking your doctor or pharmacist."},
+        {"severity": "avoid", "text": "It can weaken: some antidepressants (amitriptyline, bupropion); birth control pills; cyclosporine, which keeps a transplanted organ from being rejected; some seizure medicines (phenytoin, carbamazepine); some heart medicines (digoxin, ivabradine); some HIV drugs (indinavir, nevirapine); some cancer medicines (irinotecan, imatinib, docetaxel); warfarin, a blood thinner; and some statins (simvastatin)."},
+        {"severity": "avoid", "text": "Taken with some antidepressants or other drugs that affect serotonin, it can cause serious serotonin-related side effects."},
+        {"severity": "avoid", "text": "Pregnancy: it may be unsafe, as it may increase the risk of birth defects. Nursing: babies of mothers who take it can have colic, drowsiness and lethargy. Ask your midwife or doctor."},
+        {"severity": "caution", "text": "In large doses, or on the skin, it may cause severe skin reactions in sunlight."},
+        {"severity": "caution", "text": "Depression can be a serious illness. If you or someone in your family may have depression, see a doctor."},
+        {"severity": "note", "text": "Other side effects can include diarrhea, dizziness, trouble sleeping, restlessness and tingling skin."}
+      ],
+      "interactions": ["antidepressants", "birth control pills", "transplant medicines (cyclosporine)", "seizure medicines", "heart medicines", "HIV drugs", "cancer medicines", "blood thinners (warfarin)", "statins"],
+      "uses": [
+        {"for": "low mood", "evidence": "evidence it may help mild or moderate depression for up to 12 weeks"},
+        {"for": "hot flashes", "evidence": "a few small studies"},
+        {"for": "stomach ulcers", "evidence": "not enough evidence"},
+        {"for": "colds", "evidence": "not enough evidence"},
+        {"for": "wound healing", "evidence": "not enough evidence"}
+      ],
+      "research": "It may help mild or moderate depression, but it interacts with many medicines; for other uses there is not enough evidence.",
+      "preparation": {
+        "method": "infusion",
+        "amount": "1 to 2 teaspoons of dried flowering tops per cup",
+        "tempF": 212,
+        "steepMin": 5,
+        "steepMax": 10,
+        "note": null
+      },
+      "sources": [
+        {"title": "NCCIH, St. John's Wort (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/st-johns-wort", "retrieved": "2026-11-20"}
+      ]
+    }
+  ]
+}
