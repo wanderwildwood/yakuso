@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.aboutlibraries.android)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -100,6 +101,13 @@ android {
         }
     }
 
+    // Room writes the schema of every version to this directory and it is committed, so a
+    // migration is reviewed in a diff and tested against the schema it starts from
+    // (MigrationTest), rather than discovered on a phone holding somebody's journal.
+    ksp {
+        arg("room.schemaLocation", "$projectDir/schemas")
+    }
+
     testOptions {
         unitTests.isIncludeAndroidResources = true
     }
@@ -119,10 +127,16 @@ dependencies {
 
     implementation(libs.mmd)
 
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+
     testImplementation(libs.junit)
     testImplementation(libs.androidx.test.core)
     testImplementation(libs.robolectric)
     testImplementation(libs.coroutines.test)
+    testImplementation(libs.compose.ui.test.junit4)
+    debugImplementation(libs.compose.ui.test.manifest)
 }
 
 // The Licenses page lists what the build actually packs: this plugin walks each variant's runtime
@@ -144,11 +158,13 @@ aboutLibraries {
     }
     library {
         mergePlatformArtifacts.set(true)
-        // The page lists what the release APK carries. These four come in only through
-        // debugImplementation (Compose's ui-tooling), so a debug build leaves them off too.
+        // The page lists what the release APK carries. These come in only through
+        // debugImplementation (Compose's ui-tooling and ui-test-manifest), so a debug build
+        // leaves them off too.
         exclusionPatterns.addAll(
             listOf(
                 "androidx.compose.ui:ui-tooling", "androidx.compose.ui:ui-tooling-data",
+                "androidx.compose.ui:ui-test-manifest",
                 "androidx.compose.material:material", "androidx.compose.material:material-icons-core",
             ).map { Pattern.compile("^" + Regex.escape(it) + "$") },
         )

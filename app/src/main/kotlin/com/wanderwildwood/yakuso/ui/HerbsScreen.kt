@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -34,12 +35,16 @@ import com.wanderwildwood.yakuso.herbs.HerbBook
 
 /**
  * The start screen: every herb, A to Z, with a search field over it. A row is the common name,
- * the Latin name under it, and the mark at the end when the herb has a serious caution.
+ * the Latin name under it, a check when it is in the cupboard, and the caution mark at the end
+ * when the herb has a serious caution. Over the search field, one line of doors to the rest of
+ * the app (the rows under Mushroom Journal's title, made one line so the list keeps the screen).
  */
 @Composable
 fun HerbsScreen(
     herbs: List<Herb>,
+    cupboard: Set<String>,
     onOpen: (Herb) -> Unit,
+    onDoor: (Door) -> Unit,
     onSettings: () -> Unit,
     onAbout: () -> Unit,
 ) {
@@ -54,6 +59,7 @@ fun HerbsScreen(
             BarButton(Icons.Settings, stringResource(R.string.cd_settings), onSettings)
             BarButton(Icons.Info, stringResource(R.string.cd_about), onAbout)
         }
+        Doors(onDoor)
         TextFieldMMD(
             value = query,
             onValueChange = { query = it },
@@ -73,7 +79,7 @@ fun HerbsScreen(
             Box(Modifier.weight(1f).padding(top = 8.dp)) {
                 PagedColumn(state = listState, showCutRow = true) {
                     items(shown, key = { it.id }) { herb ->
-                        HerbRow(herb, onOpen = { onOpen(herb) })
+                        HerbRow(herb, inCupboard = herb.id in cupboard, onOpen = { onOpen(herb) })
                         DottedRule()
                     }
                 }
@@ -82,9 +88,36 @@ fun HerbsScreen(
     }
 }
 
+/** The other screens, reached from the line of doors on the start screen. */
+enum class Door { FINDER, TIMER, JOURNAL, CUPBOARD }
+
+/** Four words side by side, each a 48 dp press, and the dotted rule under them. */
 @Composable
-private fun HerbRow(herb: Herb, onOpen: () -> Unit) {
+fun Doors(onDoor: (Door) -> Unit) {
+    val names = mapOf(
+        Door.FINDER to stringResource(R.string.door_finder),
+        Door.TIMER to stringResource(R.string.door_timer),
+        Door.JOURNAL to stringResource(R.string.door_journal),
+        Door.CUPBOARD to stringResource(R.string.door_cupboard),
+    )
+    Row(Modifier.fillMaxWidth().padding(horizontal = 8.dp)) {
+        Door.entries.forEach { d ->
+            Box(
+                Modifier.weight(1f).heightIn(min = 48.dp).clickable { onDoor(d) },
+                contentAlignment = Alignment.Center,
+            ) {
+                TextMMD(names.getValue(d), style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Bold, maxLines = 1)
+            }
+        }
+    }
+    DottedRule()
+}
+
+/** One herb in a list: name, Latin name, the cupboard's check and the caution mark. */
+@Composable
+fun HerbRow(herb: Herb, inCupboard: Boolean, onOpen: () -> Unit) {
     val serious = stringResource(R.string.herbs_cd_serious)
+    val have = stringResource(R.string.herbs_cd_in_cupboard)
     Row(
         Modifier
             .fillMaxWidth()
@@ -95,6 +128,13 @@ private fun HerbRow(herb: Herb, onOpen: () -> Unit) {
         Column(Modifier.weight(1f)) {
             TextMMD(herb.name, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Bold)
             if (herb.latin.isNotBlank()) TextMMD(herb.latin, style = MaterialTheme.typography.bodySmall)
+        }
+        if (inCupboard) {
+            TextMMD(
+                stringResource(R.string.cupboard_mark),
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(start = 12.dp).semantics { contentDescription = have },
+            )
         }
         if (herb.serious) {
             TextMMD(

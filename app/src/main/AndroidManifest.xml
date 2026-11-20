@@ -2,10 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
-        No permissions at all. No INTERNET, and nothing in the app that would use it: the herb
-        book is in the APK and everything else stays on the phone. A source's address or
-        "Feed the llamas" is handed to the browser, which needs no permission here.
+        No INTERNET, and nothing in the app that would use it: the herb book is in the APK and
+        everything else stays on the phone. A source's address or "Feed the llamas" is handed to
+        the browser, which needs no permission here.
+
+        The brew timer, and nothing else, asks for these (the house approach of Parked's meter):
     -->
+    <!-- So the tea rings at its second: an exact alarm. Given at install to an app built for
+         Android 12, as this one is; USE_EXACT_ALARM would count only from Android 13 targets. -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <!-- The ring is a notification with Stop; Android 13 and later ask for it. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- The service that plays the ring for up to a minute, with the screen off and the app away,
+         and keeps the phone awake that long. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <queries>
         <!-- Home, whose dark mode switch this app follows when Home is installed. -->
@@ -21,7 +32,7 @@
             <action android:name="android.intent.action.PROCESS_TEXT" />
             <data android:mimeType="text/plain" />
         </intent>
-        <!-- Cabinet (Files), whose own screens open and save files (the journal's backup, later). -->
+        <!-- Cabinet (Files), whose own screens open and save files (the copy of the journal and cupboard). -->
         <package android:name="com.wanderwildwood.tana" />
     </queries>
 
@@ -46,12 +57,34 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
+            android:launchMode="singleTop"
             android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Plays the ring when a brew is done, and only then. -->
+        <service
+            android:name=".timer.RingService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <!-- The brew's exact alarm, and Stop on its notification. -->
+        <receiver
+            android:name=".timer.BrewReceiver"
+            android:exported="false" />
+
+        <!-- An update, or exact alarms allowed again: the brew's alarm is set again. -->
+        <receiver
+            android:name=".timer.SystemReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

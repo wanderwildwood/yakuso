@@ -20,6 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.mudita.mmd.components.text.TextMMD
 import com.wanderwildwood.yakuso.R
+import com.wanderwildwood.yakuso.data.CupboardItem
 import com.wanderwildwood.yakuso.herbs.Caution
 import com.wanderwildwood.yakuso.herbs.Herb
 import com.wanderwildwood.yakuso.herbs.Preparation
@@ -31,7 +32,7 @@ import com.wanderwildwood.yakuso.herbs.Severity
  * and has no preparation.
  */
 @Composable
-fun HerbScreen(herb: Herb, onBack: () -> Unit) {
+fun HerbScreen(herb: Herb, cupboard: CupboardItem?, onBrew: () -> Unit, onBack: () -> Unit) {
     val context = LocalContext.current
     val noBrowser = stringResource(R.string.about_no_browser_address, "@@")
     val words = HerbWords(
@@ -59,6 +60,9 @@ fun HerbScreen(herb: Herb, onBack: () -> Unit) {
         and = stringResource(R.string.list_and),
         tempFormat = stringResource(R.string.prep_temp),
         minutesFormat = stringResource(R.string.prep_minutes),
+        inCupboard = stringResource(R.string.herb_in_cupboard),
+        inCupboardLow = stringResource(R.string.herb_in_cupboard_low),
+        brew = stringResource(R.string.herb_brew),
     )
 
     Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
@@ -70,7 +74,7 @@ fun HerbScreen(herb: Herb, onBack: () -> Unit) {
                     contentPadding = PaddingValues(start = 20.dp, end = 12.dp),
                     showCutRow = true,
                 ) {
-                    herbPage(herb, words) { url ->
+                    herbPage(herb, words, cupboard, onBrew) { url ->
                         openLink(context, url, noBrowser.replace("@@", url)) { FootNotice.say(context, it) }
                     }
                 }
@@ -88,6 +92,7 @@ internal data class HerbWords(
     val aboutPlant: String, val latin: String, val parts: String, val taste: String,
     val alsoCalled: String, val sources: String, val and: String,
     val tempFormat: String, val minutesFormat: String,
+    val inCupboard: String, val inCupboardLow: String, val brew: String,
 )
 
 /** The sections, in their fixed order. */
@@ -121,7 +126,23 @@ internal fun temperature(format: String, p: Preparation): String =
 internal fun minutes(format: String, p: Preparation): String =
     String.format(java.util.Locale.US, format, p.steepMin, p.steepMax)
 
-private fun LazyListScope.herbPage(herb: Herb, w: HerbWords, onLink: (String) -> Unit) {
+/** "In your cupboard.", or with "about to run out"; nothing when it is not there. */
+internal fun cupboardLine(item: CupboardItem?, w: HerbWords): String? = when {
+    item == null -> null
+    item.runningLow -> w.inCupboardLow
+    else -> w.inCupboard
+}
+
+/** Only an ordinary page with a preparation has the Brew button; a "don't use" page never. */
+internal fun hasBrew(herb: Herb): Boolean = !herb.dontUse && herb.preparation != null
+
+private fun LazyListScope.herbPage(
+    herb: Herb,
+    w: HerbWords,
+    cupboard: CupboardItem?,
+    onBrew: () -> Unit,
+    onLink: (String) -> Unit,
+) {
     if (herb.draft) item(key = "draft") { Small(w.draft, Modifier.padding(top = 8.dp, bottom = 8.dp)) }
 
     sectionsOf(herb).forEach { section ->
@@ -168,10 +189,20 @@ private fun LazyListScope.herbPage(herb: Herb, w: HerbWords, onLink: (String) ->
                     Body((if (p.method == "decoction") w.simmer else w.steep) + " " + minutes(w.minutesFormat, p))
                 }
                 p.note?.let { n -> item(key = "prep-note") { Body(n) } }
+                cupboardLine(cupboard, w)?.let { line -> item(key = "cupboard") { Body(line, bold = true) } }
+                if (hasBrew(herb)) {
+                    item(key = "brew") {
+                        HouseButton(w.brew, onBrew, Modifier.fillMaxWidth().padding(top = 8.dp, bottom = 4.dp), on = true)
+                    }
+                }
             }
 
             Section.PLANT -> {
                 item(key = "plant") { Heading(w.aboutPlant) }
+                // A page with no preparation still says it is in the cupboard, here.
+                if (Section.PREPARE !in sectionsOf(herb)) {
+                    cupboardLine(cupboard, w)?.let { line -> item(key = "cupboard") { Body(line, bold = true) } }
+                }
                 if (herb.latin.isNotBlank()) item(key = "latin") { Body(w.latin + " " + herb.latin) }
                 herb.parts?.let { item(key = "parts") { Body(w.parts + " " + it) } }
                 herb.taste?.let { item(key = "taste") { Body(w.taste + " " + it) } }

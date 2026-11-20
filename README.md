@@ -29,9 +29,21 @@ The book never says an herb cures or treats anything. It says what an herb is
   and other names; and its sources.
 - **"Don't use" pages** for herbs that are not safe to take (comfrey, for one). They open
   with "Don't take this" and the reason, and have no preparation.
+- **A finder** by everyday need (sleep, calm, digestion, colds, sore throat, nausea, headache,
+  period cramps, pregnancy, nursing), each listing the herbs traditionally used for it. Every
+  result says it is for everyday complaints; period cramps, pregnancy and nursing also say to
+  ask your midwife or doctor first.
+- **A brew timer** with green and black tea, herbal infusion and decoction, and settings of your
+  own; an herb's page opens it with that herb's steep. It rings with the screen off.
+- **A journal** of what you brewed: the day, how long it steeped, a few words and a rating.
+- **A cupboard** of what you have, with the day you bought it and whether it is about to run
+  out. An herb's page, and its row in the list, say when it is in your cupboard.
+
+The journal, cupboard and your own timer settings can be kept as one JSON file and read back in.
 
 It has no account, no sync and no network: there is no internet permission, and it works in
-airplane mode.
+airplane mode. The only permissions are the brew timer's (an exact alarm, a notification, and
+a service that plays the ring); see [PRIVACY.md](PRIVACY.md).
 
 ## Where the herb text comes from
 
@@ -46,9 +58,8 @@ or "treats".
 
 ## Status
 
-Early. The book holds five herbs, and their text is a **draft** that has not yet been read
-and approved: each page says so at the top. The brew timer, a journal of what you brewed, a
-cupboard of what you have and a finder by everyday need are still to come.
+Early. The herb text is a **draft** that has not yet been read and approved: each page says so
+at the top.
 
 ## Building
 

@@ -11,6 +11,14 @@
     <string name="cd_settings">Settings</string>
     <string name="cd_about">About</string>
     <string name="cd_back">Back</string>
+    <!-- The line of doors over the search field -->
+    <string name="door_finder">Finder</string>
+    <string name="door_timer">Timer</string>
+    <string name="door_journal">Journal</string>
+    <string name="door_cupboard">Cupboard</string>
+    <!-- The small mark on a list row for an herb that is in the cupboard -->
+    <string name="cupboard_mark">✓</string>
+    <string name="herbs_cd_in_cupboard">In your cupboard</string>
 
     <!-- One herb's page, in the order it is read -->
     <string name="herb_draft">Draft text, not yet checked.</string>
@@ -38,10 +46,131 @@
     <string name="herb_also_called">Also called:</string>
     <string name="herb_sources">Sources</string>
     <string name="list_and">and</string>
+    <string name="herb_in_cupboard">In your cupboard.</string>
+    <string name="herb_in_cupboard_low">In your cupboard, about to run out.</string>
+    <string name="herb_brew">Brew</string>
+    <!-- Between the parts of a row's second line: "Fri, Nov 20 · steeped 5 min" -->
+    <string name="list_separator">\u0020·\u0020</string>
+
+    <!-- Finder -->
+    <string name="finder_title">Finder</string>
+    <string name="finder_everyday">For everyday complaints. See a doctor for anything serious or lasting.</string>
+    <string name="finder_ask_first">Ask your midwife or doctor first.</string>
+    <string name="need_sleep">Sleep</string>
+    <string name="need_calm">Calm</string>
+    <string name="need_digestion">Digestion</string>
+    <string name="need_colds">Colds</string>
+    <string name="need_sore_throat">Sore throat</string>
+    <string name="need_nausea">Nausea</string>
+    <string name="need_headache">Headache</string>
+    <string name="need_period_cramps">Period cramps</string>
+    <string name="need_pregnancy">Pregnancy</string>
+    <string name="need_nursing">Nursing</string>
+
+    <!-- Brew timer -->
+    <string name="timer_title">Brew timer</string>
+    <!-- What a screen reader says for the large figures. %1$s is "4:00" -->
+    <string name="timer_cd_left">%1$s left</string>
+    <string name="timer_ready">Ready</string>
+    <string name="timer_start">Start</string>
+    <string name="timer_stop">Stop</string>
+    <string name="timer_less">− 30 s</string>
+    <string name="timer_more">+ 30 s</string>
+    <string name="timer_add_to_journal">Add to journal</string>
+    <string name="timer_done">Done</string>
+    <string name="timer_remove">Remove</string>
+    <string name="timer_remove_armed">Remove — tap again</string>
+    <string name="timer_save_own">Keep this setting as my own</string>
+    <string name="timer_save_own_title">Name this setting</string>
+    <string name="timer_save_own_hint">Name</string>
+    <!-- %1$s is "4" or "2:30" -->
+    <string name="timer_minutes_one">%1$s min</string>
+    <string name="timer_minutes_range">%1$s to %2$s min</string>
+    <!-- "4 min · 212 °F (100 °C)" -->
+    <string name="timer_detail">%1$s · %2$s</string>
+    <string name="timer_problem_notifications">Notifications are off, so the timer cannot ring.</string>
+    <string name="timer_problem_exact">Exact alarms are not allowed, so the timer may ring late.</string>
+    <string name="timer_turn_on">Turn on</string>
+    <string name="timer_allow">Allow</string>
+    <string name="preset_green">Green tea</string>
+    <string name="preset_black">Black tea</string>
+    <string name="preset_herbal">Herbal infusion</string>
+    <string name="preset_decoction">Decoction</string>
+    <string name="ring_title">Your tea is ready</string>
+    <!-- %1$s is what was brewing, %2$s its minutes ("4", "2:30") -->
+    <string name="ring_text">%1$s, %2$s min</string>
+    <string name="ring_stop">Stop</string>
+    <string name="channel_ringing">Brew timer ringing</string>
+    <string name="channel_ringing_about">The alarm when a brew is done. The app plays the sound itself, on the alarm volume.</string>
+    <string name="channel_ring_fallback">Brew timer, without the app</string>
+    <string name="channel_ring_fallback_about">Used only when the app cannot play the alarm itself: then this notification rings.</string>
+    <string name="channel_ready">Tea ready</string>
+    <string name="channel_ready_about">Stays after the alarm has stopped, until you look.</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_save">Save</string>
+
+    <!-- Journal -->
+    <string name="journal_title">Journal</string>
+    <string name="journal_cd_add">Add an entry</string>
+    <string name="journal_empty">Nothing here yet. When the brew timer is done, it offers to add the cup here.</string>
+    <!-- %1$s is "4" or "2:30" -->
+    <string name="journal_steeped">steeped %1$s min</string>
+    <string name="journal_rating">%1$d of 5</string>
+    <string name="entry_new_title">New entry</string>
+    <string name="entry_title">Entry</string>
+    <string name="entry_what">Herb or tea</string>
+    <string name="entry_what_hint">From the book, or your own words</string>
+    <!-- A herb from the book offered under the name field. %1$s is its name -->
+    <string name="entry_from_book">%1$s, from the book</string>
+    <string name="entry_day">Day</string>
+    <string name="entry_steep">Steeped, in minutes</string>
+    <string name="entry_steep_hint">4, or 2:30</string>
+    <string name="entry_rating">How it was, 1 to 5</string>
+    <string name="entry_note">A few words</string>
+    <string name="entry_note_hint">Taste, how it went</string>
+    <string name="entry_done">Done</string>
+    <string name="entry_delete">Delete this entry</string>
+    <string name="entry_delete_armed">Delete this entry — tap again</string>
+    <string name="date_today">Today</string>
+    <string name="date_day_earlier">Day before</string>
+    <string name="date_day_later">Day after</string>
+    <string name="date_month_earlier">Month before</string>
+    <string name="date_clear">Not said</string>
+
+    <!-- Cupboard -->
+    <string name="cupboard_title">Cupboard</string>
+    <string name="cupboard_cd_add">Add to the cupboard</string>
+    <string name="cupboard_empty">Nothing in the cupboard yet. Add the herbs and teas you have, and their pages will say so.</string>
+    <!-- %1$s is a day, "Nov 2" -->
+    <string name="cupboard_bought">bought %1$s</string>
+    <string name="cupboard_running_low">About to run out</string>
+    <string name="cupboard_new_title">Add to the cupboard</string>
+    <string name="cupboard_item_title">In the cupboard</string>
+    <string name="cupboard_what">Herb or tea</string>
+    <string name="cupboard_bought_label">Bought</string>
+    <string name="cupboard_bought_unsaid">Not said</string>
+    <string name="cupboard_delete">Take it out of the cupboard</string>
+    <string name="cupboard_delete_armed">Take it out — tap again</string>
 
     <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="settings_dark">Dark mode</string>
+    <string name="settings_export">Keep a copy</string>
+    <string name="settings_export_note">The journal, the cupboard and your own timer settings, as one file saved where you choose.</string>
+    <string name="settings_import">Read a copy back in</string>
+    <string name="settings_import_note">Adds what is not already here. Nothing is deleted and nothing is overwritten.</string>
+    <string name="export_saved">The copy is saved.</string>
+    <string name="export_failed">The copy could not be saved.</string>
+    <string name="import_could_not_open">That file could not be opened.</string>
+    <string name="import_not_a_backup">That does not look like a copy from Herbal.</string>
+    <string name="import_nothing">Nothing in that file to read.</string>
+    <string name="import_all_here">Everything in that copy was already here.</string>
+    <plurals name="import_added">
+        <item quantity="one">%d added.</item>
+        <item quantity="other">%d added.</item>
+    </plurals>
+    <!-- Its own sentence after the first, so it starts with a space -->
+    <string name="import_already_here">\u0020%1$d were already here.</string>
 
     <!-- About -->
     <string name="about_title">薬草 Herbal %1$s</string>
@@ -51,7 +180,7 @@
     <string name="about_sources_heading">Sources</string>
     <string name="about_sources">The cautions and the research lines are written from the US National Center for Complementary and Integrative Health\'s Herbs at a Glance pages (nccih.nih.gov) and, where it has no page, from the National Institutes of Health\'s LiverTox and LactMed and the US Food and Drug Administration. These are works of the US government and in the public domain; the wording in this app is its own. Where they are silent, some traditional uses draw on Wikipedia articles (CC BY-SA 4.0), and a few pregnancy and nursing notes on open-access journal articles (CC BY), each credited on its herb\'s page. Each herb\'s page lists its sources. The herb text is still a draft.</string>
     <string name="about_privacy_heading">Privacy</string>
-    <string name="about_privacy">Nothing you do in the app leaves this phone. The app has no internet permission and cannot go online. \"Feed the llamas\" in About, and a source\'s address on an herb page, open in your browser only when you press them.</string>
+    <string name="about_privacy">Nothing you do in the app leaves this phone. Your journal, your cupboard and your own timer settings are kept on the phone, and a copy goes only where you save one. The app has no internet permission and cannot go online. \"Feed the llamas\" in About, and a source\'s address on an herb page, open in your browser only when you press them.</string>
     <string name="about_privacy_close">There are no ads, no analytics and no tracking.</string>
     <string name="about_terms_heading">Terms</string>
     <string name="about_terms_licence">This app is free software under the GNU General Public License, version 3 only. It comes with no warranty: use it at your own risk.</string>

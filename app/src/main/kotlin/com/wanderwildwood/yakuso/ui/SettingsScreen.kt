@@ -1,22 +1,50 @@
 package com.wanderwildwood.yakuso.ui
 
+import android.content.Context
+import android.net.Uri
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.mudita.mmd.components.text.TextMMD
+import com.wanderwildwood.yakuso.FilesCreateDocument
+import com.wanderwildwood.yakuso.FilesOpenDocument
 import com.wanderwildwood.yakuso.R
+import com.wanderwildwood.yakuso.data.Backup
+import com.wanderwildwood.yakuso.data.HerbalDatabase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.time.LocalDate
 
-/** For now one row: dark mode. The timer's and the journal's rows come with them. */
+/** Dark mode, then the copy of the journal, the cupboard and your own timer settings. */
 @Composable
 fun SettingsScreen(onBack: () -> Unit) {
     val context = LocalContext.current
+    val db = remember { HerbalDatabase.get(context) }
+    val scope = rememberCoroutineScope()
+
+    val save = rememberLauncherForActivityResult(FilesCreateDocument("application/json")) { uri ->
+        if (uri != null) scope.launch { FootNotice.say(context, export(context, db, uri)) }
+    }
+    val open = rememberLauncherForActivityResult(FilesOpenDocument()) { uri ->
+        if (uri != null) scope.launch { FootNotice.say(context, import(context, db, uri)) }
+    }
+
     Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
         Bar(stringResource(R.string.settings_title), onBack = onBack)
         Box(Modifier.weight(1f)) {
@@ -28,7 +56,58 @@ fun SettingsScreen(onBack: () -> Unit) {
                         onChange = { DarkMode.set(context, it) },
                     )
                 }
+                item(key = "export") {
+                    SettingsRow(stringResource(R.string.settings_export), stringResource(R.string.settings_export_note)) {
+                        save.launch("herbal-${LocalDate.now()}.json")
+                    }
+                }
+                item(key = "import") {
+                    SettingsRow(stringResource(R.string.settings_import), stringResource(R.string.settings_import_note)) {
+                        open.launch(arrayOf("application/json", "text/plain", "application/octet-stream"))
+                    }
+                }
             }
         }
+    }
+}
+
+/** A row that does something: its name, and a note only where the name cannot carry the fact. */
+@Composable
+private fun SettingsRow(title: String, note: String?, onClick: () -> Unit) {
+    Column(Modifier.fillMaxWidth().heightIn(min = 48.dp).clickable(onClick = onClick).padding(vertical = 12.dp)) {
+        TextMMD(title, style = MaterialTheme.typography.bodyMedium)
+        note?.let { TextMMD(it, style = MaterialTheme.typography.labelSmall) }
+    }
+}
+
+private suspend fun export(context: Context, db: HerbalDatabase, uri: Uri): String = try {
+    val text = Backup.encode(Backup.read(db), System.currentTimeMillis())
+    withContext(Dispatchers.IO) {
+        context.contentResolver.openOutputStream(uri, "wt")!!.use { it.write(text.toByteArray()) }
+    }
+    context.getString(R.string.export_saved)
+} catch (e: Exception) {
+    context.getString(R.string.export_failed)
+}
+
+private suspend fun import(context: Context, db: HerbalDatabase, uri: Uri): String {
+    val text = try {
+        withContext(Dispatchers.IO) {
+            context.contentResolver.openInputStream(uri)!!.use { it.readBytes().toString(Charsets.UTF_8) }
+        }
+    } catch (e: Exception) {
+        return context.getString(R.string.import_could_not_open)
+    }
+    val contents = try {
+        Backup.decode(text)
+    } catch (e: Backup.NotABackup) {
+        return context.getString(R.string.import_not_a_backup)
+    }
+    val r = Backup.restore(db, contents)
+    return when {
+        r.added == 0 && r.alreadyHere == 0 -> context.getString(R.string.import_nothing)
+        r.added == 0 -> context.getString(R.string.import_all_here)
+        else -> context.resources.getQuantityString(R.plurals.import_added, r.added, r.added) +
+            (if (r.alreadyHere > 0) context.getString(R.string.import_already_here, r.alreadyHere) else "")
     }
 }

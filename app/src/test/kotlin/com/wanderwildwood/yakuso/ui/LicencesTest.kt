@@ -28,7 +28,7 @@ class LicencesTest {
 
     /** What must be on the page whatever else changes: group:artifact, or a config/libraries name. */
     private val EXPECTED = listOf(
-        "com.mudita:MMD", "androidx.compose.material3:material3",
+        "com.mudita:MMD", "androidx.compose.material3:material3", "androidx.room:room-runtime",
         "org.jetbrains.kotlinx:kotlinx-coroutines-core",
         "Lato typeface", "Material Symbols icons", "Herb book: cautions and research",
         "Herb book: traditional uses from Wikipedia", "Herb book: pregnancy and nursing notes from journal articles",

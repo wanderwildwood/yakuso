@@ -12,6 +12,8 @@ androidx-core = "1.17.0"
 androidx-lifecycle = "2.10.0"
 androidx-compose = "1.9.5"
 androidx-material3 = "1.4.0"
+# Room as in Mushroom Journal (kinokocho), with KSP pinned to the Kotlin release below.
+room = "2.8.4"
 
 junit = "4.13.2"
 
@@ -29,10 +31,17 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 
 mmd = { module = "com.mudita:MMD", version.ref = "mmd" }
 
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+
 junit = { module = "junit:junit", version.ref = "junit" }
 androidx-test-core = { module = "androidx.test:core", version = "1.6.1" }
 robolectric = { module = "org.robolectric:robolectric", version = "4.14.1" }
 coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version = "1.10.2" }
+# The Finder's screen test (Robolectric); the manifest library gives it an activity in debug builds only.
+compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "androidx-compose" }
+compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "androidx-compose" }
 
 [plugins]
 # Builds the Licenses list from the dependency graph (res/raw/aboutlibraries.json).
@@ -40,3 +49,6 @@ aboutlibraries-android = { id = "com.mikepenz.aboutlibraries.plugin.android", ve
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+# KSP versions are pinned to an exact Kotlin release; 2.2.21-2.0.5 is the pairing
+# for Kotlin 2.2.21. Bumping Kotlin without bumping this in step will not build.
+ksp = { id = "com.google.devtools.ksp", version = "2.2.21-2.0.5" }
