@@ -1,6 +1,8 @@
 package com.wanderwildwood.yakuso.herbs
 
 import java.io.File
+import org.json.JSONArray
+import org.json.JSONObject
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
@@ -99,6 +101,45 @@ class HerbBookTest {
         }.map { it.id }
         assertTrue(avoid.containsAll(listOf("passionflower", "feverfew", "sage", "st-johns-wort", "yarrow")))
         assertTrue(HerbBook.forNeed(herbs, "pregnancy").none { it.id in avoid })
+    }
+
+    @Test fun everyLineNamesASourceWithALicense() {
+        val licenses = setOf("public-domain", "cc-by-3.0", "cc-by-4.0", "cc-by-sa-4.0", "none")
+        val book = JSONObject(File("src/main/assets/herbs.json").readText())
+        val shared = book.getJSONObject("sharedSources")
+        shared.keys().forEach { assertTrue("shared $it", shared.getJSONObject(it).getString("license") in licenses) }
+        val herbsJson = book.getJSONArray("herbs")
+        var lines = 0
+        for (n in 0 until herbsJson.length()) {
+            val h = herbsJson.getJSONObject(n)
+            val id = h.getString("id")
+            val sources = h.getJSONArray("sources")
+            val ids = (0 until sources.length()).map { sources.getJSONObject(it) }.onEach {
+                assertTrue("$id: ${it.optString("id")} license", it.optString("license") in licenses)
+            }.map { it.getString("id") }.toSet() + shared.keys().asSequence().toSet()
+            fun check(what: String, src: JSONArray?) {
+                lines++
+                assertTrue("$id: $what has no source", src != null && src.length() > 0)
+                for (i in 0 until src!!.length()) assertTrue("$id: $what names ${src.getString(i)}", src.getString(i) in ids)
+            }
+            val cautions = h.getJSONArray("cautions")
+            for (i in 0 until cautions.length()) check("caution $i", cautions.getJSONObject(i).optJSONArray("src"))
+            val uses = h.getJSONArray("uses")
+            for (i in 0 until uses.length()) check("use $i", uses.getJSONObject(i).optJSONArray("src"))
+            mapOf(
+                "research" to "researchSrc", "dontUseReason" to "dontUseReasonSrc", "taste" to "tasteSrc",
+                "parts" to "partsSrc", "alsoCalled" to "alsoCalledSrc", "interactions" to "interactionsSrc",
+            ).forEach { (field, srcField) ->
+                val present = when (val v = h.opt(field)) {
+                    is String -> v.isNotBlank()
+                    is JSONArray -> v.length() > 0
+                    else -> false
+                }
+                if (present) check(field, h.optJSONArray(srcField))
+            }
+            h.optJSONObject("preparation")?.let { check("preparation", it.optJSONArray("src")) }
+        }
+        assertTrue(lines > 400)
     }
 
     @Test fun everyHerbIsStillMarkedDraft() {

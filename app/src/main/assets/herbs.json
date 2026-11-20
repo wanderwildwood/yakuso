@@ -1,6 +1,10 @@
 {
-  "_about": "The herb book. DRAFT: every entry marked \"draft\": true is waiting to be read before it goes in a release. Cautions and research lines are from US government pages, which are public domain: NCCIH Herbs at a Glance, and from the NIH's LiverTox (NIDDK) and LactMed (NICHD) and the FDA where NCCIH has no page; the wording here is our own plain-English rendering of them. Where those are silent, traditional uses and preparation draw on Wikipedia (and so do two look-alike warnings, for yarrow and burdock), whose text is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); each such entry credits the article and revision it used, in a source marked with its license. For the pregnancy and nursing safety of hibiscus, raspberry leaf and yarrow, open-access journal articles licensed CC BY are used, each credited with its license in that herb's sources. Preparation amounts, times and tastes are ordinary kitchen practice and are not tied to a source. Each use carries the Finder's needs (sleep, calm, digestion, colds, sore-throat, nausea, headache, period-cramps, pregnancy, nursing). tools/check-cautions.py checks this file.",
+  "_about": "The herb book. DRAFT: every entry marked \"draft\": true is waiting to be read before it goes in a release. Cautions and research lines are from US government pages, which are public domain: NCCIH Herbs at a Glance, and from the NIH's LiverTox (NIDDK) and LactMed (NICHD) and the FDA where NCCIH has no page; the wording here is our own plain-English rendering of them. Where those are silent, traditional uses and preparation draw on Wikipedia (and so do two look-alike warnings, for yarrow and burdock), whose text is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); each such entry credits the article and revision it used, in a source marked with its license. For the pregnancy and nursing safety of hibiscus, raspberry leaf and yarrow, open-access journal articles licensed CC BY are used, each credited with its license in that herb's sources. Preparation amounts, times and tastes are ordinary kitchen practice and are not tied to a source. Each use carries the Finder's needs (sleep, calm, digestion, colds, sore-throat, nausea, headache, period-cramps, pregnancy, nursing). tools/check-cautions.py checks this file. Every text line names, in \"src\" (or a field's \"...Src\"), the ids of the entry's sources it came from, or a shared source in \"sharedSources\" (kitchen practice; this book's own wording); every source names its license (public-domain, cc-by-3.0, cc-by-4.0, cc-by-sa-4.0, none). tools/game-safe.py lists which lines may go into a CC BY-NC-ND work.",
   "version": 1,
+  "sharedSources": {
+    "kitchen": {"title": "Ordinary kitchen practice and common names, not tied to a source", "license": "none"},
+    "editorial": {"title": "This book's own cautious wording, not drawn from a source", "license": "none"}
+  },
   "herbs": [
     {
       "id": "chamomile",
@@ -12,18 +16,18 @@
       "parts": "Flowers",
       "taste": "Mild and sweet, a little like apples",
       "cautions": [
-        {"severity": "caution", "text": "Allergy: it can cause allergic reactions, rarely severe ones (anaphylaxis). These are more likely if you are allergic to ragweed, chrysanthemums, marigolds or daisies."},
-        {"severity": "caution", "text": "It may act a little like estrogen. It might make birth control pills work less well, and might worsen a condition sensitive to estrogen, such as breast or uterine cancer."},
-        {"severity": "caution", "text": "Interactions have been reported with warfarin (a blood thinner) and with some drugs the liver breaks down, and it might add to sedatives. If you take any medicine, ask your doctor or pharmacist first."},
-        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe. Ask your midwife or doctor first."},
-        {"severity": "note", "text": "Side effects are uncommon: nausea and dizziness. Near the eyes it can irritate them."}
+        {"severity": "caution", "text": "Allergy: it can cause allergic reactions, rarely severe ones (anaphylaxis). These are more likely if you are allergic to ragweed, chrysanthemums, marigolds or daisies.", "src": ["nccih"]},
+        {"severity": "caution", "text": "It may act a little like estrogen. It might make birth control pills work less well, and might worsen a condition sensitive to estrogen, such as breast or uterine cancer.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Interactions have been reported with warfarin (a blood thinner) and with some drugs the liver breaks down, and it might add to sedatives. If you take any medicine, ask your doctor or pharmacist first.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe. Ask your midwife or doctor first.", "src": ["nccih"]},
+        {"severity": "note", "text": "Side effects are uncommon: nausea and dizziness. Near the eyes it can irritate them.", "src": ["nccih"]}
       ],
       "interactions": ["blood thinners (warfarin)", "drugs broken down by the liver", "sedatives", "birth control pills"],
       "uses": [
-        {"for": "anxiety", "evidence": "some early evidence", "needs": ["calm"]},
-        {"for": "sleeplessness", "evidence": "little evidence", "needs": ["sleep"]},
-        {"for": "an upset stomach", "evidence": "not enough evidence", "needs": ["digestion"]},
-        {"for": "colds", "evidence": "not enough evidence", "needs": ["colds"]}
+        {"for": "anxiety", "evidence": "some early evidence", "needs": ["calm"], "src": ["nccih"]},
+        {"for": "sleeplessness", "evidence": "little evidence", "needs": ["sleep"], "src": ["nccih"]},
+        {"for": "an upset stomach", "evidence": "not enough evidence", "needs": ["digestion"], "src": ["nccih"]},
+        {"for": "colds", "evidence": "not enough evidence", "needs": ["colds"], "src": ["nccih"]}
       ],
       "research": "Not enough reliable evidence to say; some early studies suggest it may help anxiety, and the one study on sleeplessness found no benefit.",
       "preparation": {
@@ -32,11 +36,17 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": "Cover the cup while it steeps."
+        "note": "Cover the cup while it steeps.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Chamomile (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/chamomile", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Chamomile (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/chamomile", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "interactionsSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "comfrey",
@@ -49,20 +59,24 @@
       "parts": "Leaves and roots",
       "taste": null,
       "cautions": [
-        {"severity": "avoid", "text": "Don't take comfrey by mouth, as a tea or in any other form."},
-        {"severity": "avoid", "text": "Pregnancy, nursing and children: don't use it at all. Ask your midwife or doctor about anything you have already taken."}
+        {"severity": "avoid", "text": "Don't take comfrey by mouth, as a tea or in any other form.", "src": ["livertox", "pubmed"]},
+        {"severity": "avoid", "text": "Pregnancy, nursing and children: don't use it at all. Ask your midwife or doctor about anything you have already taken.", "src": ["livertox", "pubmed"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "wounds", "evidence": "not a reason to take it", "needs": []},
-        {"for": "pain and swelling from arthritis, sprains and broken bones", "evidence": "not a reason to take it", "needs": []}
+        {"for": "wounds", "evidence": "not a reason to take it", "needs": [], "src": ["livertox"]},
+        {"for": "pain and swelling from arthritis, sprains and broken bones", "evidence": "not a reason to take it", "needs": [], "src": ["livertox"]}
       ],
       "research": "Whatever it was used for, it is not safe to take by mouth.",
       "preparation": null,
       "sources": [
-        {"title": "LiverTox (NIDDK), Comfrey", "url": "https://www.ncbi.nlm.nih.gov/books/NBK548370/", "retrieved": "2026-11-20"},
-        {"title": "PubMed record of the LiverTox entry", "url": "https://pubmed.ncbi.nlm.nih.gov/31643691/", "retrieved": "2026-11-20"}
-      ]
+        {"id": "livertox", "title": "LiverTox (NIDDK), Comfrey", "url": "https://www.ncbi.nlm.nih.gov/books/NBK548370/", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "pubmed", "title": "PubMed record of the LiverTox entry", "url": "https://pubmed.ncbi.nlm.nih.gov/31643691/", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["livertox", "pubmed"],
+      "dontUseReasonSrc": ["livertox"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "ginger",
@@ -74,17 +88,17 @@
       "parts": "Rhizome (the underground stem, called the root)",
       "taste": "Hot and spicy",
       "cautions": [
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy: it may be safe and has been studied for morning sickness, but ask your midwife or doctor first. Nursing: little is known about whether it is safe."},
-        {"severity": "note", "text": "Side effects can include stomach discomfort, heartburn, diarrhea, and mouth and throat irritation."}
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Pregnancy: it may be safe and has been studied for morning sickness, but ask your midwife or doctor first. Nursing: little is known about whether it is safe.", "src": ["nccih"]},
+        {"severity": "note", "text": "Side effects can include stomach discomfort, heartburn, diarrhea, and mouth and throat irritation.", "src": ["nccih"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "nausea", "evidence": "some evidence, for nausea in pregnancy", "needs": ["nausea", "pregnancy"]},
-        {"for": "period cramps", "evidence": "some evidence", "needs": ["period-cramps"]},
-        {"for": "motion sickness", "evidence": "most studies found no help", "needs": ["nausea"]},
-        {"for": "indigestion and an upset stomach", "evidence": "not enough evidence", "needs": ["digestion"]},
-        {"for": "colds and flu", "evidence": "not enough evidence", "needs": ["colds"]}
+        {"for": "nausea", "evidence": "some evidence, for nausea in pregnancy", "needs": ["nausea", "pregnancy"], "src": ["nccih"]},
+        {"for": "period cramps", "evidence": "some evidence", "needs": ["period-cramps"], "src": ["nccih"]},
+        {"for": "motion sickness", "evidence": "most studies found no help", "needs": ["nausea"], "src": ["nccih"]},
+        {"for": "indigestion and an upset stomach", "evidence": "not enough evidence", "needs": ["digestion"], "src": ["nccih"]},
+        {"for": "colds and flu", "evidence": "not enough evidence", "needs": ["colds"], "src": ["nccih"]}
       ],
       "research": "Research suggests it may help nausea and vomiting in pregnancy and may ease period cramps; most studies found it no help for motion sickness.",
       "preparation": {
@@ -93,11 +107,15 @@
         "tempF": 212,
         "steepMin": 10,
         "steepMax": 15,
-        "note": "Simmer it gently in a covered pan, then strain."
+        "note": "Simmer it gently in a covered pan, then strain.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Ginger (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/ginger", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Ginger (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/ginger", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"]
     },
     {
       "id": "peppermint",
@@ -109,19 +127,19 @@
       "parts": "Leaves; the oil comes from the leaves and flowering tops",
       "taste": "Cool and sharp",
       "cautions": [
-        {"severity": "caution", "text": "Children: never put peppermint oil on the face of a baby or young child, or let them breathe it in. The menthol in it can cause serious breathing problems."},
-        {"severity": "caution", "text": "It can cause heartburn, nausea, stomach pain and a dry mouth, and on its own it may make indigestion worse for some people."},
-        {"severity": "caution", "text": "Pregnancy and nursing: peppermint in food amounts is likely safe; little is known about larger, medicinal amounts. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist before using any herbal product."},
-        {"severity": "note", "text": "On the skin the oil can cause rashes and irritation. Rarely, it causes allergic reactions."},
-        {"severity": "note", "text": "Peppermint tea appears to be safe, but the long-term safety of large amounts of the leaf is unknown."}
+        {"severity": "caution", "text": "Children: never put peppermint oil on the face of a baby or young child, or let them breathe it in. The menthol in it can cause serious breathing problems.", "src": ["nccih"]},
+        {"severity": "caution", "text": "It can cause heartburn, nausea, stomach pain and a dry mouth, and on its own it may make indigestion worse for some people.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: peppermint in food amounts is likely safe; little is known about larger, medicinal amounts. Ask your midwife or doctor first.", "src": ["nccih"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist before using any herbal product.", "src": ["nccih"]},
+        {"severity": "note", "text": "On the skin the oil can cause rashes and irritation. Rarely, it causes allergic reactions.", "src": ["nccih"]},
+        {"severity": "note", "text": "Peppermint tea appears to be safe, but the long-term safety of large amounts of the leaf is unknown.", "src": ["nccih"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "indigestion and other stomach complaints", "evidence": "not enough evidence for the leaf", "needs": ["digestion"]},
-        {"for": "irritable bowel (IBS)", "evidence": "some evidence, for the oil in coated capsules", "needs": ["digestion"]},
-        {"for": "nausea", "evidence": "a small amount of evidence, for the oil", "needs": ["nausea"]},
-        {"for": "headaches", "evidence": "a little evidence, for the oil on the skin", "needs": ["headache"]}
+        {"for": "indigestion and other stomach complaints", "evidence": "not enough evidence for the leaf", "needs": ["digestion"], "src": ["nccih"]},
+        {"for": "irritable bowel (IBS)", "evidence": "some evidence, for the oil in coated capsules", "needs": ["digestion"], "src": ["nccih"]},
+        {"for": "nausea", "evidence": "a small amount of evidence, for the oil", "needs": ["nausea"], "src": ["nccih"]},
+        {"for": "headaches", "evidence": "a little evidence, for the oil on the skin", "needs": ["headache"], "src": ["nccih"]}
       ],
       "research": "Very little research on the leaf tea; some evidence that peppermint oil in coated capsules eases IBS.",
       "preparation": {
@@ -130,11 +148,16 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Peppermint Oil (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/peppermint-oil", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Peppermint Oil (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/peppermint-oil", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "st-johns-wort",
@@ -146,21 +169,21 @@
       "parts": "Flowering tops",
       "taste": "Bitter",
       "cautions": [
-        {"severity": "avoid", "text": "It interacts in dangerous, sometimes life-threatening ways with many medicines. If you take any medicine at all, don't use it without asking your doctor or pharmacist."},
-        {"severity": "avoid", "text": "It can weaken: some antidepressants (amitriptyline, bupropion); birth control pills; cyclosporine, which keeps a transplanted organ from being rejected; some seizure medicines (phenytoin, carbamazepine); some heart medicines (digoxin, ivabradine); some HIV drugs (indinavir, nevirapine); some cancer medicines (irinotecan, imatinib, docetaxel); warfarin, a blood thinner; and some statins (simvastatin)."},
-        {"severity": "avoid", "text": "Taken with some antidepressants or other drugs that affect serotonin, it can cause serious serotonin-related side effects."},
-        {"severity": "avoid", "text": "Pregnancy: it may be unsafe, as it may increase the risk of birth defects. Nursing: babies of mothers who take it can have colic, drowsiness and lethargy. Ask your midwife or doctor."},
-        {"severity": "caution", "text": "In large doses, or on the skin, it may cause severe skin reactions in sunlight."},
-        {"severity": "caution", "text": "Depression can be a serious illness. If you or someone in your family may have depression, see a doctor."},
-        {"severity": "note", "text": "Other side effects can include diarrhea, dizziness, trouble sleeping, restlessness and tingling skin."}
+        {"severity": "avoid", "text": "It interacts in dangerous, sometimes life-threatening ways with many medicines. If you take any medicine at all, don't use it without asking your doctor or pharmacist.", "src": ["nccih"]},
+        {"severity": "avoid", "text": "It can weaken: some antidepressants (amitriptyline, bupropion); birth control pills; cyclosporine, which keeps a transplanted organ from being rejected; some seizure medicines (phenytoin, carbamazepine); some heart medicines (digoxin, ivabradine); some HIV drugs (indinavir, nevirapine); some cancer medicines (irinotecan, imatinib, docetaxel); warfarin, a blood thinner; and some statins (simvastatin).", "src": ["nccih"]},
+        {"severity": "avoid", "text": "Taken with some antidepressants or other drugs that affect serotonin, it can cause serious serotonin-related side effects.", "src": ["nccih"]},
+        {"severity": "avoid", "text": "Pregnancy: it may be unsafe, as it may increase the risk of birth defects. Nursing: babies of mothers who take it can have colic, drowsiness and lethargy. Ask your midwife or doctor.", "src": ["nccih"]},
+        {"severity": "caution", "text": "In large doses, or on the skin, it may cause severe skin reactions in sunlight.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Depression can be a serious illness. If you or someone in your family may have depression, see a doctor.", "src": ["nccih"]},
+        {"severity": "note", "text": "Other side effects can include diarrhea, dizziness, trouble sleeping, restlessness and tingling skin.", "src": ["nccih"]}
       ],
       "interactions": ["antidepressants", "birth control pills", "transplant medicines (cyclosporine)", "seizure medicines", "heart medicines", "HIV drugs", "cancer medicines", "blood thinners (warfarin)", "statins"],
       "uses": [
-        {"for": "low mood", "evidence": "evidence it may help mild or moderate depression for up to 12 weeks", "needs": []},
-        {"for": "hot flashes", "evidence": "a few small studies", "needs": []},
-        {"for": "stomach ulcers", "evidence": "not enough evidence", "needs": []},
-        {"for": "colds", "evidence": "not enough evidence", "needs": []},
-        {"for": "wound healing", "evidence": "not enough evidence", "needs": []}
+        {"for": "low mood", "evidence": "evidence it may help mild or moderate depression for up to 12 weeks", "needs": [], "src": ["nccih"]},
+        {"for": "hot flashes", "evidence": "a few small studies", "needs": [], "src": ["nccih"]},
+        {"for": "stomach ulcers", "evidence": "not enough evidence", "needs": [], "src": ["nccih"]},
+        {"for": "colds", "evidence": "not enough evidence", "needs": [], "src": ["nccih"]},
+        {"for": "wound healing", "evidence": "not enough evidence", "needs": [], "src": ["nccih"]}
       ],
       "research": "It may help mild or moderate depression, but it interacts with many medicines; for other uses there is not enough evidence.",
       "preparation": {
@@ -169,11 +192,17 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, St. John's Wort (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/st-johns-wort", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, St. John's Wort (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/st-johns-wort", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "interactionsSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "spearmint",
@@ -185,13 +214,13 @@
       "parts": "Leaves",
       "taste": "Sweet and cool, milder than peppermint",
       "cautions": [
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."}
+        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "flavor, as an everyday tea", "evidence": "no research summary to cite", "needs": []}
+        {"for": "flavor, as an everyday tea", "evidence": "no research summary to cite", "needs": [], "src": ["wikipedia"]}
       ],
       "research": "NCCIH has no page on it, and this book found no US government summary of the research, so it makes no claim about whether it helps.",
       "preparation": {
@@ -200,11 +229,16 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "Wikipedia, Spearmint (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Spearmint&oldid=1375239769", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "wikipedia", "title": "Wikipedia, Spearmint (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Spearmint&oldid=1375239769", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["editorial"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["wikipedia"]
     },
     {
       "id": "lemon-balm",
@@ -216,17 +250,17 @@
       "parts": "Leaves",
       "taste": "Mild and lemony",
       "cautions": [
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "Nursing: it has not been studied on its own, but in usual amounts it is not likely to harm a nursing baby. Ask your midwife or doctor first."},
-        {"severity": "note", "text": "It is usually well tolerated. Now and then people have had nausea, vomiting, stomach pain, dizziness or wheezing."}
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Nursing: it has not been studied on its own, but in usual amounts it is not likely to harm a nursing baby. Ask your midwife or doctor first.", "src": ["lactmed"]},
+        {"severity": "note", "text": "It is usually well tolerated. Now and then people have had nausea, vomiting, stomach pain, dizziness or wheezing.", "src": ["lactmed", "livertox"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "nervousness and anxiety", "evidence": "no research summary to cite", "needs": ["calm"]},
-        {"for": "sleeplessness", "evidence": "no research summary to cite", "needs": ["sleep"]},
-        {"for": "stomach complaints", "evidence": "no research summary to cite", "needs": ["digestion"]},
-        {"for": "milk supply while nursing", "evidence": "weak evidence, in mixtures with other herbs", "needs": ["nursing"]}
+        {"for": "nervousness and anxiety", "evidence": "no research summary to cite", "needs": ["calm"], "src": ["livertox", "lactmed"]},
+        {"for": "sleeplessness", "evidence": "no research summary to cite", "needs": ["sleep"], "src": ["livertox", "lactmed"]},
+        {"for": "stomach complaints", "evidence": "no research summary to cite", "needs": ["digestion"], "src": ["livertox", "lactmed"]},
+        {"for": "milk supply while nursing", "evidence": "weak evidence, in mixtures with other herbs", "needs": ["nursing"], "src": ["livertox", "lactmed"]}
       ],
       "research": "NCCIH has no page on it. LiverTox finds no liver harm from it; LactMed finds weak evidence that it helps milk supply.",
       "preparation": {
@@ -235,12 +269,17 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": "Cover the cup while it steeps."
+        "note": "Cover the cup while it steeps.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "LiverTox (NIDDK), Lemon Balm", "url": "https://www.ncbi.nlm.nih.gov/books/NBK600583/", "retrieved": "2026-11-20"},
-        {"title": "LactMed (NICHD), Lemon Balm", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501841/", "retrieved": "2026-11-20"}
-      ]
+        {"id": "livertox", "title": "LiverTox (NIDDK), Lemon Balm", "url": "https://www.ncbi.nlm.nih.gov/books/NBK600583/", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "lactmed", "title": "LactMed (NICHD), Lemon Balm", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501841/", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["livertox", "lactmed"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "lavender",
@@ -252,18 +291,18 @@
       "parts": "Flowers",
       "taste": "Floral and a little bitter",
       "cautions": [
-        {"severity": "caution", "text": "It might add to the effect of sedatives (medicines or herbs that make you sleepy). This matters most before an operation. Ask your doctor or pharmacist first if you take any medicine."},
-        {"severity": "caution", "text": "Children: a few cases of breast swelling have been reported in children who used products with lavender on the skin. It is not clear the lavender caused it."},
-        {"severity": "caution", "text": "Pregnancy: little is known about whether it is safe. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "Nursing: little is known about whether it is safe. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "Depression can be a serious illness. If you or someone in your family may have depression, see a doctor."},
-        {"severity": "note", "text": "By mouth it can cause diarrhea, headache, nausea or burping. On the skin it can cause allergic rashes. As aromatherapy it can cause headache or coughing."}
+        {"severity": "caution", "text": "It might add to the effect of sedatives (medicines or herbs that make you sleepy). This matters most before an operation. Ask your doctor or pharmacist first if you take any medicine.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Children: a few cases of breast swelling have been reported in children who used products with lavender on the skin. It is not clear the lavender caused it.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Pregnancy: little is known about whether it is safe. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor first.", "src": ["nccih", "pmc-PMC8811673"]},
+        {"severity": "caution", "text": "Nursing: little is known about whether it is safe. Ask your midwife or doctor first.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Depression can be a serious illness. If you or someone in your family may have depression, see a doctor.", "src": ["nccih"]},
+        {"severity": "note", "text": "By mouth it can cause diarrhea, headache, nausea or burping. On the skin it can cause allergic rashes. As aromatherapy it can cause headache or coughing.", "src": ["nccih"]}
       ],
       "interactions": ["sedatives"],
       "uses": [
-        {"for": "anxiety and stress", "evidence": "some evidence, for a lavender oil product taken by mouth", "needs": ["calm"]},
-        {"for": "low mood", "evidence": "early evidence only", "needs": []},
-        {"for": "sleep", "evidence": "unclear, for aromatherapy", "needs": ["sleep"]}
+        {"for": "anxiety and stress", "evidence": "some evidence, for a lavender oil product taken by mouth", "needs": ["calm"], "src": ["nccih"]},
+        {"for": "low mood", "evidence": "early evidence only", "needs": [], "src": ["nccih"]},
+        {"for": "sleep", "evidence": "unclear, for aromatherapy", "needs": ["sleep"], "src": ["nccih"]}
       ],
       "research": "More good research is needed to say whether it helps. Studies suggest a lavender oil product taken by mouth might help anxiety; for sleep, it is unclear.",
       "preparation": {
@@ -272,12 +311,18 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": "Cover the cup while it steeps."
+        "note": "Cover the cup while it steeps.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Lavender (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/lavender", "retrieved": "2026-11-20"},
-        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Lavender (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/lavender", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
+      ],
+      "researchSrc": ["nccih"],
+      "interactionsSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "valerian",
@@ -289,17 +334,17 @@
       "parts": "Root and rhizome",
       "taste": "Earthy and bitter, with a strong smell",
       "cautions": [
-        {"severity": "avoid", "text": "Don't take it with alcohol or sedatives (medicines that make you sleepy)."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "It seems safe for most adults for a few weeks; the safety of long use is unknown. Stopping suddenly after long use can bring anxiety, irritability, a racing heart and trouble sleeping."},
-        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe. Ask your midwife or doctor first."},
-        {"severity": "note", "text": "Side effects can include headache, upset stomach, dullness, restlessness and vivid dreams. Very rarely, liver injury has been reported, mostly with other herbs."}
+        {"severity": "avoid", "text": "Don't take it with alcohol or sedatives (medicines that make you sleepy).", "src": ["nccih"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["nccih"]},
+        {"severity": "caution", "text": "It seems safe for most adults for a few weeks; the safety of long use is unknown. Stopping suddenly after long use can bring anxiety, irritability, a racing heart and trouble sleeping.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe. Ask your midwife or doctor first.", "src": ["nccih"]},
+        {"severity": "note", "text": "Side effects can include headache, upset stomach, dullness, restlessness and vivid dreams. Very rarely, liver injury has been reported, mostly with other herbs.", "src": ["nccih"]}
       ],
       "interactions": ["alcohol", "sedatives"],
       "uses": [
-        {"for": "sleeplessness", "evidence": "inconsistent evidence", "needs": ["sleep"]},
-        {"for": "anxiety and stress", "evidence": "not enough evidence", "needs": ["calm"]},
-        {"for": "period cramps", "evidence": "not enough evidence", "needs": ["period-cramps"]}
+        {"for": "sleeplessness", "evidence": "inconsistent evidence", "needs": ["sleep"], "src": ["nccih"]},
+        {"for": "anxiety and stress", "evidence": "not enough evidence", "needs": ["calm"], "src": ["nccih"]},
+        {"for": "period cramps", "evidence": "not enough evidence", "needs": ["period-cramps"], "src": ["nccih"]}
       ],
       "research": "There is not enough evidence to say whether it helps any condition. The evidence on sleep is inconsistent, and a sleep medicine society advises against it for long-term insomnia in adults.",
       "preparation": {
@@ -308,11 +353,17 @@
         "tempF": 212,
         "steepMin": 10,
         "steepMax": 15,
-        "note": "Cover the cup while it steeps."
+        "note": "Cover the cup while it steeps.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Valerian (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/valerian", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Valerian (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/valerian", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "interactionsSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "passionflower",
@@ -324,16 +375,16 @@
       "parts": "Leaves, stems and flowers",
       "taste": "Mild and grassy",
       "cautions": [
-        {"severity": "avoid", "text": "Pregnancy: don't use it. It may bring on contractions of the womb. Ask your midwife or doctor."},
-        {"severity": "avoid", "text": "Before an operation: don't take it unless your doctor says so. With anesthesia and other medicines given around surgery it might slow the nervous system too much. Tell your doctor if you have taken it in the 2 weeks before."},
-        {"severity": "caution", "text": "Nursing: little is known about whether it is safe. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "note", "text": "As a tea it may be safe for up to a week of nights. It can cause drowsiness, dizziness and confusion."}
+        {"severity": "avoid", "text": "Pregnancy: don't use it. It may bring on contractions of the womb. Ask your midwife or doctor.", "src": ["nccih"]},
+        {"severity": "avoid", "text": "Before an operation: don't take it unless your doctor says so. With anesthesia and other medicines given around surgery it might slow the nervous system too much. Tell your doctor if you have taken it in the 2 weeks before.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Nursing: little is known about whether it is safe. Ask your midwife or doctor first.", "src": ["nccih"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["nccih"]},
+        {"severity": "note", "text": "As a tea it may be safe for up to a week of nights. It can cause drowsiness, dizziness and confusion.", "src": ["nccih"]}
       ],
       "interactions": ["anesthesia and medicines given around surgery", "sedatives"],
       "uses": [
-        {"for": "anxiety", "evidence": "a small amount of research", "needs": ["calm"]},
-        {"for": "sleeplessness", "evidence": "a small amount of research, with mixed results", "needs": ["sleep"]}
+        {"for": "anxiety", "evidence": "a small amount of research", "needs": ["calm"], "src": ["nccih"]},
+        {"for": "sleeplessness", "evidence": "a small amount of research, with mixed results", "needs": ["sleep"], "src": ["nccih"]}
       ],
       "research": "A small amount of research suggests it might ease anxiety and lengthen sleep, but the results are not definite.",
       "preparation": {
@@ -342,11 +393,17 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Passionflower (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/passionflower", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Passionflower (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/passionflower", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "interactionsSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "linden",
@@ -358,13 +415,13 @@
       "parts": "Flowers with their pale bracts",
       "taste": "Mild, sweet and honeyed",
       "cautions": [
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."}
+        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "relaxing, as a folk tea", "evidence": "no research summary to cite", "needs": ["calm"]}
+        {"for": "relaxing, as a folk tea", "evidence": "no research summary to cite", "needs": ["calm"], "src": ["wikipedia"]}
       ],
       "research": "NCCIH has no page on it, and this book found no US government summary of the research, so it makes no claim about whether it helps.",
       "preparation": {
@@ -373,12 +430,17 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": "Cover the cup while it steeps."
+        "note": "Cover the cup while it steeps.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "LactMed (NICHD), Linden", "url": "https://www.ncbi.nlm.nih.gov/books/NBK625586/", "retrieved": "2026-11-20"},
-        {"title": "Wikipedia, Tilia (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Tilia&oldid=1384691582", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "lactmed", "title": "LactMed (NICHD), Linden", "url": "https://www.ncbi.nlm.nih.gov/books/NBK625586/", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "wikipedia", "title": "Wikipedia, Tilia (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Tilia&oldid=1384691582", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["editorial"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "catnip",
@@ -390,14 +452,14 @@
       "parts": "Leaves and flowering tops",
       "taste": "Minty and a little bitter",
       "cautions": [
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."}
+        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "stomach cramps and indigestion", "evidence": "no research summary to cite", "needs": ["digestion"]},
-        {"for": "nervousness", "evidence": "no research summary to cite", "needs": ["calm"]}
+        {"for": "stomach cramps and indigestion", "evidence": "no research summary to cite", "needs": ["digestion"], "src": ["wikipedia"]},
+        {"for": "nervousness", "evidence": "no research summary to cite", "needs": ["calm"], "src": ["wikipedia"]}
       ],
       "research": "NCCIH has no page on it, and this book found no US government summary of the research, so it makes no claim about whether it helps.",
       "preparation": {
@@ -406,11 +468,16 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": "Cover the cup while it steeps."
+        "note": "Cover the cup while it steeps.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "Wikipedia, Catnip (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Catnip&oldid=1385991870", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "wikipedia", "title": "Wikipedia, Catnip (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Catnip&oldid=1385991870", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["editorial"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "echinacea",
@@ -422,15 +489,15 @@
       "parts": "Root, leaves and flowers",
       "taste": "Earthy; it makes the tongue tingle",
       "cautions": [
-        {"severity": "caution", "text": "Allergy: some people have allergic reactions to it, which may be severe. It is related to ragweed, daisies and sunflowers."},
-        {"severity": "caution", "text": "Children: some children in a study got rashes, perhaps from allergy. Ask the child's doctor before giving it."},
-        {"severity": "caution", "text": "It might interact with medicines that calm the immune system, with caffeine, and with some drugs the liver breaks down. Ask your doctor or pharmacist first if you take any medicine."},
-        {"severity": "caution", "text": "Pregnancy: extracts may be safe for up to 7 days early in pregnancy, but ask your midwife or doctor first. Nursing: little is known about whether it is safe."},
-        {"severity": "note", "text": "The most common side effects are stomach pain and nausea."}
+        {"severity": "caution", "text": "Allergy: some people have allergic reactions to it, which may be severe. It is related to ragweed, daisies and sunflowers.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Children: some children in a study got rashes, perhaps from allergy. Ask the child's doctor before giving it.", "src": ["nccih"]},
+        {"severity": "caution", "text": "It might interact with medicines that calm the immune system, with caffeine, and with some drugs the liver breaks down. Ask your doctor or pharmacist first if you take any medicine.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Pregnancy: extracts may be safe for up to 7 days early in pregnancy, but ask your midwife or doctor first. Nursing: little is known about whether it is safe.", "src": ["nccih"]},
+        {"severity": "note", "text": "The most common side effects are stomach pain and nausea.", "src": ["nccih"]}
       ],
       "interactions": ["medicines that calm the immune system", "drugs broken down by the liver", "caffeine"],
       "uses": [
-        {"for": "colds", "evidence": "it may slightly lower your chance of catching one", "needs": ["colds"]}
+        {"for": "colds", "evidence": "it may slightly lower your chance of catching one", "needs": ["colds"], "src": ["nccih"]}
       ],
       "research": "Taking echinacea may slightly reduce your chances of catching a cold; it is still unclear whether it can shorten one.",
       "preparation": {
@@ -439,11 +506,17 @@
         "tempF": 212,
         "steepMin": 10,
         "steepMax": 15,
-        "note": "Cover the cup while it steeps."
+        "note": "Cover the cup while it steeps.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Echinacea (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/echinacea", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Echinacea (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/echinacea", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "interactionsSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "elderberry",
@@ -455,14 +528,14 @@
       "parts": "Ripe berries, cooked",
       "taste": "Fruity and dark, a little tart",
       "cautions": [
-        {"severity": "avoid", "text": "Don't eat raw or unripe berries, or the leaves, stems or bark. They contain a poison that releases cyanide and can cause nausea, vomiting and severe diarrhea. Cooking the ripe berries removes it."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe for health purposes. Ask your midwife or doctor first."},
-        {"severity": "note", "text": "Rarely, it causes allergic reactions."}
+        {"severity": "avoid", "text": "Don't eat raw or unripe berries, or the leaves, stems or bark. They contain a poison that releases cyanide and can cause nausea, vomiting and severe diarrhea. Cooking the ripe berries removes it.", "src": ["nccih", "lactmed"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe for health purposes. Ask your midwife or doctor first.", "src": ["nccih", "lactmed"]},
+        {"severity": "note", "text": "Rarely, it causes allergic reactions.", "src": ["nccih", "lactmed"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "colds and flu", "evidence": "some early research", "needs": ["colds"]}
+        {"for": "colds and flu", "evidence": "some early research", "needs": ["colds"], "src": ["nccih", "lactmed"]}
       ],
       "research": "Some early research suggests it may ease the symptoms of flu, colds and other upper respiratory infections. There is no good evidence that it helps COVID-19.",
       "preparation": {
@@ -471,12 +544,17 @@
         "tempF": 212,
         "steepMin": 15,
         "steepMax": 20,
-        "note": "Simmer the berries gently, then strain. Never use raw berries."
+        "note": "Simmer the berries gently, then strain. Never use raw berries.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Elderberry (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/elderberry", "retrieved": "2026-11-20"},
-        {"title": "LactMed (NICHD), Elderberry", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501835/", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Elderberry (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/elderberry", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "lactmed", "title": "LactMed (NICHD), Elderberry", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501835/", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih", "lactmed"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "elderflower",
@@ -488,14 +566,14 @@
       "parts": "Flowers",
       "taste": "Light, floral and sweet",
       "cautions": [
-        {"severity": "avoid", "text": "Use only the flowers. Don't use the leaves, stems or bark, or raw or unripe berries: they contain a poison that releases cyanide."},
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."}
+        {"severity": "avoid", "text": "Use only the flowers. Don't use the leaves, stems or bark, or raw or unripe berries: they contain a poison that releases cyanide.", "src": ["nccih"]},
+        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "early symptoms of a cold", "evidence": "no research summary to cite", "needs": ["colds"]}
+        {"for": "early symptoms of a cold", "evidence": "no research summary to cite", "needs": ["colds"], "src": ["wikipedia"]}
       ],
       "research": "NCCIH covers the berry, not the flower, and this book found no US government summary of research on the flower, so it makes no claim about whether it helps.",
       "preparation": {
@@ -504,12 +582,17 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": "Cover the cup while it steeps."
+        "note": "Cover the cup while it steeps.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Elderberry (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/elderberry", "retrieved": "2026-11-20"},
-        {"title": "Wikipedia, Sambucus nigra (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Sambucus_nigra&oldid=1380322926", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Elderberry (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/elderberry", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "wikipedia", "title": "Wikipedia, Sambucus nigra (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Sambucus_nigra&oldid=1380322926", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["editorial"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "thyme",
@@ -521,14 +604,14 @@
       "parts": "Leaves and flowering tops",
       "taste": "Warm, savory and a little sharp",
       "cautions": [
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "Nursing: A 2021 review lists it among herbs that may lower milk supply. Ask your midwife or doctor before using it."}
+        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Nursing: A 2021 review lists it among herbs that may lower milk supply. Ask your midwife or doctor before using it.", "src": ["editorial", "pmc-PMC8811673"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "its antiseptic oil (thymol), historically", "evidence": "no research summary to cite", "needs": []}
+        {"for": "its antiseptic oil (thymol), historically", "evidence": "no research summary to cite", "needs": [], "src": ["wikipedia"]}
       ],
       "research": "NCCIH has no page on it, and this book found no US government summary of the research, so it makes no claim about whether it helps.",
       "preparation": {
@@ -537,12 +620,17 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": "Cover the cup while it steeps."
+        "note": "Cover the cup while it steeps.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"},
-        {"title": "Wikipedia, Thyme (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Thyme&oldid=1368697748", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"},
+        {"id": "wikipedia", "title": "Wikipedia, Thyme (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Thyme&oldid=1368697748", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["editorial"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["wikipedia"]
     },
     {
       "id": "sage",
@@ -554,16 +642,16 @@
       "parts": "Leaves",
       "taste": "Savory, warm and a little bitter",
       "cautions": [
-        {"severity": "avoid", "text": "Pregnancy: it may be unsafe, because a substance in it (thujone) may be harmful. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor."},
-        {"severity": "caution", "text": "Sage contains thujone, which can be toxic in large amounts. It may be unsafe in high doses or taken for a long time. Food amounts are likely safe."},
-        {"severity": "caution", "text": "Nursing: little is known about whether it is safe. A 2021 review lists it among herbs that may lower milk supply. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."}
+        {"severity": "avoid", "text": "Pregnancy: it may be unsafe, because a substance in it (thujone) may be harmful. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor.", "src": ["nccih", "pmc-PMC8811673"]},
+        {"severity": "caution", "text": "Sage contains thujone, which can be toxic in large amounts. It may be unsafe in high doses or taken for a long time. Food amounts are likely safe.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Nursing: little is known about whether it is safe. A 2021 review lists it among herbs that may lower milk supply. Ask your midwife or doctor first.", "src": ["nccih", "pmc-PMC8811673"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["nccih"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "digestive complaints", "evidence": "not studied enough", "needs": ["digestion"]},
-        {"for": "coughs and other chest complaints", "evidence": "not studied enough", "needs": ["colds"]},
-        {"for": "hot flashes", "evidence": "a few small studies", "needs": []}
+        {"for": "digestive complaints", "evidence": "not studied enough", "needs": ["digestion"], "src": ["nccih"]},
+        {"for": "coughs and other chest complaints", "evidence": "not studied enough", "needs": ["colds"], "src": ["nccih"]},
+        {"for": "hot flashes", "evidence": "a few small studies", "needs": [], "src": ["nccih"]}
       ],
       "research": "Only small amounts of research exist. A few small studies suggest it might reduce hot flashes and may help memory and cholesterol.",
       "preparation": {
@@ -572,12 +660,17 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": "Cover the cup while it steeps."
+        "note": "Cover the cup while it steeps.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Sage (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/sage", "retrieved": "2026-11-20"},
-        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Sage (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/sage", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
+      ],
+      "researchSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "marshmallow",
@@ -589,16 +682,16 @@
       "parts": "Root (sometimes the leaves)",
       "taste": "Mild and sweet; it makes a slippery tea",
       "cautions": [
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "Nursing: it has not been studied, but it is unlikely to harm a nursing baby. Ask your midwife or doctor first."},
-        {"severity": "note", "text": "It is generally well tolerated. Rarely, it causes allergic reactions; people allergic to hibiscus may react to it."}
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Nursing: it has not been studied, but it is unlikely to harm a nursing baby. Ask your midwife or doctor first.", "src": ["lactmed"]},
+        {"severity": "note", "text": "It is generally well tolerated. Rarely, it causes allergic reactions; people allergic to hibiscus may react to it.", "src": ["lactmed"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "a sore throat or sore mouth, as a gargle", "evidence": "no research summary to cite", "needs": ["sore-throat"]},
-        {"for": "an irritated stomach", "evidence": "no research summary to cite", "needs": ["digestion"]},
-        {"for": "milk supply while nursing", "evidence": "no good studies", "needs": ["nursing"]}
+        {"for": "a sore throat or sore mouth, as a gargle", "evidence": "no research summary to cite", "needs": ["sore-throat"], "src": ["wikipedia"]},
+        {"for": "an irritated stomach", "evidence": "no research summary to cite", "needs": ["digestion"], "src": ["wikipedia"]},
+        {"for": "milk supply while nursing", "evidence": "no good studies", "needs": ["nursing"], "src": ["lactmed"]}
       ],
       "research": "NCCIH has no page on it. LactMed finds no good studies on milk supply; no US government summary covers its other uses.",
       "preparation": {
@@ -607,12 +700,17 @@
         "tempF": 212,
         "steepMin": 10,
         "steepMax": 15,
-        "note": "Some people steep it in cool water for a few hours instead."
+        "note": "Some people steep it in cool water for a few hours instead.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "LactMed (NICHD), Marshmallow", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501839/", "retrieved": "2026-11-20"},
-        {"title": "Wikipedia, Althaea officinalis (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Althaea_officinalis&oldid=1380184637", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "lactmed", "title": "LactMed (NICHD), Marshmallow", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501839/", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "wikipedia", "title": "Wikipedia, Althaea officinalis (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Althaea_officinalis&oldid=1380184637", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["lactmed", "editorial"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["wikipedia"]
     },
     {
       "id": "licorice",
@@ -624,18 +722,18 @@
       "parts": "Root",
       "taste": "Very sweet",
       "cautions": [
-        {"severity": "avoid", "text": "Don't take it if you have high blood pressure, a heart or kidney condition, or eat a lot of salt. Even small amounts have caused severe harm in these people."},
-        {"severity": "avoid", "text": "Pregnancy: large amounts are unsafe and can bring on early birth. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor. Nursing: little is known about whether it is safe."},
-        {"severity": "caution", "text": "A substance in it (glycyrrhizin) can cause serious harm, such as an irregular heartbeat and cardiac arrest, especially in large amounts or over a long time."},
-        {"severity": "caution", "text": "Interactions with corticosteroids (steroid medicines) have been reported. Ask your doctor or pharmacist first if you take any medicine."},
-        {"severity": "note", "text": "Licorice without glycyrrhizin (DGL) might be safe for up to 4 months. On the skin it can cause irritation."}
+        {"severity": "avoid", "text": "Don't take it if you have high blood pressure, a heart or kidney condition, or eat a lot of salt. Even small amounts have caused severe harm in these people.", "src": ["nccih"]},
+        {"severity": "avoid", "text": "Pregnancy: large amounts are unsafe and can bring on early birth. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor. Nursing: little is known about whether it is safe.", "src": ["nccih", "pmc-PMC8811673"]},
+        {"severity": "caution", "text": "A substance in it (glycyrrhizin) can cause serious harm, such as an irregular heartbeat and cardiac arrest, especially in large amounts or over a long time.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Interactions with corticosteroids (steroid medicines) have been reported. Ask your doctor or pharmacist first if you take any medicine.", "src": ["nccih"]},
+        {"severity": "note", "text": "Licorice without glycyrrhizin (DGL) might be safe for up to 4 months. On the skin it can cause irritation.", "src": ["nccih"]}
       ],
       "interactions": ["corticosteroids", "blood pressure medicines"],
       "uses": [
-        {"for": "coughs", "evidence": "not studied enough", "needs": ["colds"]},
-        {"for": "a sore throat", "evidence": "some evidence, for a gargle or lozenge after surgery", "needs": ["sore-throat"]},
-        {"for": "canker sores", "evidence": "some evidence, for a mouth rinse", "needs": []},
-        {"for": "digestive complaints", "evidence": "unclear", "needs": ["digestion"]}
+        {"for": "coughs", "evidence": "not studied enough", "needs": ["colds"], "src": ["nccih"]},
+        {"for": "a sore throat", "evidence": "some evidence, for a gargle or lozenge after surgery", "needs": ["sore-throat"], "src": ["nccih"]},
+        {"for": "canker sores", "evidence": "some evidence, for a mouth rinse", "needs": [], "src": ["nccih"]},
+        {"for": "digestive complaints", "evidence": "unclear", "needs": ["digestion"], "src": ["nccih"]}
       ],
       "research": "There isn't enough good evidence to support it for any condition. A licorice gargle or rinse might help canker sores and a sore throat after surgery.",
       "preparation": {
@@ -644,12 +742,18 @@
         "tempF": 212,
         "steepMin": 10,
         "steepMax": 15,
-        "note": "Not for every day over a long time."
+        "note": "Not for every day over a long time.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Licorice Root (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/licorice-root", "retrieved": "2026-11-20"},
-        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Licorice Root (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/licorice-root", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
+      ],
+      "researchSrc": ["nccih"],
+      "interactionsSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "fennel",
@@ -661,16 +765,16 @@
       "parts": "Seeds",
       "taste": "Sweet, like anise",
       "cautions": [
-        {"severity": "avoid", "text": "Allergy: don't use it if you, or your baby, are allergic to carrots, celery or other plants of the carrot family."},
-        {"severity": "caution", "text": "It can make the skin more sensitive to sunlight. Avoid strong sun while you use it."},
-        {"severity": "caution", "text": "Nursing: in usual amounts it is not likely to harm a nursing baby, and some sources say to use it for no more than 2 weeks. Too much of an herbal tea with fennel and anise made two newborns ill. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "note", "text": "Raised liver tests have been reported in a woman taking a milk-supply tea that contains fennel."}
+        {"severity": "avoid", "text": "Allergy: don't use it if you, or your baby, are allergic to carrots, celery or other plants of the carrot family.", "src": ["lactmed"]},
+        {"severity": "caution", "text": "It can make the skin more sensitive to sunlight. Avoid strong sun while you use it.", "src": ["lactmed"]},
+        {"severity": "caution", "text": "Nursing: in usual amounts it is not likely to harm a nursing baby, and some sources say to use it for no more than 2 weeks. Too much of an herbal tea with fennel and anise made two newborns ill. Ask your midwife or doctor first.", "src": ["lactmed"]},
+        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor first.", "src": ["editorial", "pmc-PMC8811673"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "note", "text": "Raised liver tests have been reported in a woman taking a milk-supply tea that contains fennel.", "src": ["lactmed"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "milk supply while nursing", "evidence": "two small studies found some increase", "needs": ["nursing"]}
+        {"for": "milk supply while nursing", "evidence": "two small studies found some increase", "needs": ["nursing"], "src": ["lactmed"]}
       ],
       "research": "NCCIH has no page on it. LactMed: two small studies found some increase in milk with fennel, but no rise in the milk hormone.",
       "preparation": {
@@ -679,12 +783,17 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": "Cover the cup while it steeps."
+        "note": "Cover the cup while it steeps.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "LactMed (NICHD), Fennel", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501793/", "retrieved": "2026-11-20"},
-        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"}
-      ]
+        {"id": "lactmed", "title": "LactMed (NICHD), Fennel", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501793/", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
+      ],
+      "researchSrc": ["lactmed"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "dandelion",
@@ -696,15 +805,15 @@
       "parts": "Root and leaves",
       "taste": "Bitter; the roasted root tastes a little like coffee",
       "cautions": [
-        {"severity": "caution", "text": "It might interact with diabetes medicines, blood thinners and water pills (diuretics), among others. Ask your doctor or pharmacist first if you take any medicine."},
-        {"severity": "caution", "text": "Allergy: on the skin it may cause a reaction in people with eczema. It is not clear whether people allergic to ragweed, chrysanthemums, marigolds or daisies react to it."},
-        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether more than food amounts are safe. Ask your midwife or doctor first."},
-        {"severity": "note", "text": "Food amounts are likely safe; less is known about larger amounts."}
+        {"severity": "caution", "text": "It might interact with diabetes medicines, blood thinners and water pills (diuretics), among others. Ask your doctor or pharmacist first if you take any medicine.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Allergy: on the skin it may cause a reaction in people with eczema. It is not clear whether people allergic to ragweed, chrysanthemums, marigolds or daisies react to it.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether more than food amounts are safe. Ask your midwife or doctor first.", "src": ["nccih"]},
+        {"severity": "note", "text": "Food amounts are likely safe; less is known about larger amounts.", "src": ["nccih"]}
       ],
       "interactions": ["diabetes medicines", "blood thinners", "water pills (diuretics)"],
       "uses": [
-        {"for": "indigestion", "evidence": "no good evidence", "needs": ["digestion"]},
-        {"for": "joint pain", "evidence": "no good evidence", "needs": []}
+        {"for": "indigestion", "evidence": "no good evidence", "needs": ["digestion"], "src": ["nccih"]},
+        {"for": "joint pain", "evidence": "no good evidence", "needs": [], "src": ["nccih"]}
       ],
       "research": "There is no compelling evidence that it helps any condition; very little research exists.",
       "preparation": {
@@ -713,11 +822,16 @@
         "tempF": 212,
         "steepMin": 10,
         "steepMax": 15,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Dandelion (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/dandelion", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Dandelion (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/dandelion", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "interactionsSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"]
     },
     {
       "id": "nettle",
@@ -729,17 +843,17 @@
       "parts": "Leaves (dried or cooked; the root is used apart)",
       "taste": "Green and grassy, like spinach",
       "cautions": [
-        {"severity": "caution", "text": "Fresh leaves sting. Drying or cooking takes the sting away."},
-        {"severity": "caution", "text": "Nursing: don't put nettle on the breast; one nursing baby got a rash. A 2021 review lists it among herbs that may lower milk supply. Ask your midwife or doctor before using it while nursing."},
-        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "note", "text": "It is generally well tolerated, and has not been linked to liver harm."}
+        {"severity": "caution", "text": "Fresh leaves sting. Drying or cooking takes the sting away.", "src": ["livertox"]},
+        {"severity": "caution", "text": "Nursing: don't put nettle on the breast; one nursing baby got a rash. A 2021 review lists it among herbs that may lower milk supply. Ask your midwife or doctor before using it while nursing.", "src": ["lactmed", "pmc-PMC8811673"]},
+        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor first.", "src": ["editorial", "pmc-PMC8811673"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "note", "text": "It is generally well tolerated, and has not been linked to liver harm.", "src": ["livertox", "lactmed"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "hay fever and joint pain", "evidence": "not shown in good studies", "needs": []},
-        {"for": "urinary symptoms of an enlarged prostate (the root)", "evidence": "some reports, not settled", "needs": []},
-        {"for": "milk supply while nursing", "evidence": "minimal evidence", "needs": []}
+        {"for": "hay fever and joint pain", "evidence": "not shown in good studies", "needs": [], "src": ["livertox", "lactmed"]},
+        {"for": "urinary symptoms of an enlarged prostate (the root)", "evidence": "some reports, not settled", "needs": [], "src": ["livertox", "lactmed"]},
+        {"for": "milk supply while nursing", "evidence": "minimal evidence", "needs": [], "src": ["livertox", "lactmed"]}
       ],
       "research": "NCCIH has no page on it. LiverTox: the claims for the leaf have not been shown in good studies; the root has been reported to ease urinary symptoms of an enlarged prostate.",
       "preparation": {
@@ -748,13 +862,18 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "LiverTox (NIDDK), Stinging Nettle", "url": "https://www.ncbi.nlm.nih.gov/books/NBK589898/", "retrieved": "2026-11-20"},
-        {"title": "LactMed (NICHD), Stinging Nettle", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501777/", "retrieved": "2026-11-20"},
-        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"}
-      ]
+        {"id": "livertox", "title": "LiverTox (NIDDK), Stinging Nettle", "url": "https://www.ncbi.nlm.nih.gov/books/NBK589898/", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "lactmed", "title": "LactMed (NICHD), Stinging Nettle", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501777/", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
+      ],
+      "researchSrc": ["livertox", "lactmed"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "hibiscus",
@@ -766,15 +885,15 @@
       "parts": "Calyces (the red cups around the flower)",
       "taste": "Tart, like cranberry",
       "cautions": [
-        {"severity": "caution", "text": "Pregnancy: it has not been studied in pregnant people. In pregnant rats, large doses of an extract harmed the newborns' cells, and the researchers advise using it only with a health professional's guidance. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "Nursing: nothing is known about whether it reaches breast milk or is safe for a nursing baby. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "It can lower blood pressure, and it might interact with blood pressure medicines (ACE inhibitors such as ramipril); this has not been studied. Ask your doctor or pharmacist first if you take any medicine."},
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "note", "text": "It is generally well tolerated, but allergic reactions are possible, including in people allergic to marshmallow. Very large doses of extract affected liver tests in one study."}
+        {"severity": "caution", "text": "Pregnancy: it has not been studied in pregnant people. In pregnant rats, large doses of an extract harmed the newborns' cells, and the researchers advise using it only with a health professional's guidance. Ask your midwife or doctor first.", "src": ["pmc-PMC12347892"]},
+        {"severity": "caution", "text": "Nursing: nothing is known about whether it reaches breast milk or is safe for a nursing baby. Ask your midwife or doctor first.", "src": ["lactmed"]},
+        {"severity": "caution", "text": "It can lower blood pressure, and it might interact with blood pressure medicines (ACE inhibitors such as ramipril); this has not been studied. Ask your doctor or pharmacist first if you take any medicine.", "src": ["pmc-PMC10676230"]},
+        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
+        {"severity": "note", "text": "It is generally well tolerated, but allergic reactions are possible, including in people allergic to marshmallow. Very large doses of extract affected liver tests in one study.", "src": ["lactmed", "pmc-PMC10676230"]}
       ],
       "interactions": ["blood pressure medicines (ACE inhibitors)"],
       "uses": [
-        {"for": "flavor and color, as an everyday tea", "evidence": "no research summary to cite", "needs": []}
+        {"for": "flavor and color, as an everyday tea", "evidence": "no research summary to cite", "needs": [], "src": ["wikipedia"]}
       ],
       "research": "NCCIH has no page on it, and this book found no US government summary of the research, so it makes no claim about whether it helps.",
       "preparation": {
@@ -783,14 +902,20 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": "It is also good steeped and served cold."
+        "note": "It is also good steeped and served cold.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "LactMed (NICHD), Hibiscus", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501882/", "retrieved": "2026-11-20"},
-        {"title": "Exploring the Health Benefits and Therapeutic Potential of Roselle (Hibiscus sabdariffa) in Human Studies (Cureus, 2023)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10676230/", "retrieved": "2026-11-20", "license": "CC BY"},
-        {"title": "Genomic and Cytotoxic Damage in Wistar Rats and Their Newborns After Transplacental Exposure to Hibiscus sabdariffa Hydroalcoholic Extract (International Journal of Molecular Sciences, 2025)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12347892/", "retrieved": "2026-11-20", "license": "CC BY 4.0"},
-        {"title": "Wikipedia, Hibiscus tea (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Hibiscus_tea&oldid=1385534293", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "lactmed", "title": "LactMed (NICHD), Hibiscus", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501882/", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "pmc-PMC10676230", "title": "Exploring the Health Benefits and Therapeutic Potential of Roselle (Hibiscus sabdariffa) in Human Studies (Cureus, 2023)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10676230/", "retrieved": "2026-11-20", "license": "cc-by-4.0", "licenseNote": "The article says it is distributed under the Creative Commons Attribution License without naming a version; recorded as 4.0, Cureus's usual license."},
+        {"id": "pmc-PMC12347892", "title": "Genomic and Cytotoxic Damage in Wistar Rats and Their Newborns After Transplacental Exposure to Hibiscus sabdariffa Hydroalcoholic Extract (International Journal of Molecular Sciences, 2025)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12347892/", "retrieved": "2026-11-20", "license": "cc-by-4.0"},
+        {"id": "wikipedia", "title": "Wikipedia, Hibiscus tea (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Hibiscus_tea&oldid=1385534293", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["editorial"],
+      "interactionsSrc": ["pmc-PMC10676230"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["wikipedia"]
     },
     {
       "id": "rooibos",
@@ -802,13 +927,13 @@
       "parts": "Leaves and fine stems",
       "taste": "Smooth, sweet and woody; no caffeine",
       "cautions": [
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."},
-        {"severity": "note", "text": "It appears safe in usual tea amounts. One man who drank about 10 cups a day for over a year had low platelets and raised liver tests."}
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]},
+        {"severity": "note", "text": "It appears safe in usual tea amounts. One man who drank about 10 cups a day for over a year had low platelets and raised liver tests.", "src": ["lactmed"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "an everyday drink without caffeine", "evidence": "no research summary to cite", "needs": []}
+        {"for": "an everyday drink without caffeine", "evidence": "no research summary to cite", "needs": [], "src": ["wikipedia"]}
       ],
       "research": "NCCIH has no page on it, and this book found no US government summary of the research, so it makes no claim about whether it helps.",
       "preparation": {
@@ -817,12 +942,17 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "LactMed (NICHD), Rooibos", "url": "https://www.ncbi.nlm.nih.gov/books/NBK625593/", "retrieved": "2026-11-20"},
-        {"title": "Wikipedia, Rooibos (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Rooibos&oldid=1371970483", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "lactmed", "title": "LactMed (NICHD), Rooibos", "url": "https://www.ncbi.nlm.nih.gov/books/NBK625593/", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "wikipedia", "title": "Wikipedia, Rooibos (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Rooibos&oldid=1371970483", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["editorial"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["wikipedia"]
     },
     {
       "id": "rose-hip",
@@ -834,13 +964,13 @@
       "parts": "Fruit (hips), with the seeds and hairs removed",
       "taste": "Tart and fruity",
       "cautions": [
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."}
+        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "flavor, as a tea often blended with hibiscus", "evidence": "no research summary to cite", "needs": []}
+        {"for": "flavor, as a tea often blended with hibiscus", "evidence": "no research summary to cite", "needs": [], "src": ["wikipedia"]}
       ],
       "research": "NCCIH has no page on it, and this book found no US government summary of the research, so it makes no claim about whether it helps.",
       "preparation": {
@@ -849,11 +979,16 @@
         "tempF": 212,
         "steepMin": 10,
         "steepMax": 15,
-        "note": "Strain through a fine cloth or paper: the hairs inside the hips irritate."
+        "note": "Strain through a fine cloth or paper: the hairs inside the hips irritate.",
+        "src": ["kitchen", "wikipedia"]
       },
       "sources": [
-        {"title": "Wikipedia, Rose hip (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Rose_hip&oldid=1386640366", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "wikipedia", "title": "Wikipedia, Rose hip (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Rose_hip&oldid=1386640366", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["editorial"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "calendula",
@@ -865,15 +1000,15 @@
       "parts": "Flowers",
       "taste": "Mild, a little bitter and resinous",
       "cautions": [
-        {"severity": "caution", "text": "Allergy: rarely, it causes allergic reactions, more likely if you are allergic to chrysanthemums, daisies or marigolds."},
-        {"severity": "caution", "text": "Nursing: nothing is known about taking it by mouth while nursing. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."}
+        {"severity": "caution", "text": "Allergy: rarely, it causes allergic reactions, more likely if you are allergic to chrysanthemums, daisies or marigolds.", "src": ["lactmed"]},
+        {"severity": "caution", "text": "Nursing: nothing is known about taking it by mouth while nursing. Ask your midwife or doctor first.", "src": ["lactmed"]},
+        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor first.", "src": ["editorial", "pmc-PMC8811673"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "sore, cracked nipples, on the skin", "evidence": "little good evidence", "needs": []}
+        {"for": "sore, cracked nipples, on the skin", "evidence": "little good evidence", "needs": [], "src": ["lactmed"]}
       ],
       "research": "NCCIH has no page on it. LactMed: on the skin it has been used for sore, cracked nipples, with little good evidence; nothing is known about taking it by mouth while nursing.",
       "preparation": {
@@ -882,13 +1017,18 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "LactMed (NICHD), Calendula", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501857/", "retrieved": "2026-11-20"},
-        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"},
-        {"title": "Wikipedia, Calendula officinalis (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Calendula_officinalis&oldid=1370530450", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "lactmed", "title": "LactMed (NICHD), Calendula", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501857/", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"},
+        {"id": "wikipedia", "title": "Wikipedia, Calendula officinalis (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Calendula_officinalis&oldid=1370530450", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["lactmed"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["wikipedia"]
     },
     {
       "id": "lemongrass",
@@ -900,13 +1040,13 @@
       "parts": "Leaves and stalks",
       "taste": "Bright and lemony, without sourness",
       "cautions": [
-        {"severity": "caution", "text": "Rarely, it has caused liver harm and allergies; raised liver tests were reported in a woman taking a milk-supply tea that contains it."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."}
+        {"severity": "caution", "text": "Rarely, it has caused liver harm and allergies; raised liver tests were reported in a woman taking a milk-supply tea that contains it.", "src": ["lactmed"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "flavor, as an everyday tea", "evidence": "no research summary to cite", "needs": []}
+        {"for": "flavor, as an everyday tea", "evidence": "no research summary to cite", "needs": [], "src": ["wikipedia"]}
       ],
       "research": "NCCIH has no page on it, and this book found no US government summary of the research, so it makes no claim about whether it helps.",
       "preparation": {
@@ -915,12 +1055,17 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "LactMed (NICHD), Lemongrass", "url": "https://www.ncbi.nlm.nih.gov/books/NBK625591/", "retrieved": "2026-11-20"},
-        {"title": "Wikipedia, Cymbopogon citratus (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Cymbopogon_citratus&oldid=1365355224", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "lactmed", "title": "LactMed (NICHD), Lemongrass", "url": "https://www.ncbi.nlm.nih.gov/books/NBK625591/", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "wikipedia", "title": "Wikipedia, Cymbopogon citratus (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Cymbopogon_citratus&oldid=1365355224", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["editorial"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "holy-basil",
@@ -932,13 +1077,13 @@
       "parts": "Leaves",
       "taste": "Peppery and clove-like",
       "cautions": [
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."}
+        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "an everyday tea in Ayurveda", "evidence": "no research summary to cite", "needs": []}
+        {"for": "an everyday tea in Ayurveda", "evidence": "no research summary to cite", "needs": [], "src": ["wikipedia"]}
       ],
       "research": "NCCIH has no page on it, and this book found no US government summary of the research, so it makes no claim about whether it helps.",
       "preparation": {
@@ -947,11 +1092,16 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": "Cover the cup while it steeps."
+        "note": "Cover the cup while it steeps.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "Wikipedia, Ocimum tenuiflorum (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Ocimum_tenuiflorum&oldid=1382064459", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "wikipedia", "title": "Wikipedia, Ocimum tenuiflorum (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Ocimum_tenuiflorum&oldid=1382064459", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["editorial"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "turmeric",
@@ -963,16 +1113,16 @@
       "parts": "Rhizome (the underground stem)",
       "taste": "Earthy, warm and a little bitter",
       "cautions": [
-        {"severity": "avoid", "text": "Pregnancy: turmeric supplements may be unsafe. Food amounts are a different matter; ask your midwife or doctor. Nursing: little is known about more than food amounts."},
-        {"severity": "caution", "text": "Liver damage has been reported with curcumin products made to be better absorbed. If you notice tiredness, nausea, poor appetite, dark urine or yellow skin, stop and see your doctor."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "note", "text": "By mouth it can cause nausea, vomiting, reflux, an upset stomach, diarrhea or constipation. On the skin it can cause hives or itching."}
+        {"severity": "avoid", "text": "Pregnancy: turmeric supplements may be unsafe. Food amounts are a different matter; ask your midwife or doctor. Nursing: little is known about more than food amounts.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Liver damage has been reported with curcumin products made to be better absorbed. If you notice tiredness, nausea, poor appetite, dark urine or yellow skin, stop and see your doctor.", "src": ["nccih"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["nccih"]},
+        {"severity": "note", "text": "By mouth it can cause nausea, vomiting, reflux, an upset stomach, diarrhea or constipation. On the skin it can cause hives or itching.", "src": ["nccih"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "indigestion", "evidence": "not enough evidence", "needs": ["digestion"]},
-        {"for": "colds", "evidence": "not enough evidence", "needs": ["colds"]},
-        {"for": "joint pain", "evidence": "early positive evidence, for knee arthritis", "needs": []}
+        {"for": "indigestion", "evidence": "not enough evidence", "needs": ["digestion"], "src": ["nccih"]},
+        {"for": "colds", "evidence": "not enough evidence", "needs": ["colds"], "src": ["nccih"]},
+        {"for": "joint pain", "evidence": "early positive evidence, for knee arthritis", "needs": [], "src": ["nccih"]}
       ],
       "research": "Not enough is known to say whether turmeric or curcumin helps any condition. Early evidence for knee arthritis is positive but needs better studies.",
       "preparation": {
@@ -981,11 +1131,16 @@
         "tempF": 212,
         "steepMin": 10,
         "steepMax": 15,
-        "note": "Simmer gently, then strain."
+        "note": "Simmer gently, then strain.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Turmeric (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/turmeric", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Turmeric (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/turmeric", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "cinnamon",
@@ -997,17 +1152,17 @@
       "parts": "Bark",
       "taste": "Sweet and warm",
       "cautions": [
-        {"severity": "avoid", "text": "Pregnancy: food amounts seem safe, but larger amounts of Ceylon cinnamon are considered unsafe. Ask your midwife or doctor. Nursing: little is known about larger amounts."},
-        {"severity": "caution", "text": "Cassia cinnamon, the common kind in North America, can contain a lot of coumarin, which affects the liver. Long use may be a problem for people with liver disease."},
-        {"severity": "caution", "text": "In larger amounts or over a long time it can cause stomach problems or allergic reactions."},
-        {"severity": "caution", "text": "It might interact with a cancer medicine and with nicotine. Ask your doctor or pharmacist first if you take any medicine."},
-        {"severity": "caution", "text": "Never swallow a spoonful of the powder (the \"cinnamon challenge\"). Serious harm is possible."},
-        {"severity": "note", "text": "On the skin the oil or powder can cause irritation."}
+        {"severity": "avoid", "text": "Pregnancy: food amounts seem safe, but larger amounts of Ceylon cinnamon are considered unsafe. Ask your midwife or doctor. Nursing: little is known about larger amounts.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Cassia cinnamon, the common kind in North America, can contain a lot of coumarin, which affects the liver. Long use may be a problem for people with liver disease.", "src": ["nccih"]},
+        {"severity": "caution", "text": "In larger amounts or over a long time it can cause stomach problems or allergic reactions.", "src": ["nccih"]},
+        {"severity": "caution", "text": "It might interact with a cancer medicine and with nicotine. Ask your doctor or pharmacist first if you take any medicine.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Never swallow a spoonful of the powder (the \"cinnamon challenge\"). Serious harm is possible.", "src": ["nccih"]},
+        {"severity": "note", "text": "On the skin the oil or powder can cause irritation.", "src": ["nccih"]}
       ],
       "interactions": ["a cancer medicine", "nicotine"],
       "uses": [
-        {"for": "coughs", "evidence": "not studied enough", "needs": ["colds"]},
-        {"for": "blood sugar and weight", "evidence": "unclear", "needs": []}
+        {"for": "coughs", "evidence": "not studied enough", "needs": ["colds"], "src": ["nccih"]},
+        {"for": "blood sugar and weight", "evidence": "unclear", "needs": [], "src": ["nccih"]}
       ],
       "research": "Research doesn't clearly support using cinnamon for any health condition.",
       "preparation": {
@@ -1016,11 +1171,17 @@
         "tempF": 212,
         "steepMin": 10,
         "steepMax": 15,
-        "note": "Simmer gently, then strain."
+        "note": "Simmer gently, then strain.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Cinnamon (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/cinnamon", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Cinnamon (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/cinnamon", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "interactionsSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "raspberry-leaf",
@@ -1032,15 +1193,15 @@
       "parts": "Leaves",
       "taste": "Like a mild black tea",
       "cautions": [
-        {"severity": "caution", "text": "Pregnancy: it is traditionally drunk late in pregnancy to prepare for birth, and it may make the womb contract. There is too little research to call it safe: one small study saw no safety problems, but its authors warn that this is not proof of safety. Ask your midwife or doctor before using it."},
-        {"severity": "caution", "text": "Nursing: as a tea it is usually without side effects, but there is no information on safety while nursing. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."}
+        {"severity": "caution", "text": "Pregnancy: it is traditionally drunk late in pregnancy to prepare for birth, and it may make the womb contract. There is too little research to call it safe: one small study saw no safety problems, but its authors warn that this is not proof of safety. Ask your midwife or doctor before using it.", "src": ["pmc-PMC11034164", "pmc-PMC8811673"]},
+        {"severity": "caution", "text": "Nursing: as a tea it is usually without side effects, but there is no information on safety while nursing. Ask your midwife or doctor first.", "src": ["lactmed"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "preparing for childbirth, late in pregnancy", "evidence": "no research summary to cite", "needs": []},
-        {"for": "milk supply while nursing", "evidence": "no good studies", "needs": []}
+        {"for": "preparing for childbirth, late in pregnancy", "evidence": "no research summary to cite", "needs": [], "src": ["wikipedia"]},
+        {"for": "milk supply while nursing", "evidence": "no good studies", "needs": [], "src": ["lactmed"]}
       ],
       "research": "NCCIH has no page on it. LactMed finds no good studies on milk supply. For birth, one small study saw fewer labors needing to be sped up, but it cannot be relied on; a proper trial is needed.",
       "preparation": {
@@ -1049,14 +1210,19 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "LactMed (NICHD), Raspberry", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501785/", "retrieved": "2026-11-20"},
-        {"title": "Raspberry leaf (Rubus idaeus) use in pregnancy: a prospective observational study (BMC Complementary Medicine and Therapies, 2024)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11034164/", "retrieved": "2026-11-20", "license": "CC BY 4.0"},
-        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"},
-        {"title": "Wikipedia, Red raspberry leaf (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Red_raspberry_leaf&oldid=1334059217", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "lactmed", "title": "LactMed (NICHD), Raspberry", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501785/", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "pmc-PMC11034164", "title": "Raspberry leaf (Rubus idaeus) use in pregnancy: a prospective observational study (BMC Complementary Medicine and Therapies, 2024)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11034164/", "retrieved": "2026-11-20", "license": "cc-by-4.0"},
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"},
+        {"id": "wikipedia", "title": "Wikipedia, Red raspberry leaf (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Red_raspberry_leaf&oldid=1334059217", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["lactmed", "pmc-PMC11034164"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "yarrow",
@@ -1068,16 +1234,16 @@
       "parts": "Leaves and flowering tops",
       "taste": "Bitter and aromatic",
       "cautions": [
-        {"severity": "avoid", "text": "Pregnancy: don't use it. It is one of the herbs that stimulate the womb, which risks miscarriage or early birth. Ask your midwife or doctor."},
-        {"severity": "caution", "text": "Nursing: it is listed among herbs that may lower or stop milk supply. Ask your midwife or doctor before using it."},
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "When picking it, be sure of the plant: it looks a little like poison hemlock, which can kill."}
+        {"severity": "avoid", "text": "Pregnancy: don't use it. It is one of the herbs that stimulate the womb, which risks miscarriage or early birth. Ask your midwife or doctor.", "src": ["pmc-PMC8811673"]},
+        {"severity": "caution", "text": "Nursing: it is listed among herbs that may lower or stop milk supply. Ask your midwife or doctor before using it.", "src": ["pmc-PMC8811673"]},
+        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "caution", "text": "When picking it, be sure of the plant: it looks a little like poison hemlock, which can kill.", "src": ["wikipedia"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "head colds", "evidence": "no research summary to cite", "needs": ["colds"]},
-        {"for": "toothache and earache", "evidence": "no research summary to cite", "needs": []}
+        {"for": "head colds", "evidence": "no research summary to cite", "needs": ["colds"], "src": ["wikipedia"]},
+        {"for": "toothache and earache", "evidence": "no research summary to cite", "needs": [], "src": ["wikipedia"]}
       ],
       "research": "NCCIH has no page on it, and this book found no US government summary of the research, so it makes no claim about whether it helps.",
       "preparation": {
@@ -1086,12 +1252,17 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"},
-        {"title": "Wikipedia, Achillea millefolium (traditional use, preparation and the look-alike warning)", "url": "https://en.wikipedia.org/w/index.php?title=Achillea_millefolium&oldid=1383115478", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"},
+        {"id": "wikipedia", "title": "Wikipedia, Achillea millefolium (traditional use, preparation and the look-alike warning)", "url": "https://en.wikipedia.org/w/index.php?title=Achillea_millefolium&oldid=1383115478", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["editorial"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["wikipedia"]
     },
     {
       "id": "red-clover",
@@ -1103,14 +1274,14 @@
       "parts": "Flowers",
       "taste": "Mild and sweet, like hay",
       "cautions": [
-        {"severity": "avoid", "text": "Pregnancy and nursing: red clover supplements may be unsafe. Ask your midwife or doctor."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "note", "text": "It contains substances (isoflavones) built like estrogen. Extracts have been used in studies for up to 2 years with apparent safety."}
+        {"severity": "avoid", "text": "Pregnancy and nursing: red clover supplements may be unsafe. Ask your midwife or doctor.", "src": ["nccih"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["nccih"]},
+        {"severity": "note", "text": "It contains substances (isoflavones) built like estrogen. Extracts have been used in studies for up to 2 years with apparent safety.", "src": ["nccih"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "hot flashes", "evidence": "inconsistent results", "needs": []},
-        {"for": "cholesterol after menopause", "evidence": "may help; more research needed", "needs": []}
+        {"for": "hot flashes", "evidence": "inconsistent results", "needs": [], "src": ["nccih"]},
+        {"for": "cholesterol after menopause", "evidence": "may help; more research needed", "needs": [], "src": ["nccih"]}
       ],
       "research": "Research hasn't shown conclusive evidence of benefit for any health condition.",
       "preparation": {
@@ -1119,11 +1290,15 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Red Clover (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/red-clover", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Red Clover (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/red-clover", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"]
     },
     {
       "id": "burdock",
@@ -1135,14 +1310,14 @@
       "parts": "Root",
       "taste": "Earthy and sweet",
       "cautions": [
-        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "caution", "text": "When gathering it, be sure of the plant: burdock can be confused with rhubarb, whose leaves are poisonous."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."}
+        {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea.", "src": ["editorial"]},
+        {"severity": "caution", "text": "When gathering it, be sure of the plant: burdock can be confused with rhubarb, whose leaves are poisonous.", "src": ["wikipedia"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["editorial"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first.", "src": ["editorial"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "a root drink (dandelion and burdock)", "evidence": "no research summary to cite", "needs": []}
+        {"for": "a root drink (dandelion and burdock)", "evidence": "no research summary to cite", "needs": [], "src": ["wikipedia"]}
       ],
       "research": "NCCIH has no page on it, and this book found no US government summary of the research, so it makes no claim about whether it helps.",
       "preparation": {
@@ -1151,11 +1326,16 @@
         "tempF": 212,
         "steepMin": 10,
         "steepMax": 15,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "Wikipedia, Arctium lappa (traditional use, preparation and the look-alike warning)", "url": "https://en.wikipedia.org/w/index.php?title=Arctium_lappa&oldid=1375558472", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
-      ]
+        {"id": "wikipedia", "title": "Wikipedia, Arctium lappa (traditional use, preparation and the look-alike warning)", "url": "https://en.wikipedia.org/w/index.php?title=Arctium_lappa&oldid=1375558472", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+      ],
+      "researchSrc": ["editorial"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "hawthorn",
@@ -1167,15 +1347,15 @@
       "parts": "Leaves, flowers and berries",
       "taste": "Mild and a little fruity",
       "cautions": [
-        {"severity": "avoid", "text": "Don't take supplements labeled \"tejocote root\" (Mexican hawthorn). The FDA found some contain yellow oleander, a toxic plant, and warned they can cause severe harm or death."},
-        {"severity": "caution", "text": "Heart medicines: in one study a hawthorn preparation may have worsened heart failure, perhaps by interacting with the patients' medicines. If you have a heart condition or take any medicine, ask your doctor first."},
-        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe. Ask your midwife or doctor first."},
-        {"severity": "note", "text": "It has not been tested for more than 16 weeks. Side effects can include dizziness, nausea, vomiting, diarrhea and muscle pain."}
+        {"severity": "avoid", "text": "Don't take supplements labeled \"tejocote root\" (Mexican hawthorn). The FDA found some contain yellow oleander, a toxic plant, and warned they can cause severe harm or death.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Heart medicines: in one study a hawthorn preparation may have worsened heart failure, perhaps by interacting with the patients' medicines. If you have a heart condition or take any medicine, ask your doctor first.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe. Ask your midwife or doctor first.", "src": ["nccih"]},
+        {"severity": "note", "text": "It has not been tested for more than 16 weeks. Side effects can include dizziness, nausea, vomiting, diarrhea and muscle pain.", "src": ["nccih"]}
       ],
       "interactions": ["heart medicines"],
       "uses": [
-        {"for": "heart failure", "evidence": "conflicting evidence", "needs": []},
-        {"for": "anxiety", "evidence": "unclear", "needs": []}
+        {"for": "heart failure", "evidence": "conflicting evidence", "needs": [], "src": ["nccih"]},
+        {"for": "anxiety", "evidence": "unclear", "needs": [], "src": ["nccih"]}
       ],
       "research": "There is little or no good evidence on hawthorn for most conditions; the evidence on heart failure is conflicting.",
       "preparation": {
@@ -1184,11 +1364,17 @@
         "tempF": 212,
         "steepMin": 10,
         "steepMax": 15,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Hawthorn (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/hawthorn", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Hawthorn (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/hawthorn", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "interactionsSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "milk-thistle",
@@ -1200,17 +1386,17 @@
       "parts": "Seeds",
       "taste": "Mild, oily and a little bitter",
       "cautions": [
-        {"severity": "caution", "text": "Allergy: it may cause allergic reactions, especially in people allergic to ragweed, chrysanthemums, marigolds or daisies."},
-        {"severity": "caution", "text": "Supplements vary: some held much more or less silymarin than the label said, or were contaminated with pesticides, germs or mold poisons."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe. Ask your midwife or doctor first."},
-        {"severity": "note", "text": "It is usually well tolerated. The most common side effects are bloating, nausea and gas."}
+        {"severity": "caution", "text": "Allergy: it may cause allergic reactions, especially in people allergic to ragweed, chrysanthemums, marigolds or daisies.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Supplements vary: some held much more or less silymarin than the label said, or were contaminated with pesticides, germs or mold poisons.", "src": ["nccih"]},
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe. Ask your midwife or doctor first.", "src": ["nccih"]},
+        {"severity": "note", "text": "It is usually well tolerated. The most common side effects are bloating, nausea and gas.", "src": ["nccih"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "liver problems", "evidence": "conflicting or too few studies", "needs": []},
-        {"for": "blood sugar in type 2 diabetes", "evidence": "a few small studies", "needs": []},
-        {"for": "milk supply while nursing", "evidence": "unclear", "needs": []}
+        {"for": "liver problems", "evidence": "conflicting or too few studies", "needs": [], "src": ["nccih"]},
+        {"for": "blood sugar in type 2 diabetes", "evidence": "a few small studies", "needs": [], "src": ["nccih"]},
+        {"for": "milk supply while nursing", "evidence": "unclear", "needs": [], "src": ["nccih"]}
       ],
       "research": "There isn't enough good evidence to reach firm conclusions; trials for liver diseases have been conflicting or too limited.",
       "preparation": {
@@ -1219,11 +1405,16 @@
         "tempF": 212,
         "steepMin": 10,
         "steepMax": 15,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Milk Thistle (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/milk-thistle", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Milk Thistle (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/milk-thistle", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "feverfew",
@@ -1235,16 +1426,16 @@
       "parts": "Leaves",
       "taste": "Very bitter",
       "cautions": [
-        {"severity": "avoid", "text": "Pregnancy: don't take it. It may affect contractions of the womb. Ask your midwife or doctor."},
-        {"severity": "avoid", "text": "Before an operation: it may slow blood clotting; stop it at least 2 weeks before."},
-        {"severity": "caution", "text": "It may interact with some medicines, including migraine medicines. Ask your doctor or pharmacist first if you take any medicine."},
-        {"severity": "caution", "text": "Allergy: people sensitive to ragweed and related plants may react to it."},
-        {"severity": "caution", "text": "Nursing: little is known about whether it is safe. Ask your midwife or doctor first."},
-        {"severity": "note", "text": "Side effects can include nausea, digestive trouble and bloating. Chewing fresh leaves can cause mouth sores; on the skin it can cause a rash."}
+        {"severity": "avoid", "text": "Pregnancy: don't take it. It may affect contractions of the womb. Ask your midwife or doctor.", "src": ["nccih"]},
+        {"severity": "avoid", "text": "Before an operation: it may slow blood clotting; stop it at least 2 weeks before.", "src": ["nccih"]},
+        {"severity": "caution", "text": "It may interact with some medicines, including migraine medicines. Ask your doctor or pharmacist first if you take any medicine.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Allergy: people sensitive to ragweed and related plants may react to it.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Nursing: little is known about whether it is safe. Ask your midwife or doctor first.", "src": ["nccih"]},
+        {"severity": "note", "text": "Side effects can include nausea, digestive trouble and bloating. Chewing fresh leaves can cause mouth sores; on the skin it can cause a rash.", "src": ["nccih"]}
       ],
       "interactions": ["migraine medicines", "blood thinners"],
       "uses": [
-        {"for": "migraine", "evidence": "mixed results; some research suggests fewer migraines", "needs": ["headache"]}
+        {"for": "migraine", "evidence": "mixed results; some research suggests fewer migraines", "needs": ["headache"], "src": ["nccih"]}
       ],
       "research": "Some research suggests it may help prevent migraine headaches, but results have been mixed.",
       "preparation": {
@@ -1253,11 +1444,17 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Feverfew (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/feverfew", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Feverfew (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/feverfew", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "interactionsSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "ginkgo",
@@ -1269,16 +1466,16 @@
       "parts": "Leaves",
       "taste": "Grassy and a little bitter",
       "cautions": [
-        {"severity": "avoid", "text": "Don't take it with blood thinners such as warfarin: it may raise the risk of bleeding."},
-        {"severity": "avoid", "text": "Don't eat the seeds or the crude plant. Fresh seeds are toxic, and roasted seeds have caused serious harm."},
-        {"severity": "avoid", "text": "Pregnancy: it may be unsafe; near the birth it might bring on early labor or extra bleeding. Ask your midwife or doctor. Nursing: little is known."},
-        {"severity": "caution", "text": "It may interact with other medicines too. Ask your doctor or pharmacist first if you take any medicine."},
-        {"severity": "note", "text": "Leaf extract is usually well tolerated; the most common side effects are dizziness, stomach upset and headache."}
+        {"severity": "avoid", "text": "Don't take it with blood thinners such as warfarin: it may raise the risk of bleeding.", "src": ["nccih"]},
+        {"severity": "avoid", "text": "Don't eat the seeds or the crude plant. Fresh seeds are toxic, and roasted seeds have caused serious harm.", "src": ["nccih"]},
+        {"severity": "avoid", "text": "Pregnancy: it may be unsafe; near the birth it might bring on early labor or extra bleeding. Ask your midwife or doctor. Nursing: little is known.", "src": ["nccih"]},
+        {"severity": "caution", "text": "It may interact with other medicines too. Ask your doctor or pharmacist first if you take any medicine.", "src": ["nccih"]},
+        {"severity": "note", "text": "Leaf extract is usually well tolerated; the most common side effects are dizziness, stomach upset and headache.", "src": ["nccih"]}
       ],
       "interactions": ["blood thinners (warfarin)"],
       "uses": [
-        {"for": "memory", "evidence": "not shown to help", "needs": []},
-        {"for": "anxiety", "evidence": "a small amount of evidence, not conclusive", "needs": []}
+        {"for": "memory", "evidence": "not shown to help", "needs": [], "src": ["nccih"]},
+        {"for": "anxiety", "evidence": "a small amount of evidence, not conclusive", "needs": [], "src": ["nccih"]}
       ],
       "research": "There's no conclusive evidence that ginkgo helps any health condition; it did not prevent dementia in large studies.",
       "preparation": {
@@ -1287,11 +1484,17 @@
         "tempF": 212,
         "steepMin": 5,
         "steepMax": 10,
-        "note": "Leaves only, never the seeds."
+        "note": "Leaves only, never the seeds.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Ginkgo (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/ginkgo", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Ginkgo (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/ginkgo", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "interactionsSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "ginseng",
@@ -1303,16 +1506,16 @@
       "parts": "Root",
       "taste": "Bitter, then sweet",
       "cautions": [
-        {"severity": "avoid", "text": "Pregnancy: it may be unsafe; a substance in it has caused birth defects in animals. Some experts advise against it for infants, children, and anyone pregnant or nursing. Ask your midwife or doctor."},
-        {"severity": "caution", "text": "Diabetes: it might lower blood sugar. If you have diabetes, ask your doctor first."},
-        {"severity": "caution", "text": "It may worsen autoimmune disorders and interfere with blood clotting. It might interact with some medicines; ask your doctor or pharmacist first if you take any."},
-        {"severity": "caution", "text": "Rarely, it has caused a severe rash, liver damage or severe allergic reactions."},
-        {"severity": "note", "text": "Trouble sleeping is its most common side effect. Up to 6 months seems safe for most people; long-term safety is uncertain."}
+        {"severity": "avoid", "text": "Pregnancy: it may be unsafe; a substance in it has caused birth defects in animals. Some experts advise against it for infants, children, and anyone pregnant or nursing. Ask your midwife or doctor.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Diabetes: it might lower blood sugar. If you have diabetes, ask your doctor first.", "src": ["nccih"]},
+        {"severity": "caution", "text": "It may worsen autoimmune disorders and interfere with blood clotting. It might interact with some medicines; ask your doctor or pharmacist first if you take any.", "src": ["nccih"]},
+        {"severity": "caution", "text": "Rarely, it has caused a severe rash, liver damage or severe allergic reactions.", "src": ["nccih"]},
+        {"severity": "note", "text": "Trouble sleeping is its most common side effect. Up to 6 months seems safe for most people; long-term safety is uncertain.", "src": ["nccih"]}
       ],
       "interactions": ["diabetes medicines", "blood thinners"],
       "uses": [
-        {"for": "tiredness", "evidence": "a small effect in some studies", "needs": []},
-        {"for": "flu", "evidence": "a very small amount of early research", "needs": []}
+        {"for": "tiredness", "evidence": "a small effect in some studies", "needs": [], "src": ["nccih"]},
+        {"for": "flu", "evidence": "a very small amount of early research", "needs": [], "src": ["nccih"]}
       ],
       "research": "Most studies have been small and short. It may have a small effect on general tiredness; the research on other uses is inconclusive.",
       "preparation": {
@@ -1321,11 +1524,17 @@
         "tempF": 212,
         "steepMin": 10,
         "steepMax": 15,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Asian Ginseng (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/asian-ginseng", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Asian Ginseng (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/asian-ginseng", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih"],
+      "interactionsSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "green-tea",
@@ -1337,16 +1546,16 @@
       "parts": "Leaves",
       "taste": "Fresh and grassy; it turns bitter if steeped too hot or too long",
       "cautions": [
-        {"severity": "caution", "text": "It contains caffeine. For most adults the FDA cites 400 mg of caffeine a day (about two to three 12-ounce cups of coffee) as an amount not generally linked to harm. Too much can cause a racing heart, jitters, trouble sleeping, an upset stomach and headache."},
-        {"severity": "caution", "text": "Pregnancy: keep caffeine moderate, and ask your midwife or doctor about it. Nursing: caffeine passes into breast milk; a lot of it can make a baby fussy and sleep poorly. Low to moderate amounts usually cause no trouble."},
-        {"severity": "caution", "text": "In large amounts it lowers the effect of nadolol (a beta-blocker for blood pressure and the heart); extracts lower atorvastatin (a cholesterol medicine); and it interacts with raloxifene (a bone medicine). Ask your doctor or pharmacist first if you take any medicine."},
-        {"severity": "caution", "text": "Children: caffeinated drinks are best avoided under age 2."},
-        {"severity": "note", "text": "As a drink it has no reported safety concerns for adults. Rarely, liver injury has been reported, mostly with extract tablets and capsules."}
+        {"severity": "caution", "text": "It contains caffeine. For most adults the FDA cites 400 mg of caffeine a day (about two to three 12-ounce cups of coffee) as an amount not generally linked to harm. Too much can cause a racing heart, jitters, trouble sleeping, an upset stomach and headache.", "src": ["fda"]},
+        {"severity": "caution", "text": "Pregnancy: keep caffeine moderate, and ask your midwife or doctor about it. Nursing: caffeine passes into breast milk; a lot of it can make a baby fussy and sleep poorly. Low to moderate amounts usually cause no trouble.", "src": ["nccih", "fda"]},
+        {"severity": "caution", "text": "In large amounts it lowers the effect of nadolol (a beta-blocker for blood pressure and the heart); extracts lower atorvastatin (a cholesterol medicine); and it interacts with raloxifene (a bone medicine). Ask your doctor or pharmacist first if you take any medicine.", "src": ["nccih", "fda"]},
+        {"severity": "caution", "text": "Children: caffeinated drinks are best avoided under age 2.", "src": ["fda"]},
+        {"severity": "note", "text": "As a drink it has no reported safety concerns for adults. Rarely, liver injury has been reported, mostly with extract tablets and capsules.", "src": ["nccih", "fda"]}
       ],
       "interactions": ["beta-blockers (nadolol)", "statins (atorvastatin)", "raloxifene"],
       "uses": [
-        {"for": "cholesterol", "evidence": "a small reduction, mostly with extracts", "needs": []},
-        {"for": "weight", "evidence": "a modest effect at most", "needs": []}
+        {"for": "cholesterol", "evidence": "a small reduction, mostly with extracts", "needs": [], "src": ["nccih", "fda"]},
+        {"for": "weight", "evidence": "a modest effect at most", "needs": [], "src": ["nccih", "fda"]}
       ],
       "research": "Definite conclusions cannot yet be reached for most uses; it lowered cholesterol a little in studies, mostly of extracts.",
       "preparation": {
@@ -1355,12 +1564,18 @@
         "tempF": 175,
         "steepMin": 2,
         "steepMax": 3,
-        "note": "Water well off the boil; hotter water makes it bitter."
+        "note": "Water well off the boil; hotter water makes it bitter.",
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "NCCIH, Green Tea (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/green-tea", "retrieved": "2026-11-20"},
-        {"title": "FDA, Spilling the Beans: How Much Caffeine is Too Much?", "url": "https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Green Tea (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/green-tea", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "fda", "title": "FDA, Spilling the Beans: How Much Caffeine is Too Much?", "url": "https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih", "fda"],
+      "interactionsSrc": ["nccih"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["nccih"]
     },
     {
       "id": "black-tea",
@@ -1372,15 +1587,15 @@
       "parts": "Leaves",
       "taste": "Strong, malty and a little astringent",
       "cautions": [
-        {"severity": "caution", "text": "It contains caffeine. For most adults the FDA cites 400 mg of caffeine a day (about two to three 12-ounce cups of coffee) as an amount not generally linked to harm. Too much can cause a racing heart, jitters, trouble sleeping, an upset stomach and headache."},
-        {"severity": "caution", "text": "Pregnancy and nursing: ask your midwife or doctor whether you should limit caffeine. Caffeine passes into breast milk; a lot of it can make a baby fussy and sleep poorly."},
-        {"severity": "caution", "text": "Children: caffeinated drinks are best avoided under age 2."},
-        {"severity": "caution", "text": "Some medicines and conditions make people more sensitive to caffeine. Ask your doctor or pharmacist if you take any medicine."},
-        {"severity": "note", "text": "Caffeine in usual amounts has not been linked to liver harm."}
+        {"severity": "caution", "text": "It contains caffeine. For most adults the FDA cites 400 mg of caffeine a day (about two to three 12-ounce cups of coffee) as an amount not generally linked to harm. Too much can cause a racing heart, jitters, trouble sleeping, an upset stomach and headache.", "src": ["fda"]},
+        {"severity": "caution", "text": "Pregnancy and nursing: ask your midwife or doctor whether you should limit caffeine. Caffeine passes into breast milk; a lot of it can make a baby fussy and sleep poorly.", "src": ["fda", "lactmed"]},
+        {"severity": "caution", "text": "Children: caffeinated drinks are best avoided under age 2.", "src": ["fda"]},
+        {"severity": "caution", "text": "Some medicines and conditions make people more sensitive to caffeine. Ask your doctor or pharmacist if you take any medicine.", "src": ["fda"]},
+        {"severity": "note", "text": "Caffeine in usual amounts has not been linked to liver harm.", "src": ["livertox"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "an everyday drink", "evidence": "no research summary to cite", "needs": []}
+        {"for": "an everyday drink", "evidence": "no research summary to cite", "needs": [], "src": ["editorial"]}
       ],
       "research": "NCCIH has no page on black tea. This book makes no claim that it helps any condition; the cautions are about its caffeine.",
       "preparation": {
@@ -1389,13 +1604,18 @@
         "tempF": 212,
         "steepMin": 3,
         "steepMax": 5,
-        "note": null
+        "note": null,
+        "src": ["kitchen"]
       },
       "sources": [
-        {"title": "FDA, Spilling the Beans: How Much Caffeine is Too Much?", "url": "https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much", "retrieved": "2026-11-20"},
-        {"title": "LactMed (NICHD), Caffeine", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501467/", "retrieved": "2026-11-20"},
-        {"title": "LiverTox (NIDDK), Caffeine", "url": "https://www.ncbi.nlm.nih.gov/books/NBK559835/", "retrieved": "2026-11-20"}
-      ]
+        {"id": "fda", "title": "FDA, Spilling the Beans: How Much Caffeine is Too Much?", "url": "https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "lactmed", "title": "LactMed (NICHD), Caffeine", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501467/", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "livertox", "title": "LiverTox (NIDDK), Caffeine", "url": "https://www.ncbi.nlm.nih.gov/books/NBK559835/", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["editorial"],
+      "tasteSrc": ["kitchen"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "pennyroyal",
@@ -1408,20 +1628,24 @@
       "parts": "Leaves; the oil comes from them",
       "taste": null,
       "cautions": [
-        {"severity": "avoid", "text": "Don't take pennyroyal oil by mouth in any amount. Even a tablespoon has killed people."},
-        {"severity": "avoid", "text": "Pregnancy: never use it. It has been taken to end pregnancies, and the amounts used can kill. Ask your midwife or doctor about anything you have already taken."},
-        {"severity": "caution", "text": "The tea and leaf have been used without serious harm, but they hold the same poison (pulegone) as the oil. This book does not recommend them."}
+        {"severity": "avoid", "text": "Don't take pennyroyal oil by mouth in any amount. Even a tablespoon has killed people.", "src": ["livertox"]},
+        {"severity": "avoid", "text": "Pregnancy: never use it. It has been taken to end pregnancies, and the amounts used can kill. Ask your midwife or doctor about anything you have already taken.", "src": ["livertox"]},
+        {"severity": "caution", "text": "The tea and leaf have been used without serious harm, but they hold the same poison (pulegone) as the oil. This book does not recommend them.", "src": ["livertox"]}
       ],
       "interactions": [],
       "uses": [
-        {"for": "keeping insects away", "evidence": "not a reason to take it", "needs": []},
-        {"for": "bringing on a period", "evidence": "not a reason to take it", "needs": []}
+        {"for": "keeping insects away", "evidence": "not a reason to take it", "needs": [], "src": ["livertox"]},
+        {"for": "bringing on a period", "evidence": "not a reason to take it", "needs": [], "src": ["livertox"]}
       ],
       "research": "Whatever it was used for, the oil is not safe to take by mouth.",
       "preparation": null,
       "sources": [
-        {"title": "LiverTox (NIDDK), Pennyroyal Oil", "url": "https://www.ncbi.nlm.nih.gov/books/NBK548673/", "retrieved": "2026-11-20"}
-      ]
+        {"id": "livertox", "title": "LiverTox (NIDDK), Pennyroyal Oil", "url": "https://www.ncbi.nlm.nih.gov/books/NBK548673/", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["livertox"],
+      "dontUseReasonSrc": ["livertox"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "kava",
@@ -1434,21 +1658,26 @@
       "parts": "Root",
       "taste": null,
       "cautions": [
-        {"severity": "avoid", "text": "Don't take kava, as a drink, a supplement or in any other form."},
-        {"severity": "avoid", "text": "Don't take it with alcohol or with sedatives (such as benzodiazepines)."},
-        {"severity": "avoid", "text": "Pregnancy and nursing: it may carry special risks then. Don't use it. Ask your midwife or doctor about anything you have already taken."},
-        {"severity": "note", "text": "Other side effects include upset stomach, headache and dizziness; long, heavy use can cause dry, scaly, yellowed skin."}
+        {"severity": "avoid", "text": "Don't take kava, as a drink, a supplement or in any other form.", "src": ["nccih", "livertox"]},
+        {"severity": "avoid", "text": "Don't take it with alcohol or with sedatives (such as benzodiazepines).", "src": ["nccih", "livertox"]},
+        {"severity": "avoid", "text": "Pregnancy and nursing: it may carry special risks then. Don't use it. Ask your midwife or doctor about anything you have already taken.", "src": ["nccih", "livertox"]},
+        {"severity": "note", "text": "Other side effects include upset stomach, headache and dizziness; long, heavy use can cause dry, scaly, yellowed skin.", "src": ["nccih", "livertox"]}
       ],
       "interactions": ["alcohol", "sedatives (benzodiazepines)"],
       "uses": [
-        {"for": "anxiety", "evidence": "not a reason to take it", "needs": []}
+        {"for": "anxiety", "evidence": "not a reason to take it", "needs": [], "src": ["nccih", "livertox"]}
       ],
       "research": "Kava supplements may help anxiety, but the risk to the liver outweighs that.",
       "preparation": null,
       "sources": [
-        {"title": "NCCIH, Kava (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/kava", "retrieved": "2026-11-20"},
-        {"title": "LiverTox (NIDDK), Kava Kava", "url": "https://www.ncbi.nlm.nih.gov/books/NBK548637/", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Kava (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/kava", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "livertox", "title": "LiverTox (NIDDK), Kava Kava", "url": "https://www.ncbi.nlm.nih.gov/books/NBK548637/", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih", "livertox"],
+      "dontUseReasonSrc": ["nccih", "livertox"],
+      "interactionsSrc": ["nccih"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     },
     {
       "id": "ephedra",
@@ -1461,22 +1690,27 @@
       "parts": "Stems",
       "taste": null,
       "cautions": [
-        {"severity": "avoid", "text": "Don't take ephedra in any form. Supplements containing it are banned in the US."},
-        {"severity": "avoid", "text": "Pregnancy, nursing and children: it is considered unsafe. Ask your midwife or doctor about anything you have already taken."},
-        {"severity": "avoid", "text": "It is especially risky for people with heart or blood vessel disease, and with other stimulants such as caffeine."},
-        {"severity": "note", "text": "It can also cause anxiety, dizziness, dry mouth, headache, heartburn, sleeplessness, irritability and nausea."}
+        {"severity": "avoid", "text": "Don't take ephedra in any form. Supplements containing it are banned in the US.", "src": ["nccih", "livertox"]},
+        {"severity": "avoid", "text": "Pregnancy, nursing and children: it is considered unsafe. Ask your midwife or doctor about anything you have already taken.", "src": ["nccih", "livertox"]},
+        {"severity": "avoid", "text": "It is especially risky for people with heart or blood vessel disease, and with other stimulants such as caffeine.", "src": ["nccih", "livertox"]},
+        {"severity": "note", "text": "It can also cause anxiety, dizziness, dry mouth, headache, heartburn, sleeplessness, irritability and nausea.", "src": ["nccih", "livertox"]}
       ],
       "interactions": ["stimulants (caffeine)"],
       "uses": [
-        {"for": "weight loss", "evidence": "not a reason to take it", "needs": []},
-        {"for": "asthma", "evidence": "not a reason to take it", "needs": []}
+        {"for": "weight loss", "evidence": "not a reason to take it", "needs": [], "src": ["nccih", "livertox"]},
+        {"for": "asthma", "evidence": "not a reason to take it", "needs": [], "src": ["nccih", "livertox"]}
       ],
       "research": "Before the ban, research showed a small short-term effect on weight, far outweighed by its risks.",
       "preparation": null,
       "sources": [
-        {"title": "NCCIH, Ephedra (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/ephedra", "retrieved": "2026-11-20"},
-        {"title": "LiverTox (NIDDK), Ephedra", "url": "https://www.ncbi.nlm.nih.gov/books/NBK548711/", "retrieved": "2026-11-20"}
-      ]
+        {"id": "nccih", "title": "NCCIH, Ephedra (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/ephedra", "retrieved": "2026-11-20", "license": "public-domain"},
+        {"id": "livertox", "title": "LiverTox (NIDDK), Ephedra", "url": "https://www.ncbi.nlm.nih.gov/books/NBK548711/", "retrieved": "2026-11-20", "license": "public-domain"}
+      ],
+      "researchSrc": ["nccih", "livertox"],
+      "dontUseReasonSrc": ["nccih", "livertox"],
+      "interactionsSrc": ["nccih"],
+      "partsSrc": ["kitchen"],
+      "alsoCalledSrc": ["kitchen"]
     }
   ]
 }

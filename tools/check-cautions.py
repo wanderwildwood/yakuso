@@ -16,6 +16,10 @@ Exits 1 and says what is wrong when any herb:
     that names it, or a caution that names it beside "don't", "never", "avoid", "unsafe" and the like
   - is tagged "pregnancy" (or "nursing") without a caution that names it and says to ask a
     midwife or doctor
+  - has a source without an id or with a license outside public-domain, cc-by-3.0, cc-by-4.0,
+    cc-by-sa-4.0 and none, or a text line (caution, use, research, preparation, taste, parts,
+    also-called, interactions, don't-use reason) that doesn't name, in "src" or its field's
+    "...Src", the sources it came from: ids of the entry's sources or of "sharedSources"
 
 Default path: app/src/main/assets/herbs.json, next to this folder.
 """
@@ -28,6 +32,12 @@ SEVERITIES = {"avoid", "caution", "note"}
 FORBIDDEN = re.compile(r"\b(cure[sd]?|curing|treats?|treated)\b", re.IGNORECASE)
 PREGNANCY = re.compile(r"\b(pregnan\w*|nursing|breastfeed\w*)\b", re.IGNORECASE)
 ASK = re.compile(r"\bmidwife\b|\bdoctor\b", re.IGNORECASE)
+LICENSES = {"public-domain", "cc-by-3.0", "cc-by-4.0", "cc-by-sa-4.0", "none"}
+# A text field of an entry and the field naming its sources.
+SOURCED_FIELDS = {
+    "research": "researchSrc", "dontUseReason": "dontUseReasonSrc", "taste": "tasteSrc",
+    "parts": "partsSrc", "alsoCalled": "alsoCalledSrc", "interactions": "interactionsSrc",
+}
 NEEDS = {"sleep", "calm", "digestion", "colds", "sore-throat", "nausea", "headache", "period-cramps", "pregnancy", "nursing"}
 STATES = {
     "pregnancy": re.compile(r"\bpregnan\w*", re.IGNORECASE),
@@ -50,6 +60,45 @@ def strings(value):
             yield from strings(v)
 
 
+def source_problems(book, herb, hid):
+    """Every source has an id and a known license; every text line names sources that exist."""
+    out = []
+    shared = book.get("sharedSources") or {}
+    for sid, s in shared.items():
+        if s.get("license") not in LICENSES:
+            out.append(f"shared source {sid}: license {s.get('license')!r} is not one of {sorted(LICENSES)}")
+    ids = set()
+    for s in herb.get("sources") or []:
+        sid = s.get("id")
+        if not sid:
+            out.append(f"{hid}: a source has no id ({s.get('title')})")
+        elif sid in ids:
+            out.append(f"{hid}: the source id {sid!r} is used twice")
+        ids.add(sid)
+        if s.get("license") not in LICENSES:
+            out.append(f"{hid}: source {sid or s.get('title')!r} has license {s.get('license')!r}")
+    known = ids | set(shared)
+
+    def check(what, src):
+        if not isinstance(src, list) or not src:
+            out.append(f"{hid}: {what} names no source")
+            return
+        for i in src:
+            if i not in known:
+                out.append(f"{hid}: {what} names {i!r}, which is not one of its sources")
+
+    for c in herb.get("cautions") or []:
+        check(f"caution \"{(c.get('text') or '')[:40]}\"", c.get("src"))
+    for u in herb.get("uses") or []:
+        check(f"use \"{u.get('for')}\"", u.get("src"))
+    for field, src_field in SOURCED_FIELDS.items():
+        if herb.get(field):
+            check(field, herb.get(src_field))
+    if herb.get("preparation"):
+        check("preparation", herb["preparation"].get("src"))
+    return out
+
+
 def problems(book):
     out = []
     seen = set()
@@ -64,6 +113,7 @@ def problems(book):
         if not herb.get("name"):
             out.append(f"{hid}: no name")
 
+        out.extend(source_problems(book, herb, hid))
         sources = herb.get("sources") or []
         if not sources:
             out.append(f"{hid}: no source")
@@ -114,7 +164,7 @@ def problems(book):
                 out.append(f"{hid}: a don't-use entry has no reason")
         elif not herb.get("preparation"):
             out.append(f"{hid}: no preparation")
-    return out
+    return list(dict.fromkeys(out))  # a shared source's problem once, not once per herb
 
 
 def main():
