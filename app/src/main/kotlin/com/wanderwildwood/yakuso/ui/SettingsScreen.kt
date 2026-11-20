@@ -93,21 +93,46 @@ private suspend fun export(context: Context, db: HerbalDatabase, uri: Uri): Stri
 private suspend fun import(context: Context, db: HerbalDatabase, uri: Uri): String {
     val text = try {
         withContext(Dispatchers.IO) {
-            context.contentResolver.openInputStream(uri)!!.use { it.readBytes().toString(Charsets.UTF_8) }
+            context.contentResolver.openInputStream(uri)!!.use { input ->
+                // Read at most one byte past the cap: a bigger file is not a copy from this app,
+                // and reading all of it could run the phone out of memory.
+                // (InputStream.readNBytes is API 33; the Kompakt is 31.)
+                val bytes = readAtMost(input, Backup.MAX_BYTES + 1)
+                if (bytes.size > Backup.MAX_BYTES) null else bytes.toString(Charsets.UTF_8)
+            }
         }
     } catch (e: Exception) {
         return context.getString(R.string.import_could_not_open)
-    }
+    } ?: return context.getString(R.string.import_too_big)
     val contents = try {
         Backup.decode(text)
     } catch (e: Backup.NotABackup) {
         return context.getString(R.string.import_not_a_backup)
     }
-    val r = Backup.restore(db, contents)
+    val r = try {
+        Backup.restore(db, contents)
+    } catch (e: Exception) {
+        // One transaction: when it fails, nothing from the file was kept.
+        return context.getString(R.string.import_failed)
+    }
     return when {
         r.added == 0 && r.alreadyHere == 0 -> context.getString(R.string.import_nothing)
         r.added == 0 -> context.getString(R.string.import_all_here)
         else -> context.resources.getQuantityString(R.plurals.import_added, r.added, r.added) +
             (if (r.alreadyHere > 0) context.getString(R.string.import_already_here, r.alreadyHere) else "")
     }
+}
+
+/** Up to [limit] bytes of [input], fewer when it ends first. */
+internal fun readAtMost(input: java.io.InputStream, limit: Long): ByteArray {
+    val out = java.io.ByteArrayOutputStream()
+    val buf = ByteArray(8192)
+    var total = 0L
+    while (total < limit) {
+        val n = input.read(buf, 0, minOf(buf.size.toLong(), limit - total).toInt())
+        if (n < 0) break
+        out.write(buf, 0, n)
+        total += n
+    }
+    return out.toByteArray()
 }

@@ -40,4 +40,7 @@ class EntriesTest {
         assertEquals("ginger", herbNamed(herbs, " ginger ")?.id)
         assertNull(herbNamed(herbs, "my own blend"))
     }
+
+    @Test fun aDayNoCalendarHoldsShowsAsItsNumber() =
+        assertEquals("1000000000000000", dayText(1_000_000_000_000_000L))
 }

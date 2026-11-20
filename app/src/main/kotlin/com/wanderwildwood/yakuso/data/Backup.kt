@@ -1,6 +1,8 @@
 package com.wanderwildwood.yakuso.data
 
 import androidx.room.withTransaction
+import com.wanderwildwood.yakuso.timer.BrewMath
+import java.time.LocalDate
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -64,6 +66,17 @@ object Backup {
         }))
         .toString(2)
 
+    /** Days from 1900 to 2200: anything outside is not a date this app wrote. */
+    private val SENSIBLE_DAYS = LocalDate.of(1900, 1, 1).toEpochDay()..LocalDate.of(2200, 1, 1).toEpochDay()
+
+    /** The longest steep the journal's own field can hold (999:59). */
+    const val MAX_STEEP_SECONDS = 999 * 60 + 59
+
+    /** The largest file read back in; a real one is a few kilobytes. */
+    const val MAX_BYTES = 5L * 1024 * 1024
+
+    private fun sensibleDay(day: Long) = day in SENSIBLE_DAYS
+
     /** Reads a whole file before anything is written, so a bad one changes nothing. */
     fun decode(text: String): Contents {
         val root = try {
@@ -78,10 +91,10 @@ object Backup {
                 journal = root.objects("journal").map { o ->
                     JournalEntry(
                         uuid = o.getString("uuid"),
-                        day = o.getLong("day"),
+                        day = o.getLong("day").also { if (!sensibleDay(it)) throw NotABackup("a date is out of range") },
                         herbId = o.text("herbId"),
                         name = o.getString("name"),
-                        steepSeconds = o.int("steepSeconds"),
+                        steepSeconds = o.int("steepSeconds")?.takeIf { it in 1..MAX_STEEP_SECONDS },
                         note = o.optString("note"),
                         rating = o.int("rating")?.takeIf { it in 1..5 },
                         updatedAt = o.optLong("updatedAt"),
@@ -92,18 +105,19 @@ object Backup {
                         uuid = o.getString("uuid"),
                         herbId = o.text("herbId"),
                         name = o.getString("name"),
-                        boughtDay = if (o.isNull("boughtDay")) null else o.getLong("boughtDay"),
+                        boughtDay = if (o.isNull("boughtDay")) null else o.getLong("boughtDay")
+                            .also { if (!sensibleDay(it)) throw NotABackup("a date is out of range") },
                         runningLow = o.optBoolean("runningLow"),
                         updatedAt = o.optLong("updatedAt"),
                     )
                 },
                 presets = root.objects("presets").map { o ->
-                    val f = o.int("tempF")
-                    val c = o.int("tempC")
+                    val f = o.int("tempF")?.takeIf { it in 32..212 }
+                    val c = o.int("tempC")?.takeIf { it in 0..100 }
                     OwnPreset(
                         uuid = o.getString("uuid"),
                         name = o.getString("name"),
-                        seconds = o.getInt("seconds"),
+                        seconds = o.getInt("seconds").coerceIn(BrewMath.MIN_SECONDS, BrewMath.MAX_SECONDS),
                         tempF = if (f != null && c != null) f else null,
                         tempC = if (f != null && c != null) c else null,
                         updatedAt = o.optLong("updatedAt"),

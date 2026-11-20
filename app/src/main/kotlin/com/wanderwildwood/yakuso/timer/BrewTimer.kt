@@ -71,8 +71,20 @@ object BrewTimer {
         }
         save(context, b.copy(finishedAt = now))
         Log.i(TAG, "brew done at $now (due ${b.endAt})")
-        Ringing.ring(context, b)
+        if (isStale(b.endAt, now)) {
+            // Long past (the phone was off, or the app gone and opened again much later): a
+            // full ring now would be for tea gone cold. It says so quietly instead.
+            Ringing.channels(context)
+            Ringing.post(context, Ringing.READY_ID, Ringing.ready(context, b.copy(finishedAt = b.endAt)))
+        } else {
+            Ringing.ring(context, b)
+        }
     }
+
+    /** How late a brew may ring out loud; later than this it only says it was ready. */
+    const val STALE_MS = 5 * 60_000L
+
+    internal fun isStale(endAt: Long, now: Long): Boolean = now - endAt > STALE_MS
 
     /**
      * Opening the app sets the alarm again, so one dropped by a force-stop, an update or exact
@@ -161,12 +173,14 @@ class BrewReceiver : BroadcastReceiver() {
 }
 
 /**
- * An update of this app, and exact alarms being allowed again, both clear the alarm: each sets
- * it again from what is stored, and a brew whose end passed meanwhile rings now.
+ * A restart of the phone, an update of this app, and exact alarms being allowed again all clear
+ * the alarm: each sets it again from what is stored. A brew whose end passed meanwhile rings now,
+ * or, when it is long past, only says quietly that it was ready.
  */
 class SystemReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         when (intent.action) {
+            Intent.ACTION_BOOT_COMPLETED,
             Intent.ACTION_MY_PACKAGE_REPLACED,
             AlarmManager.ACTION_SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED,
             -> BrewTimer.resync(context)

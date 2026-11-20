@@ -20,7 +20,6 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -39,7 +38,6 @@ import com.wanderwildwood.yakuso.data.JournalEntry
 import com.wanderwildwood.yakuso.herbs.Herb
 import com.wanderwildwood.yakuso.timer.BrewMath
 import com.wanderwildwood.yakuso.timer.BrewTimer
-import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.util.UUID
 
@@ -101,7 +99,6 @@ private fun journalLine(e: JournalEntry): String = listOfNotNull(
 fun JournalEntryScreen(id: Long?, fromBrew: Boolean, herbs: List<Herb>, onDone: () -> Unit) {
     val context = LocalContext.current
     val db = remember { HerbalDatabase.get(context) }
-    val scope = rememberCoroutineScope()
 
     var loaded by rememberSaveable { mutableStateOf(id == null) }
     var uuid by rememberSaveable { mutableStateOf(UUID.randomUUID().toString()) }
@@ -143,7 +140,7 @@ fun JournalEntryScreen(id: Long?, fromBrew: Boolean, herbs: List<Herb>, onDone: 
             rating = rating.takeIf { it in 1..5 },
             updatedAt = System.currentTimeMillis(),
         )
-        scope.launch { if (id == null) db.journal().insert(entry) else db.journal().update(entry) }
+        HerbalDatabase.write(context) { if (id == null) journal().insert(entry) else journal().update(entry) }
     }
 
     val leave = { keep(); onDone() }
@@ -214,7 +211,7 @@ fun JournalEntryScreen(id: Long?, fromBrew: Boolean, herbs: List<Herb>, onDone: 
                             armed = delete.on,
                         ) {
                             delete.press {
-                                scope.launch { db.journal().delete(id) }
+                                HerbalDatabase.write(context) { journal().delete(id) }
                                 onDone()
                             }
                         }

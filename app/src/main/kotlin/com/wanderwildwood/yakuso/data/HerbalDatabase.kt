@@ -6,6 +6,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 
 /**
  * The journal, the cupboard and the person's own timer settings. The herb book is not in here:
@@ -39,6 +44,17 @@ abstract class HerbalDatabase : RoomDatabase() {
             instance ?: synchronized(this) {
                 instance ?: build(context.applicationContext).also { instance = it }
             }
+
+        /**
+         * Saves and deletes run here, not in a screen's scope: a screen that closes right after
+         * "Done" or "Delete" would cancel its own scope and could drop the write.
+         */
+        private val writes = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+
+        fun write(context: Context, block: suspend HerbalDatabase.() -> Unit): Job {
+            val db = get(context)
+            return writes.launch { db.block() }
+        }
 
         /** Tests only: closes and forgets the open database. */
         @VisibleForTesting

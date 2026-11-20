@@ -78,7 +78,12 @@ fun TimerScreen(onAddToJournal: () -> Unit, onBack: () -> Unit) {
         while (b.running) {
             now = System.currentTimeMillis()
             val left = b.endAt - now
-            if (left <= 0) break
+            if (left <= 0) {
+                // The alarm may come late (exact alarms not allowed): a screen showing 0:00
+                // rings itself. fire() does nothing when the alarm got there first.
+                BrewTimer.fire(context)
+                break
+            }
             delay(BrewMath.nextRedrawMs(left))
         }
         now = System.currentTimeMillis()
@@ -186,7 +191,7 @@ fun TimerScreen(onAddToJournal: () -> Unit, onBack: () -> Unit) {
                                 val id = p.ownId ?: return@PresetRow
                                 if (armedId == id) {
                                     armedId = null
-                                    scope.launch { db.presets().delete(id) }
+                                    HerbalDatabase.write(context) { presets().delete(id) }
                                 } else armedId = id
                             },
                             onPick = {

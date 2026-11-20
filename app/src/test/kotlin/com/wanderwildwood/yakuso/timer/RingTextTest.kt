@@ -21,4 +21,11 @@ class RingTextTest {
         assertEquals("Chamomile, 4 min", text(240))
         assertEquals("Chamomile, 4:30 min", text(270))
     }
+
+    @Test fun aBrewLongPastIsStaleOneJustDoneIsNot() {
+        val end = 1_000_000L
+        assertEquals(false, BrewTimer.isStale(end, end + 60_000))
+        assertEquals(false, BrewTimer.isStale(end, end + BrewTimer.STALE_MS))
+        assertEquals(true, BrewTimer.isStale(end, end + BrewTimer.STALE_MS + 1))
+    }
 }

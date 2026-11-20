@@ -29,7 +29,8 @@ import java.util.Locale
 
 /** "Fri, Nov 20" this year, "Nov 20, 2025" before it. */
 internal fun dayText(epochDay: Long, today: LocalDate = LocalDate.now()): String {
-    val d = LocalDate.ofEpochDay(epochDay)
+    // A day no calendar can hold (only a damaged row could have one) shows as its number, not a crash.
+    val d = runCatching { LocalDate.ofEpochDay(epochDay) }.getOrNull() ?: return epochDay.toString()
     val pattern = if (d.year == today.year) "EEE, MMM d" else "MMM d, yyyy"
     return d.format(DateTimeFormatter.ofPattern(pattern, Locale.US))
 }

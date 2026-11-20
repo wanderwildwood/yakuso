@@ -10,7 +10,7 @@ this file changes in the same commit as the code that changed it.
 **There is no `INTERNET` permission**, so Android gives the app no way to reach the network.
 The herb book is inside the APK.
 
-The manifest asks for four permissions, all for the brew timer, so that it rings on time with
+The manifest asks for five permissions, all for the brew timer, so that it rings on time with
 the screen off and the app put away:
 
 - `SCHEDULE_EXACT_ALARM`: the alarm goes off at the second the brew is done, not minutes later.
@@ -18,6 +18,8 @@ the screen off and the app put away:
 - `FOREGROUND_SERVICE`: the ring is played by a service that runs only while it rings, for up to
   a minute, and shows that notification while it does.
 - `WAKE_LOCK`: keeps the phone awake for that minute, so the sound is not cut off.
+- `RECEIVE_BOOT_COMPLETED`: a restart of the phone clears every alarm, so the app sets a
+  running brew's alarm again when the phone starts. It does nothing when no brew is running.
 
 None of them reads or sends anything.
 
@@ -46,7 +48,7 @@ Square, not by this app.
 ## Verifying this yourself
 
 - The source is at this repository, and each release is tagged.
-- `grep -r uses-permission app/src/main/AndroidManifest.xml` shows the four above, and no
+- `grep -r uses-permission app/src/main/AndroidManifest.xml` shows the five above, and no
   `INTERNET`.
 - Any APK can be checked with `aapt dump permissions` or by opening it as a zip.
 - There is no network code at all. `grep -rnE "URL\(|Socket|HttpURLConnection" app/src`

@@ -18,7 +18,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -32,7 +31,6 @@ import com.wanderwildwood.yakuso.R
 import com.wanderwildwood.yakuso.data.CupboardItem
 import com.wanderwildwood.yakuso.data.HerbalDatabase
 import com.wanderwildwood.yakuso.herbs.Herb
-import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.util.UUID
 
@@ -86,7 +84,6 @@ private fun cupboardRowLine(i: CupboardItem): String? = listOfNotNull(
 fun CupboardItemScreen(id: Long?, herbs: List<Herb>, onDone: () -> Unit) {
     val context = LocalContext.current
     val db = remember { HerbalDatabase.get(context) }
-    val scope = rememberCoroutineScope()
 
     var loaded by rememberSaveable { mutableStateOf(id == null) }
     var uuid by rememberSaveable { mutableStateOf(UUID.randomUUID().toString()) }
@@ -117,7 +114,7 @@ fun CupboardItemScreen(id: Long?, herbs: List<Herb>, onDone: () -> Unit) {
             runningLow = low,
             updatedAt = System.currentTimeMillis(),
         )
-        scope.launch { if (id == null) db.cupboard().insert(item) else db.cupboard().update(item) }
+        HerbalDatabase.write(context) { if (id == null) cupboard().insert(item) else cupboard().update(item) }
     }
 
     val leave = { keep(); onDone() }
@@ -169,7 +166,7 @@ fun CupboardItemScreen(id: Long?, herbs: List<Herb>, onDone: () -> Unit) {
                             armed = delete.on,
                         ) {
                             delete.press {
-                                scope.launch { db.cupboard().delete(id) }
+                                HerbalDatabase.write(context) { cupboard().delete(id) }
                                 onDone()
                             }
                         }

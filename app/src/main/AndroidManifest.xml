@@ -17,6 +17,8 @@
          and keeps the phone awake that long. -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- A restart clears every alarm: this sets a running brew's alarm again. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <queries>
         <!-- Home, whose dark mode switch this app follows when Home is installed. -->
@@ -76,11 +78,12 @@
             android:name=".timer.BrewReceiver"
             android:exported="false" />
 
-        <!-- An update, or exact alarms allowed again: the brew's alarm is set again. -->
+        <!-- A restart, an update, or exact alarms allowed again: the brew's alarm is set again. -->
         <receiver
             android:name=".timer.SystemReceiver"
             android:exported="false">
             <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
                 <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
             </intent-filter>
