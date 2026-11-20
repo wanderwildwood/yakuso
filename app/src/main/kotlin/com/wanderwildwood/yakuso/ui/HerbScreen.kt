@@ -41,7 +41,6 @@ fun HerbScreen(herb: Herb, onBack: () -> Unit) {
         interactsWith = stringResource(R.string.herb_interacts_with),
         askPharmacist = stringResource(R.string.herb_ask_pharmacist),
         avoid = stringResource(R.string.severity_avoid),
-        caution = stringResource(R.string.severity_caution),
         note = stringResource(R.string.severity_note),
         traditionally = stringResource(R.string.herb_traditionally),
         research = stringResource(R.string.herb_research),
@@ -68,7 +67,7 @@ fun HerbScreen(herb: Herb, onBack: () -> Unit) {
             SelectionContainer(Modifier.textActions()) {
                 PagedColumn(
                     state = rememberLazyListState(),
-                    contentPadding = PaddingValues(start = 20.dp, end = 12.dp, top = 8.dp, bottom = 16.dp),
+                    contentPadding = PaddingValues(start = 20.dp, end = 12.dp),
                     showCutRow = true,
                 ) {
                     herbPage(herb, words) { url ->
@@ -83,7 +82,7 @@ fun HerbScreen(herb: Herb, onBack: () -> Unit) {
 /** The page's words, read once so the list's items stay plain functions. */
 internal data class HerbWords(
     val draft: String, val dontTake: String, val cautions: String, val interactsWith: String,
-    val askPharmacist: String, val avoid: String, val caution: String, val note: String,
+    val askPharmacist: String, val avoid: String, val note: String,
     val traditionally: String, val research: String, val prepare: String, val infusion: String,
     val decoction: String, val water: String, val steep: String, val simmer: String,
     val aboutPlant: String, val latin: String, val parts: String, val taste: String,
@@ -123,7 +122,7 @@ internal fun minutes(format: String, p: Preparation): String =
     String.format(java.util.Locale.US, format, p.steepMin, p.steepMax)
 
 private fun LazyListScope.herbPage(herb: Herb, w: HerbWords, onLink: (String) -> Unit) {
-    if (herb.draft) item(key = "draft") { Small(w.draft, Modifier.padding(bottom = 8.dp)) }
+    if (herb.draft) item(key = "draft") { Small(w.draft, Modifier.padding(top = 8.dp, bottom = 8.dp)) }
 
     sectionsOf(herb).forEach { section ->
         when (section) {
@@ -223,13 +222,16 @@ private fun Small(text: String, modifier: Modifier = Modifier) {
     TextMMD(text, style = MaterialTheme.typography.bodySmall, modifier = modifier.fillMaxWidth())
 }
 
-/** "Avoid: ..." in bold; a caution and a note in plain type, each with its word first. */
+/**
+ * "Avoid: ..." in bold, a caution as it stands (the heading already says what it is), and
+ * "Note: ..." for what is worth knowing but not a warning.
+ */
 @Composable
 private fun CautionLine(c: Caution, w: HerbWords) {
-    val label = when (c.severity) {
-        Severity.AVOID -> w.avoid
-        Severity.CAUTION -> w.caution
-        Severity.NOTE -> w.note
+    val text = when (c.severity) {
+        Severity.AVOID -> "${w.avoid} ${c.text}"
+        Severity.CAUTION -> c.text
+        Severity.NOTE -> "${w.note} ${c.text}"
     }
-    Body("$label ${c.text}", bold = c.severity == Severity.AVOID)
+    Body(text, bold = c.severity == Severity.AVOID)
 }
