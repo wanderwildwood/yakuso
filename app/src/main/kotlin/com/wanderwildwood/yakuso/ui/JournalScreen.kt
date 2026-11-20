@@ -2,12 +2,12 @@ package com.wanderwildwood.yakuso.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
@@ -22,7 +22,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -30,6 +29,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.mudita.mmd.components.buttons.OutlinedButtonMMD
 import com.mudita.mmd.components.text.TextMMD
 import com.mudita.mmd.components.text_field.TextFieldMMD
 import com.wanderwildwood.yakuso.R
@@ -49,25 +49,27 @@ fun JournalScreen(onOpen: (Long) -> Unit, onNew: () -> Unit, onBack: () -> Unit)
     val entries by remember(db) { db.journal().all() }.collectAsState(initial = null)
 
     Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
-        Bar(stringResource(R.string.journal_title), onBack = onBack) {
-            BarButton(Icons.Add, stringResource(R.string.journal_cd_add), onNew)
-        }
+        Bar(stringResource(R.string.journal_title), onBack = onBack)
         val list = entries ?: return@Column
-        if (list.isEmpty()) {
-            Column(
-                Modifier.weight(1f).fillMaxWidth().padding(32.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                TextMMD(stringResource(R.string.journal_empty), style = MaterialTheme.typography.bodySmall)
-            }
-            return@Column
-        }
         Box(Modifier.weight(1f)) {
-            PagedColumn(showCutRow = true) {
+            PagedColumn(contentPadding = PaddingValues(start = 20.dp, end = 12.dp), showCutRow = true) {
+                item(key = "add") {
+                    OutlinedButtonMMD(onClick = onNew, modifier = Modifier.fillMaxWidth().padding(top = 12.dp, bottom = 4.dp).height(48.dp)) {
+                        TextMMD(text = stringResource(R.string.journal_add), style = MaterialTheme.typography.bodyMedium)
+                    }
+                }
+                if (list.isEmpty()) {
+                    item(key = "empty") {
+                        TextMMD(
+                            stringResource(R.string.journal_empty),
+                            style = MaterialTheme.typography.bodySmall,
+                            modifier = Modifier.fillMaxWidth().padding(top = 24.dp),
+                        )
+                    }
+                }
                 items(list, key = { it.id }) { e ->
                     Column(
-                        Modifier.fillMaxWidth().clickable { onOpen(e.id) }.padding(horizontal = 16.dp, vertical = 10.dp),
+                        Modifier.fillMaxWidth().clickable { onOpen(e.id) }.padding(vertical = 10.dp),
                     ) {
                         TextMMD(e.name, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Bold)
                         TextMMD(journalLine(e), style = MaterialTheme.typography.bodySmall)
@@ -75,7 +77,7 @@ fun JournalScreen(onOpen: (Long) -> Unit, onNew: () -> Unit, onBack: () -> Unit)
                             TextMMD(e.note, style = MaterialTheme.typography.bodySmall, maxLines = 2, overflow = TextOverflow.Ellipsis)
                         }
                     }
-                    DottedRule()
+                    DottedRule(start = 0.dp, end = 0.dp)
                 }
             }
         }

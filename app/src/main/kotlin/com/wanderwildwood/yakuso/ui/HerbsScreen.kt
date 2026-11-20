@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -61,7 +62,7 @@ fun HerbsScreen(
         TextFieldMMD(
             value = query,
             onValueChange = { query = it },
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 6.dp),
+            modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 12.dp, top = 6.dp, bottom = 6.dp),
             placeholder = { TextMMD(stringResource(R.string.herbs_search)) },
             singleLine = true,
         )
@@ -75,10 +76,10 @@ fun HerbsScreen(
             }
         } else {
             Box(Modifier.weight(1f).padding(top = 8.dp)) {
-                PagedColumn(state = listState, showCutRow = true) {
+                PagedColumn(state = listState, contentPadding = PaddingValues(start = 20.dp, end = 12.dp), showCutRow = true) {
                     items(shown, key = { it.id }) { herb ->
                         HerbRow(herb, inCupboard = herb.id in cupboard, onOpen = { onOpen(herb) })
-                        DottedRule()
+                        DottedRule(start = 0.dp, end = 0.dp)
                     }
                 }
             }
@@ -108,7 +109,7 @@ fun Doors(onDoor: (Door) -> Unit) {
             }
         }
     }
-    DottedRule()
+    DottedRule(start = 20.dp, end = 12.dp)
 }
 
 /** One herb in a list: name, Latin name, the cupboard's check and the caution mark. */
@@ -120,7 +121,7 @@ fun HerbRow(herb: Herb, inCupboard: Boolean, onOpen: () -> Unit) {
         Modifier
             .fillMaxWidth()
             .clickable(onClick = onOpen)
-            .padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 12.dp),
+            .padding(vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {

@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
@@ -30,7 +31,7 @@ fun FinderScreen(onNeed: (String) -> Unit, onBack: () -> Unit) {
     Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
         Bar(stringResource(R.string.finder_title), onBack = onBack)
         Box(Modifier.weight(1f)) {
-            PagedColumn {
+            PagedColumn(contentPadding = PaddingValues(start = 20.dp, end = 12.dp)) {
                 items(NEEDS, key = { it }) { need ->
                     TextMMD(
                         needName(need),
@@ -40,9 +41,9 @@ fun FinderScreen(onNeed: (String) -> Unit, onBack: () -> Unit) {
                             .fillMaxWidth()
                             .heightIn(min = 48.dp)
                             .clickable { onNeed(need) }
-                            .padding(horizontal = 16.dp, vertical = 12.dp),
+                            .padding(vertical = 12.dp),
                     )
-                    DottedRule()
+                    DottedRule(start = 0.dp, end = 0.dp)
                 }
             }
         }
@@ -67,17 +68,17 @@ fun FinderResults(
     Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
         Bar(needName(need), onBack = onBack)
         Box(Modifier.weight(1f)) {
-            PagedColumn(showCutRow = true) {
+            PagedColumn(contentPadding = PaddingValues(start = 20.dp, end = 12.dp), showCutRow = true) {
                 item(key = "everyday") {
                     Note(stringResource(R.string.finder_everyday))
                 }
                 if (need in ASK_FIRST) {
                     item(key = "ask") { Note(stringResource(R.string.finder_ask_first), bold = true) }
                 }
-                item(key = "rule") { DottedRule() }
+                item(key = "rule") { DottedRule(start = 0.dp, end = 0.dp) }
                 items(found, key = { it.id }) { herb ->
                     HerbRow(herb, inCupboard = herb.id in cupboard, onOpen = { onOpen(herb) })
-                    DottedRule()
+                    DottedRule(start = 0.dp, end = 0.dp)
                 }
             }
         }
@@ -90,7 +91,7 @@ private fun Note(text: String, bold: Boolean = false) {
         text,
         style = MaterialTheme.typography.bodySmall,
         fontWeight = if (bold) FontWeight.Bold else FontWeight.Normal,
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp),
+        modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
     )
 }
 

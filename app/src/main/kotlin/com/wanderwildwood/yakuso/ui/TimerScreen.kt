@@ -10,6 +10,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -96,21 +97,24 @@ fun TimerScreen(onAddToJournal: () -> Unit, onBack: () -> Unit) {
 
     Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
         Bar(stringResource(R.string.timer_title), onBack = onBack)
+        val cannotOpen = stringResource(R.string.timer_cannot_open)
         problems.forEach { p ->
             Row(
-                Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp),
+                Modifier.fillMaxWidth().padding(start = 20.dp, end = 12.dp, top = 4.dp, bottom = 4.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 TextMMD(stringResource(p.text), style = MaterialTheme.typography.bodySmall, modifier = Modifier.weight(1f))
                 HouseButton(stringResource(p.button), {
+                    // A phone without this settings page throws; say so rather than do nothing.
                     runCatching { context.startActivity(p.open.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) }
+                        .onFailure { FootNotice.say(context, cannotOpen) }
                 }, Modifier.padding(start = 8.dp), compact = true)
             }
         }
 
         // What is brewing.
         Column(
-            Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp),
+            Modifier.fillMaxWidth().padding(start = 20.dp, end = 12.dp, top = 8.dp, bottom = 8.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             TextMMD(
@@ -138,15 +142,15 @@ fun TimerScreen(onAddToJournal: () -> Unit, onBack: () -> Unit) {
 
         // What can be done now.
         Column(
-            Modifier.fillMaxWidth().padding(horizontal = 16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            Modifier.fillMaxWidth().padding(start = 20.dp, end = 12.dp),
+            verticalArrangement = Arrangement.spacedBy(HOUSE_GAP),
         ) {
             when {
                 b.finished -> {
                     if (ringing) {
                         HouseButton(stringResource(R.string.ring_stop), { Ringing.stop(context) }, Modifier.fillMaxWidth(), on = true)
                     }
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(HOUSE_GAP)) {
                         HouseButton(stringResource(R.string.timer_add_to_journal), {
                             Ringing.stop(context)
                             BrewTimer.done(context)
@@ -156,7 +160,7 @@ fun TimerScreen(onAddToJournal: () -> Unit, onBack: () -> Unit) {
                     }
                 }
                 b.running -> HouseButton(stringResource(R.string.timer_stop), { BrewTimer.cancel(context) }, Modifier.fillMaxWidth())
-                else -> Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                else -> Row(horizontalArrangement = Arrangement.spacedBy(HOUSE_GAP)) {
                     HouseButton(stringResource(R.string.timer_less), {
                         BrewTimer.set(context, b.copy(seconds = BrewMath.adjust(b.seconds, -BrewMath.STEP_SECONDS)))
                     }, Modifier.weight(1f))
@@ -171,14 +175,14 @@ fun TimerScreen(onAddToJournal: () -> Unit, onBack: () -> Unit) {
             }
         }
         Spacer(Modifier.height(8.dp))
-        DottedRule()
+        DottedRule(start = 20.dp, end = 12.dp)
 
         // The presets, only while nothing runs: a press sets the timer, and Start starts it.
         Box(Modifier.weight(1f)) {
             if (!b.running && !b.finished) {
                 val presets = BrewMath.BUILT_IN + own.map { it.asPreset() }
                 var armedId by rememberArmedKey<Long>()
-                PagedColumn(showCutRow = true) {
+                PagedColumn(contentPadding = PaddingValues(start = 20.dp, end = 12.dp), showCutRow = true) {
                     items(presets, key = { it.key }) { p ->
                         val name = Ringing.presetName(context, p)
                         PresetRow(
@@ -198,14 +202,14 @@ fun TimerScreen(onAddToJournal: () -> Unit, onBack: () -> Unit) {
                                 BrewTimer.set(context, Brew(label = name, seconds = p.minSeconds, temp = p.temp))
                             },
                         )
-                        DottedRule()
+                        DottedRule(start = 0.dp, end = 0.dp)
                     }
                     item(key = "save-own") {
                         TextMMD(
                             stringResource(R.string.timer_save_own),
                             style = MaterialTheme.typography.bodyMedium,
                             modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp).clickable { naming = true }
-                                .padding(horizontal = 16.dp, vertical = 12.dp),
+                                .padding(vertical = 12.dp),
                         )
                     }
                 }
@@ -250,7 +254,7 @@ private fun OwnPreset.asPreset(): Preset = Preset(
 private fun PresetRow(name: String, detail: String, removeLabel: String?, onRemove: () -> Unit, onPick: () -> Unit) {
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
         Column(
-            Modifier.weight(1f).heightIn(min = 48.dp).clickable(onClick = onPick).padding(horizontal = 16.dp, vertical = 10.dp),
+            Modifier.weight(1f).heightIn(min = 48.dp).clickable(onClick = onPick).padding(vertical = 10.dp),
         ) {
             TextMMD(name, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Bold)
             TextMMD(detail, style = MaterialTheme.typography.bodySmall)
@@ -259,7 +263,7 @@ private fun PresetRow(name: String, detail: String, removeLabel: String?, onRemo
             TextMMD(
                 removeLabel,
                 style = MaterialTheme.typography.bodySmall,
-                modifier = Modifier.heightIn(min = 48.dp).clickable(onClick = onRemove).padding(horizontal = 16.dp, vertical = 14.dp),
+                modifier = Modifier.heightIn(min = 48.dp).clickable(onClick = onRemove).padding(start = 16.dp, top = 14.dp, bottom = 14.dp),
             )
         }
     }

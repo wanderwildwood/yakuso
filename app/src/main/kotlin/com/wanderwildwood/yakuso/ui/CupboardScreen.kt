@@ -3,12 +3,12 @@ package com.wanderwildwood.yakuso.ui
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
@@ -20,12 +20,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.mudita.mmd.components.buttons.OutlinedButtonMMD
 import com.mudita.mmd.components.text.TextMMD
 import com.wanderwildwood.yakuso.R
 import com.wanderwildwood.yakuso.data.CupboardItem
@@ -42,30 +42,32 @@ fun CupboardScreen(onOpen: (Long) -> Unit, onNew: () -> Unit, onBack: () -> Unit
     val items by remember(db) { db.cupboard().all() }.collectAsState(initial = null)
 
     Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
-        Bar(stringResource(R.string.cupboard_title), onBack = onBack) {
-            BarButton(Icons.Add, stringResource(R.string.cupboard_cd_add), onNew)
-        }
+        Bar(stringResource(R.string.cupboard_title), onBack = onBack)
         val list = items ?: return@Column
-        if (list.isEmpty()) {
-            Column(
-                Modifier.weight(1f).fillMaxWidth().padding(32.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                TextMMD(stringResource(R.string.cupboard_empty), style = MaterialTheme.typography.bodySmall)
-            }
-            return@Column
-        }
         Box(Modifier.weight(1f)) {
-            PagedColumn(showCutRow = true) {
+            PagedColumn(contentPadding = PaddingValues(start = 20.dp, end = 12.dp), showCutRow = true) {
+                item(key = "add") {
+                    OutlinedButtonMMD(onClick = onNew, modifier = Modifier.fillMaxWidth().padding(top = 12.dp, bottom = 4.dp).height(48.dp)) {
+                        TextMMD(text = stringResource(R.string.cupboard_add), style = MaterialTheme.typography.bodyMedium)
+                    }
+                }
+                if (list.isEmpty()) {
+                    item(key = "empty") {
+                        TextMMD(
+                            stringResource(R.string.cupboard_empty),
+                            style = MaterialTheme.typography.bodySmall,
+                            modifier = Modifier.fillMaxWidth().padding(top = 24.dp),
+                        )
+                    }
+                }
                 items(list, key = { it.id }) { i ->
                     Column(
-                        Modifier.fillMaxWidth().clickable { onOpen(i.id) }.padding(horizontal = 16.dp, vertical = 10.dp),
+                        Modifier.fillMaxWidth().clickable { onOpen(i.id) }.padding(vertical = 10.dp),
                     ) {
                         TextMMD(i.name, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Bold)
                         cupboardRowLine(i)?.let { TextMMD(it, style = MaterialTheme.typography.bodySmall) }
                     }
-                    DottedRule()
+                    DottedRule(start = 0.dp, end = 0.dp)
                 }
             }
         }

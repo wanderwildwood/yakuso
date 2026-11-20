@@ -94,6 +94,7 @@
     <string name="timer_problem_exact">Exact alarms are not allowed, so the timer may ring late.</string>
     <string name="timer_turn_on">Turn on</string>
     <string name="timer_allow">Allow</string>
+    <string name="timer_cannot_open">This phone has no settings page for that.</string>
     <string name="preset_green">Green tea</string>
     <string name="preset_black">Black tea</string>
     <string name="preset_herbal">Herbal infusion</string>
@@ -115,7 +116,7 @@
 
     <!-- Journal -->
     <string name="journal_title">Journal</string>
-    <string name="journal_cd_add">Add an entry</string>
+    <string name="journal_add">Add an entry</string>
     <string name="journal_empty">Nothing here yet. When the brew timer is done, it offers to add the cup here.</string>
     <!-- %1$s is "4" or "2:30" -->
     <string name="journal_steeped">steeped %1$s min</string>
@@ -143,7 +144,7 @@
 
     <!-- Cupboard -->
     <string name="cupboard_title">Cupboard</string>
-    <string name="cupboard_cd_add">Add to the cupboard</string>
+    <string name="cupboard_add">Add to the cupboard</string>
     <string name="cupboard_empty">Nothing in the cupboard yet. Add the herbs and teas you have, and their pages will say so.</string>
     <!-- %1$s is a day, "Nov 2" -->
     <string name="cupboard_bought">Bought %1$s</string>
