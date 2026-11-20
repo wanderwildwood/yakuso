@@ -1,7 +1,7 @@
 {
   "uniqueId": "herb-book",
   "name": "Herb book: cautions and research",
-  "description": "Written from NCCIH's Herbs at a Glance and NIDDK's LiverTox (US government works); each herb lists its sources (assets/herbs.json).",
+  "description": "Written from US government works: NCCIH's Herbs at a Glance, and NIH's LiverTox (NIDDK) and LactMed (NICHD) and an FDA consumer page where NCCIH has no page; each herb lists its sources (assets/herbs.json).",
   "developers": [{ "name": "wander wildwood" }],
   "website": "https://www.nccih.nih.gov/health/herbsataglance",
   "licenses": ["public-domain"]

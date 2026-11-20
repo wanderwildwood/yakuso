@@ -14,11 +14,20 @@ import org.robolectric.RobolectricTestRunner
 class HerbBookTest {
     private val herbs = HerbBook.parse(File("src/main/assets/herbs.json").readText())
 
-    @Test fun theBookHasItsFiveHerbsAtoZ() {
-        assertEquals(
-            listOf("Chamomile", "Comfrey", "Ginger", "Peppermint", "St John's wort"),
-            herbs.map { it.name },
-        )
+    @Test fun theBookHasTheStarterListAtoZ() {
+        assertEquals(45, herbs.size)
+        assertEquals("Black tea", herbs.first().name)
+        assertEquals("Yarrow", herbs.last().name)
+        assertEquals(HerbBook.sortedAtoZ(herbs.shuffled()).map { it.id }, herbs.map { it.id })
+        assertEquals(herbs.size, herbs.map { it.id }.toSet().size)
+    }
+
+    @Test fun theDontUsePagesAreTheFour() {
+        assertEquals(setOf("comfrey", "ephedra", "kava", "pennyroyal"), herbs.filter { it.dontUse }.map { it.id }.toSet())
+        herbs.filter { it.dontUse }.forEach {
+            assertNull("${it.id} has a preparation", it.preparation)
+            assertFalse("${it.id} has no reason", it.dontUseReason.isNullOrBlank())
+        }
     }
 
     @Test fun orderIgnoresCaseAndAccents() {
@@ -48,7 +57,14 @@ class HerbBookTest {
 
     @Test fun onlyAvoidCautionsMarkTheRow() {
         val marked = herbs.filter { it.serious }.map { it.id }.toSet()
-        assertEquals(setOf("comfrey", "st-johns-wort"), marked)
+        assertEquals(
+            setOf(
+                "cinnamon", "comfrey", "elderberry", "elderflower", "ephedra", "fennel", "feverfew", "ginkgo",
+                "ginseng", "hawthorn", "kava", "licorice", "passionflower", "pennyroyal", "red-clover", "sage",
+                "st-johns-wort", "turmeric", "valerian",
+            ),
+            marked,
+        )
     }
 
     @Test fun stJohnsWortListsItsInteractionsAndAvoidComesFirst() {
@@ -58,6 +74,30 @@ class HerbBookTest {
         val order = sjw.cautionsInOrder.map { it.severity }
         assertEquals(order.sortedBy { it.ordinal }, order)
         assertEquals(Severity.AVOID, order.first())
+    }
+
+    @Test fun needsComeFromTheUsesInFinderOrder() {
+        herbs.forEach { h -> h.uses.flatMap { it.needs }.forEach { assertTrue("${h.id}: $it", it in NEEDS) } }
+        val ginger = herbs.single { it.id == "ginger" }
+        assertEquals(listOf("digestion", "colds", "nausea", "period-cramps", "pregnancy"), ginger.needs)
+        assertEquals(listOf("ginger"), HerbBook.forNeed(herbs, "pregnancy").map { it.id })
+        assertEquals(listOf("fennel", "lemon-balm", "marshmallow"), HerbBook.forNeed(herbs, "nursing").map { it.id })
+        assertTrue(HerbBook.forNeed(herbs, "sleep").map { it.id }.containsAll(listOf("chamomile", "valerian")))
+    }
+
+    @Test fun aDontUsePageIsNeverInTheFinder() {
+        val kava = herbs.single { it.id == "kava" }
+        assertTrue(kava.needs.isEmpty())
+        val tagged = kava.copy(uses = kava.uses.map { it.copy(needs = listOf("calm")) })
+        assertTrue(tagged.needs.isEmpty())
+    }
+
+    @Test fun noHerbToAvoidInPregnancyIsListedForIt() {
+        val avoid = herbs.filter { h ->
+            h.cautions.any { it.severity == Severity.AVOID && "pregnan" in it.text.lowercase() }
+        }.map { it.id }
+        assertTrue(avoid.containsAll(listOf("passionflower", "feverfew", "sage", "st-johns-wort")))
+        assertTrue(HerbBook.forNeed(herbs, "pregnancy").none { it.id in avoid })
     }
 
     @Test fun everyHerbIsStillMarkedDraft() {

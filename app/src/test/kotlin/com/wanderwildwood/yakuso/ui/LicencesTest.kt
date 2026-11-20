@@ -31,6 +31,7 @@ class LicencesTest {
         "com.mudita:MMD", "androidx.compose.material3:material3",
         "org.jetbrains.kotlinx:kotlinx-coroutines-core",
         "Lato typeface", "Material Symbols icons", "Herb book: cautions and research",
+        "Herb book: traditional uses from Wikipedia",
     )
 
     @Test fun theBuildListedTheLibraries() {

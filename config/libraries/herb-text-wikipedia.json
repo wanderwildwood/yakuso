@@ -1,0 +1,8 @@
+{
+  "uniqueId": "herb-book-wikipedia",
+  "name": "Herb book: traditional uses from Wikipedia",
+  "description": "Where the US government pages are silent, some herbs' traditional uses and preparation draw on English Wikipedia articles, licensed CC BY-SA 4.0. Each such herb names its article and revision among its sources (assets/herbs.json). The wording in this app is its own; adapted text is shared under the same license.",
+  "developers": [{ "name": "Wikipedia contributors" }],
+  "website": "https://en.wikipedia.org/",
+  "licenses": ["CC-BY-SA-4.0"]
+}
