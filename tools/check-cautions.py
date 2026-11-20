@@ -8,7 +8,9 @@ Exits 1 and says what is wrong when any herb:
   - has no caution, or a caution with an unknown severity
   - uses the words "cure" or "treat(s)" anywhere (the book says "traditionally used for")
   - is a "don't use" entry with a preparation, or without its reason
-  - is an ordinary entry without a preparation
+  - is an ordinary entry without a preparation, or one whose water temperature does not give both
+    "tempF" and "tempC" (both are stored and shown as written: 175 F is paired with 80 C, a
+    kitchen pairing, not the 79 a conversion gives) or gives a pair more than a degree off
   - mentions pregnancy or nursing in a caution without saying to ask a midwife or doctor
   - repeats an id
   - tags a use with a need the Finder doesn't have, or a "don't use" entry with any need
@@ -164,6 +166,13 @@ def problems(book):
                 out.append(f"{hid}: a don't-use entry has no reason")
         elif not herb.get("preparation"):
             out.append(f"{hid}: no preparation")
+        else:
+            prep = herb["preparation"]
+            f, c = prep.get("tempF"), prep.get("tempC")
+            if not isinstance(f, int) or not isinstance(c, int):
+                out.append(f"{hid}: a preparation needs both tempF and tempC, as whole degrees")
+            elif abs((f - 32) * 5 / 9 - c) > 1:
+                out.append(f"{hid}: {f} F is not {c} C")
     return list(dict.fromkeys(out))  # a shared source's problem once, not once per herb
 
 

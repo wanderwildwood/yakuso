@@ -154,6 +154,15 @@ class HerbBookTest {
         assertTrue(HerbBook.matching(herbs, "zzz").isEmpty())
     }
 
+    @Test fun celsiusIsReadAsWrittenNotConverted() {
+        val green = herbs.single { it.id == "green-tea" }.preparation!!
+        assertEquals(175, green.tempF)
+        assertEquals(80, green.tempC) // the kitchen pairing; celsius(175) would say 79
+        herbs.mapNotNull { it.preparation }.forEach { p ->
+            assertTrue("${p.tempF} F beside ${p.tempC} C", kotlin.math.abs(celsius(p.tempF) - p.tempC) <= 1)
+        }
+    }
+
     @Test fun celsiusRoundsFromFahrenheit() {
         assertEquals(100, celsius(212))
         assertEquals(79, celsius(175)) // 79.4: the plan's "175 °F (80 °C)" is a kitchen pairing, not a conversion

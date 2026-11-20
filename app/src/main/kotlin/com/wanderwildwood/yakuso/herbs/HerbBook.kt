@@ -31,13 +31,15 @@ data class Preparation(
     val method: String,
     val amount: String,
     val tempF: Int,
+    /**
+     * Celsius as the book writes it beside [tempF], never worked out from it: 175 °F is paired
+     * with 80 °C in the kitchen, where a conversion gives 79.
+     */
+    val tempC: Int,
     val steepMin: Int,
     val steepMax: Int,
     val note: String?,
-) {
-    /** Celsius from the Fahrenheit the book is written in, rounded to a whole degree. */
-    val tempC: Int get() = celsius(tempF)
-}
+)
 
 data class Source(val title: String, val url: String, val retrieved: String?)
 
@@ -71,6 +73,7 @@ data class Herb(
     val cautionsInOrder: List<Caution> get() = cautions.sortedBy { it.severity.ordinal }
 }
 
+/** A conversion, for checking a pair; what is shown is always the pair as written. */
 fun celsius(fahrenheit: Int): Int = ((fahrenheit - 32) * 5 / 9.0).roundToInt()
 
 /**
@@ -133,6 +136,7 @@ object HerbBook {
                 method = it.getString("method"),
                 amount = it.getString("amount"),
                 tempF = it.getInt("tempF"),
+                tempC = it.getInt("tempC"),
                 steepMin = it.getInt("steepMin"),
                 steepMax = it.getInt("steepMax"),
                 note = it.text("note"),
