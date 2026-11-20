@@ -142,7 +142,7 @@
     <string name="cupboard_cd_add">Add to the cupboard</string>
     <string name="cupboard_empty">Nothing in the cupboard yet. Add the herbs and teas you have, and their pages will say so.</string>
     <!-- %1$s is a day, "Nov 2" -->
-    <string name="cupboard_bought">bought %1$s</string>
+    <string name="cupboard_bought">Bought %1$s</string>
     <string name="cupboard_running_low">About to run out</string>
     <string name="cupboard_new_title">Add to the cupboard</string>
     <string name="cupboard_item_title">In the cupboard</string>
