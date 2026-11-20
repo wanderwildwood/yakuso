@@ -17,7 +17,7 @@ Exits 1 and says what is wrong when any herb:
   - is tagged "pregnancy" (or "nursing") without a caution that names it and says to ask a
     midwife or doctor
   - has a source without an id or with a license outside public-domain, cc-by-3.0, cc-by-4.0,
-    cc-by-sa-4.0 and none, or a text line (caution, use, research, preparation, taste, parts,
+    cc-by-sa-4.0, own (text by the app's author) and none, or a text line (caution, use, research, preparation, taste, parts,
     also-called, interactions, don't-use reason) that doesn't name, in "src" or its field's
     "...Src", the sources it came from: ids of the entry's sources or of "sharedSources"
 
@@ -32,7 +32,7 @@ SEVERITIES = {"avoid", "caution", "note"}
 FORBIDDEN = re.compile(r"\b(cure[sd]?|curing|treats?|treated)\b", re.IGNORECASE)
 PREGNANCY = re.compile(r"\b(pregnan\w*|nursing|breastfeed\w*)\b", re.IGNORECASE)
 ASK = re.compile(r"\bmidwife\b|\bdoctor\b", re.IGNORECASE)
-LICENSES = {"public-domain", "cc-by-3.0", "cc-by-4.0", "cc-by-sa-4.0", "none"}
+LICENSES = {"public-domain", "cc-by-3.0", "cc-by-4.0", "cc-by-sa-4.0", "own", "none"}
 # A text field of an entry and the field naming its sources.
 SOURCED_FIELDS = {
     "research": "researchSrc", "dontUseReason": "dontUseReasonSrc", "taste": "tasteSrc",

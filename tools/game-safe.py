@@ -3,10 +3,10 @@
 
     tools/game-safe.py [path/to/herbs.json] [--summary]
 
-A line may go in when every source it came from is public domain or CC BY (3.0 or 4.0); a CC BY
-source must then be credited, and the credit is printed beside the line. A line may not go in when
+A line may go in when every source it came from is public domain, CC BY (3.0 or 4.0) or "own" (text
+by the app's author, wander wildwood, which needs no credit beyond his name); a CC BY source must then be credited, and the credit is printed beside the line. A line may not go in when
 any of its sources is CC BY-SA (its share-alike terms can't be met under NC-ND) or "none" (not
-tied to a source: kitchen practice, or this book's own wording, which the author may still decide on).
+tied to a source and not his own).
 
 Default path: app/src/main/assets/herbs.json, next to this folder. --summary prints only the counts.
 """
@@ -15,10 +15,10 @@ import os
 import sys
 from collections import Counter
 
-ALLOWED = {"public-domain", "cc-by-3.0", "cc-by-4.0"}
+ALLOWED = {"public-domain", "cc-by-3.0", "cc-by-4.0", "own"}
 NEEDS_CREDIT = {"cc-by-3.0", "cc-by-4.0"}
 LABEL = {"cc-by-3.0": "CC BY 3.0", "cc-by-4.0": "CC BY 4.0", "cc-by-sa-4.0": "CC BY-SA 4.0",
-         "public-domain": "public domain", "none": "not tied to a source"}
+         "public-domain": "public domain", "own": "wander wildwood's own text", "none": "not tied to a source"}
 
 
 def lines(herb):
@@ -72,14 +72,13 @@ def main():
                 count["may"] += 1
                 if credit:
                     count["may, with credit"] += 1
+                if "own" in lics:
+                    count["may, own text"] += 1
                 may.append((what, text, credit))
             else:
                 count["may not"] += 1
                 for l in sorted(set(lics) - ALLOWED):
                     blocked_by[l] += 1
-                for i in src:
-                    if i in shared:
-                        blocked_by["shared:" + i] += 1
                 why = ", ".join(f"{i} ({LABEL.get(sources[i].get('license'), '?')})" for i in src
                                 if i in sources and sources[i].get("license") not in ALLOWED) or "no source"
                 may_not.append((what, text, why))
@@ -98,13 +97,11 @@ def main():
     print("Summary")
     print(f"  herbs: {len(book['herbs'])}, of which every line may go in: {herbs_all_safe}")
     print(f"  text lines: {count['lines']}")
-    print(f"  may go in: {count['may']} ({count['may, with credit']} of them need a CC BY credit)")
+    print(f"  may go in: {count['may']} ({count['may, with credit']} of them need a CC BY credit; "
+          f"{count['may, own text']} are wander wildwood's own text)")
     print(f"  may not: {count['may not']}")
     print(f"    with a CC BY-SA source (Wikipedia): {blocked_by['cc-by-sa-4.0']}")
     print(f"    not tied to a source: {blocked_by['none']}")
-    for k, n in sorted(blocked_by.items()):
-        if k.startswith("shared:"):
-            print(f"      from {k[7:]} ({shared[k[7:]]['title']}): {n}")
     print(f"  CC BY works to credit: {len(credits)}")
     for s in credits.values():
         print(f"    {s['title']}, {s['url']} ({LABEL[s['license']]})")

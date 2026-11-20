@@ -104,7 +104,7 @@ class HerbBookTest {
     }
 
     @Test fun everyLineNamesASourceWithALicense() {
-        val licenses = setOf("public-domain", "cc-by-3.0", "cc-by-4.0", "cc-by-sa-4.0", "none")
+        val licenses = setOf("public-domain", "cc-by-3.0", "cc-by-4.0", "cc-by-sa-4.0", "own", "none")
         val book = JSONObject(File("src/main/assets/herbs.json").readText())
         val shared = book.getJSONObject("sharedSources")
         shared.keys().forEach { assertTrue("shared $it", shared.getJSONObject(it).getString("license") in licenses) }
