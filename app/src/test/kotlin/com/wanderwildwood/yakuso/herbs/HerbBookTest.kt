@@ -74,7 +74,7 @@ class HerbBookTest {
 
     @Test fun celsiusRoundsFromFahrenheit() {
         assertEquals(100, celsius(212))
-        assertEquals(80, celsius(175))
+        assertEquals(79, celsius(175)) // 79.4: the plan's "175 °F (80 °C)" is a kitchen pairing, not a conversion
         assertEquals(0, celsius(32))
         assertEquals(93, celsius(200))
     }
