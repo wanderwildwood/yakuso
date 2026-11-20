@@ -6,8 +6,6 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.hasText
-import androidx.compose.ui.test.and
-import androidx.compose.ui.test.or
 import com.mudita.mmd.ThemeMMD
 import com.wanderwildwood.yakuso.herbs.HerbBook
 import java.io.File
