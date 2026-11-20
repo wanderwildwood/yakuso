@@ -1,5 +1,5 @@
 {
-  "_about": "The herb book. DRAFT: every entry marked \"draft\": true is waiting to be read before it goes in a release. Cautions and research lines are from US government pages, which are public domain: NCCIH Herbs at a Glance, and from the NIH's LiverTox (NIDDK) and LactMed (NICHD) and the FDA where NCCIH has no page; the wording here is our own plain-English rendering of them. Where those are silent, traditional uses and preparation draw on Wikipedia, whose text is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); each such entry credits the article and revision it used, in a source marked with its license. For the pregnancy and nursing safety of hibiscus, raspberry leaf and yarrow, open-access journal articles licensed CC BY are used, each credited with its license in that herb's sources. Preparation amounts, times and tastes are ordinary kitchen practice and are not tied to a source. Each use carries the Finder's needs (sleep, calm, digestion, colds, sore-throat, nausea, headache, period-cramps, pregnancy, nursing). tools/check-cautions.py checks this file.",
+  "_about": "The herb book. DRAFT: every entry marked \"draft\": true is waiting to be read before it goes in a release. Cautions and research lines are from US government pages, which are public domain: NCCIH Herbs at a Glance, and from the NIH's LiverTox (NIDDK) and LactMed (NICHD) and the FDA where NCCIH has no page; the wording here is our own plain-English rendering of them. Where those are silent, traditional uses and preparation draw on Wikipedia (and so do two look-alike warnings, for yarrow and burdock), whose text is licensed CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/); each such entry credits the article and revision it used, in a source marked with its license. For the pregnancy and nursing safety of hibiscus, raspberry leaf and yarrow, open-access journal articles licensed CC BY are used, each credited with its license in that herb's sources. Preparation amounts, times and tastes are ordinary kitchen practice and are not tied to a source. Each use carries the Finder's needs (sleep, calm, digestion, colds, sore-throat, nausea, headache, period-cramps, pregnancy, nursing). tools/check-cautions.py checks this file.",
   "version": 1,
   "herbs": [
     {
@@ -254,7 +254,8 @@
       "cautions": [
         {"severity": "caution", "text": "It might add to the effect of sedatives (medicines or herbs that make you sleepy). This matters most before an operation. Ask your doctor or pharmacist first if you take any medicine."},
         {"severity": "caution", "text": "Children: a few cases of breast swelling have been reported in children who used products with lavender on the skin. It is not clear the lavender caused it."},
-        {"severity": "caution", "text": "Pregnancy and nursing: little is known about whether it is safe. Ask your midwife or doctor first."},
+        {"severity": "caution", "text": "Pregnancy: little is known about whether it is safe. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor first."},
+        {"severity": "caution", "text": "Nursing: little is known about whether it is safe. Ask your midwife or doctor first."},
         {"severity": "caution", "text": "Depression can be a serious illness. If you or someone in your family may have depression, see a doctor."},
         {"severity": "note", "text": "By mouth it can cause diarrhea, headache, nausea or burping. On the skin it can cause allergic rashes. As aromatherapy it can cause headache or coughing."}
       ],
@@ -274,7 +275,8 @@
         "note": "Cover the cup while it steeps."
       },
       "sources": [
-        {"title": "NCCIH, Lavender (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/lavender", "retrieved": "2026-11-20"}
+        {"title": "NCCIH, Lavender (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/lavender", "retrieved": "2026-11-20"},
+        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"}
       ]
     },
     {
@@ -521,7 +523,8 @@
       "cautions": [
         {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
-        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."}
+        {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."},
+        {"severity": "caution", "text": "Nursing: A 2021 review lists it among herbs that may lower milk supply. Ask your midwife or doctor before using it."}
       ],
       "interactions": [],
       "uses": [
@@ -537,6 +540,7 @@
         "note": "Cover the cup while it steeps."
       },
       "sources": [
+        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"},
         {"title": "Wikipedia, Thyme (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Thyme&oldid=1368697748", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
       ]
     },
@@ -550,9 +554,9 @@
       "parts": "Leaves",
       "taste": "Savory, warm and a little bitter",
       "cautions": [
-        {"severity": "avoid", "text": "Pregnancy: it may be unsafe, because a substance in it (thujone) may be harmful. Ask your midwife or doctor."},
+        {"severity": "avoid", "text": "Pregnancy: it may be unsafe, because a substance in it (thujone) may be harmful. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor."},
         {"severity": "caution", "text": "Sage contains thujone, which can be toxic in large amounts. It may be unsafe in high doses or taken for a long time. Food amounts are likely safe."},
-        {"severity": "caution", "text": "Nursing: little is known about whether it is safe. Ask your midwife or doctor first."},
+        {"severity": "caution", "text": "Nursing: little is known about whether it is safe. A 2021 review lists it among herbs that may lower milk supply. Ask your midwife or doctor first."},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."}
       ],
       "interactions": [],
@@ -571,7 +575,8 @@
         "note": "Cover the cup while it steeps."
       },
       "sources": [
-        {"title": "NCCIH, Sage (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/sage", "retrieved": "2026-11-20"}
+        {"title": "NCCIH, Sage (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/sage", "retrieved": "2026-11-20"},
+        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"}
       ]
     },
     {
@@ -620,7 +625,7 @@
       "taste": "Very sweet",
       "cautions": [
         {"severity": "avoid", "text": "Don't take it if you have high blood pressure, a heart or kidney condition, or eat a lot of salt. Even small amounts have caused severe harm in these people."},
-        {"severity": "avoid", "text": "Pregnancy: large amounts are unsafe and can bring on early birth. Ask your midwife or doctor. Nursing: little is known about whether it is safe."},
+        {"severity": "avoid", "text": "Pregnancy: large amounts are unsafe and can bring on early birth. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor. Nursing: little is known about whether it is safe."},
         {"severity": "caution", "text": "A substance in it (glycyrrhizin) can cause serious harm, such as an irregular heartbeat and cardiac arrest, especially in large amounts or over a long time."},
         {"severity": "caution", "text": "Interactions with corticosteroids (steroid medicines) have been reported. Ask your doctor or pharmacist first if you take any medicine."},
         {"severity": "note", "text": "Licorice without glycyrrhizin (DGL) might be safe for up to 4 months. On the skin it can cause irritation."}
@@ -642,7 +647,8 @@
         "note": "Not for every day over a long time."
       },
       "sources": [
-        {"title": "NCCIH, Licorice Root (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/licorice-root", "retrieved": "2026-11-20"}
+        {"title": "NCCIH, Licorice Root (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/licorice-root", "retrieved": "2026-11-20"},
+        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"}
       ]
     },
     {
@@ -658,7 +664,7 @@
         {"severity": "avoid", "text": "Allergy: don't use it if you, or your baby, are allergic to carrots, celery or other plants of the carrot family."},
         {"severity": "caution", "text": "It can make the skin more sensitive to sunlight. Avoid strong sun while you use it."},
         {"severity": "caution", "text": "Nursing: in usual amounts it is not likely to harm a nursing baby, and some sources say to use it for no more than 2 weeks. Too much of an herbal tea with fennel and anise made two newborns ill. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. Ask your midwife or doctor first."},
+        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor first."},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
         {"severity": "note", "text": "Raised liver tests have been reported in a woman taking a milk-supply tea that contains fennel."}
       ],
@@ -676,7 +682,8 @@
         "note": "Cover the cup while it steeps."
       },
       "sources": [
-        {"title": "LactMed (NICHD), Fennel", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501793/", "retrieved": "2026-11-20"}
+        {"title": "LactMed (NICHD), Fennel", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501793/", "retrieved": "2026-11-20"},
+        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"}
       ]
     },
     {
@@ -723,8 +730,8 @@
       "taste": "Green and grassy, like spinach",
       "cautions": [
         {"severity": "caution", "text": "Fresh leaves sting. Drying or cooking takes the sting away."},
-        {"severity": "caution", "text": "Nursing: don't put nettle on the breast; one nursing baby got a rash. Ask your midwife or doctor before using it while nursing."},
-        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. Ask your midwife or doctor first."},
+        {"severity": "caution", "text": "Nursing: don't put nettle on the breast; one nursing baby got a rash. A 2021 review lists it among herbs that may lower milk supply. Ask your midwife or doctor before using it while nursing."},
+        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor first."},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
         {"severity": "note", "text": "It is generally well tolerated, and has not been linked to liver harm."}
       ],
@@ -745,7 +752,8 @@
       },
       "sources": [
         {"title": "LiverTox (NIDDK), Stinging Nettle", "url": "https://www.ncbi.nlm.nih.gov/books/NBK589898/", "retrieved": "2026-11-20"},
-        {"title": "LactMed (NICHD), Stinging Nettle", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501777/", "retrieved": "2026-11-20"}
+        {"title": "LactMed (NICHD), Stinging Nettle", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501777/", "retrieved": "2026-11-20"},
+        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"}
       ]
     },
     {
@@ -859,7 +867,7 @@
       "cautions": [
         {"severity": "caution", "text": "Allergy: rarely, it causes allergic reactions, more likely if you are allergic to chrysanthemums, daisies or marigolds."},
         {"severity": "caution", "text": "Nursing: nothing is known about taking it by mouth while nursing. Ask your midwife or doctor first."},
-        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. Ask your midwife or doctor first."},
+        {"severity": "caution", "text": "Pregnancy: not enough is known about whether it is safe. A 2021 review lists it among herbs that can stimulate the womb, which may risk miscarriage or early birth. Ask your midwife or doctor first."},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
         {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."}
       ],
@@ -878,6 +886,7 @@
       },
       "sources": [
         {"title": "LactMed (NICHD), Calendula", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501857/", "retrieved": "2026-11-20"},
+        {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"},
         {"title": "Wikipedia, Calendula officinalis (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Calendula_officinalis&oldid=1370530450", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
       ]
     },
@@ -1062,7 +1071,8 @@
         {"severity": "avoid", "text": "Pregnancy: don't use it. It is one of the herbs that stimulate the womb, which risks miscarriage or early birth. Ask your midwife or doctor."},
         {"severity": "caution", "text": "Nursing: it is listed among herbs that may lower or stop milk supply. Ask your midwife or doctor before using it."},
         {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
-        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."}
+        {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
+        {"severity": "caution", "text": "When picking it, be sure of the plant: it looks a little like poison hemlock, which can kill."}
       ],
       "interactions": [],
       "uses": [
@@ -1080,7 +1090,7 @@
       },
       "sources": [
         {"title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "CC BY 3.0"},
-        {"title": "Wikipedia, Achillea millefolium (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Achillea_millefolium&oldid=1383115478", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
+        {"title": "Wikipedia, Achillea millefolium (traditional use, preparation and the look-alike warning)", "url": "https://en.wikipedia.org/w/index.php?title=Achillea_millefolium&oldid=1383115478", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
       ]
     },
     {
@@ -1126,6 +1136,7 @@
       "taste": "Earthy and sweet",
       "cautions": [
         {"severity": "caution", "text": "There is no NIH summary of this herb's safety, so little is known about it beyond its use in food and tea."},
+        {"severity": "caution", "text": "When gathering it, be sure of the plant: burdock can be confused with rhubarb, whose leaves are poisonous."},
         {"severity": "caution", "text": "If you take any medicine, ask your doctor or pharmacist first: some herbs and medicines interact in harmful ways."},
         {"severity": "caution", "text": "Pregnancy and nursing: not enough is known about whether it is safe. Ask your midwife or doctor first."}
       ],
@@ -1143,7 +1154,7 @@
         "note": null
       },
       "sources": [
-        {"title": "Wikipedia, Arctium lappa (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Arctium_lappa&oldid=1375558472", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
+        {"title": "Wikipedia, Arctium lappa (traditional use, preparation and the look-alike warning)", "url": "https://en.wikipedia.org/w/index.php?title=Arctium_lappa&oldid=1375558472", "retrieved": "2026-11-20", "license": "CC BY-SA 4.0"}
       ]
     },
     {
