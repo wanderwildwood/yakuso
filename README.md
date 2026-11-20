@@ -41,20 +41,32 @@ The book never says an herb cures or treats anything. It says what an herb is
 
 The journal, cupboard and your own timer settings can be kept as one JSON file and read back in.
 
+Dark mode is in Settings, and follows Home's dark switch when Home is installed. The brew
+timer's notification uses the phone's notification light. When Cabinet is installed, keeping
+and reading a copy open Cabinet's e-ink file screen; without it, the phone's own.
+
 It has no account, no sync and no network: there is no internet permission, and it works in
-airplane mode. The only permissions are the brew timer's (an exact alarm, a notification, and
-a service that plays the ring); see [PRIVACY.md](PRIVACY.md).
+airplane mode. The only permissions are the brew timer's (an exact alarm, a notification, a
+service that plays the ring, and setting a running brew's alarm again after a restart); see
+[PRIVACY.md](PRIVACY.md).
 
 ## Where the herb text comes from
 
-The cautions and research lines are written from the US National Center for Complementary
-and Integrative Health's [Herbs at a Glance](https://www.nccih.nih.gov/health/herbsataglance)
-pages and, for comfrey, from [LiverTox](https://www.ncbi.nlm.nih.gov/books/NBK548370/)
-(National Institute of Diabetes and Digestive and Kidney Diseases). Both are works of the US
-government and in the public domain; the wording in the app is its own. Every herb in
-`app/src/main/assets/herbs.json` lists its sources, and `tools/check-cautions.py` refuses an
-herb with no source, no caution, a "don't use" page with a preparation, or the words "cure"
-or "treats".
+The cautions and research lines are written from US government pages, which are in the public
+domain: the National Center for Complementary and Integrative Health's
+[Herbs at a Glance](https://www.nccih.nih.gov/health/herbsataglance), and, where it has no page,
+the National Institutes of Health's LiverTox and
+LactMed and the US Food and Drug Administration.
+Where those are silent, some traditional uses, preparations and two look-alike warnings draw on
+English Wikipedia articles (CC BY-SA 4.0), and some pregnancy and nursing notes on four
+open-access journal articles (CC BY 3.0 and 4.0). The wording in the app is its own: adapted,
+not quoted.
+
+Every herb in `app/src/main/assets/herbs.json` lists its sources, and its page in the app shows
+them; a Creative Commons source carries its authors, its license and the article revision or
+paper it came from. `tools/check-cautions.py` refuses an herb with no source, no caution, a
+Creative Commons source that names no authors, a "don't use" page with a preparation, or the
+words "cure" or "treats".
 
 ## Status
 
@@ -79,7 +91,10 @@ the signer for good, so a debug build put on a phone is not a throwaway.
 
 ## License
 
-GPL-3.0-only. See [LICENSE](LICENSE). In the app, About > Licenses shows the source address,
+The code is GPL-3.0-only. See [LICENSE](LICENSE). The herb text in
+`app/src/main/assets/herbs.json` is not all under the GPL: lines adapted from Wikipedia are
+CC BY-SA 4.0 and lines adapted from the journal articles CC BY, each credited in the file and on
+its herb's page; the US government text is public domain. In the app, About > Licenses shows the source address,
 the full license text and everything the app is built with; About also carries Privacy, Terms
 and the not-medical-advice note.
 

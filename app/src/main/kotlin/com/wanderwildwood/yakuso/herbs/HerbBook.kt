@@ -41,7 +41,18 @@ data class Preparation(
     val note: String?,
 )
 
-data class Source(val title: String, val url: String, val retrieved: String?)
+data class Source(
+    val title: String,
+    val url: String,
+    val retrieved: String?,
+    /** "public-domain", "cc-by-3.0", "cc-by-4.0" or "cc-by-sa-4.0". */
+    val license: String = "public-domain",
+    /** Who wrote it, for a Creative Commons source: its credit says so on the page. */
+    val authors: String? = null,
+) {
+    /** A source the page has to credit by name and licence (Creative Commons). */
+    val needsCredit: Boolean get() = license.startsWith("cc-")
+}
 
 data class Herb(
     val id: String,
@@ -143,7 +154,13 @@ object HerbBook {
             )
         },
         sources = o.optJSONArray("sources").objects().map {
-            Source(it.getString("title"), it.getString("url"), it.text("retrieved"))
+            Source(
+                it.getString("title"),
+                it.getString("url"),
+                it.text("retrieved"),
+                license = it.text("license") ?: "public-domain",
+                authors = it.text("authors"),
+            )
         },
     )
 

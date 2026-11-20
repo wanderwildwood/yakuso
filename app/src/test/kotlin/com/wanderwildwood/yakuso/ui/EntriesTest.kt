@@ -43,4 +43,10 @@ class EntriesTest {
 
     @Test fun aDayNoCalendarHoldsShowsAsItsNumber() =
         assertEquals("1000000000000000", dayText(1_000_000_000_000_000L))
+
+    @Test fun aCreativeCommonsSourceSaysWhoUnderWhatAndThatItWasReworded() =
+        assertEquals(
+            "Wikipedia contributors · CC BY-SA 4.0 · adapted, not quoted",
+            sourceCredit("Wikipedia contributors", licenseName("cc-by-sa-4.0"), "adapted, not quoted"),
+        )
 }

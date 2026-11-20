@@ -57,6 +57,7 @@ fun HerbScreen(herb: Herb, cupboard: CupboardItem?, onBrew: () -> Unit, onBack: 
         taste = stringResource(R.string.herb_taste),
         alsoCalled = stringResource(R.string.herb_also_called),
         sources = stringResource(R.string.herb_sources),
+        adapted = stringResource(R.string.herb_source_adapted),
         and = stringResource(R.string.list_and),
         tempFormat = stringResource(R.string.prep_temp),
         minutesFormat = stringResource(R.string.prep_minutes),
@@ -90,7 +91,7 @@ internal data class HerbWords(
     val traditionally: String, val research: String, val prepare: String, val infusion: String,
     val decoction: String, val water: String, val steep: String, val simmer: String,
     val aboutPlant: String, val latin: String, val parts: String, val taste: String,
-    val alsoCalled: String, val sources: String, val and: String,
+    val alsoCalled: String, val sources: String, val adapted: String, val and: String,
     val tempFormat: String, val minutesFormat: String,
     val inCupboard: String, val inCupboardLow: String, val brew: String,
 )
@@ -219,6 +220,12 @@ private fun LazyListScope.herbPage(
                             Modifier.fillMaxWidth().clickable { onLink(s.url) }.padding(vertical = 6.dp),
                         ) {
                             TextMMD(s.title, style = MaterialTheme.typography.bodyMedium)
+                            if (s.needsCredit) {
+                                TextMMD(
+                                    sourceCredit(s.authors, licenseName(s.license), w.adapted),
+                                    style = MaterialTheme.typography.bodySmall,
+                                )
+                            }
                             TextMMD(s.url.removePrefix("https://"), style = MaterialTheme.typography.bodySmall)
                         }
                     }
@@ -266,3 +273,15 @@ private fun CautionLine(c: Caution, w: HerbWords) {
     }
     Body(text, bold = c.severity == Severity.AVOID)
 }
+
+/** A Creative Commons license as its deed names it: "CC BY-SA 4.0". */
+internal fun licenseName(license: String): String = when (license) {
+    "cc-by-3.0" -> "CC BY 3.0"
+    "cc-by-4.0" -> "CC BY 4.0"
+    "cc-by-sa-4.0" -> "CC BY-SA 4.0"
+    else -> license
+}
+
+/** "Wikipedia contributors · CC BY-SA 4.0 · adapted": who, under what, and that it was reworded. */
+internal fun sourceCredit(authors: String?, license: String, adapted: String): String =
+    listOfNotNull(authors, license, adapted).joinToString(" · ")

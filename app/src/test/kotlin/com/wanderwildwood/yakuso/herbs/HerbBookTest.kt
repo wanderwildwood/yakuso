@@ -50,6 +50,15 @@ class HerbBookTest {
         }
     }
 
+    @Test fun everyCreativeCommonsSourceIsCreditedByName() {
+        val credited = herbs.flatMap { it.sources }.filter { it.needsCredit }
+        assertTrue("the book has Creative Commons sources", credited.size >= 20)
+        credited.forEach { s ->
+            assertTrue("${s.title} names no authors", !s.authors.isNullOrBlank())
+            assertTrue("${s.title} has license ${s.license}", s.license in setOf("cc-by-3.0", "cc-by-4.0", "cc-by-sa-4.0"))
+        }
+    }
+
     @Test fun comfreyIsADontUsePageWithNoPreparation() {
         val comfrey = herbs.single { it.id == "comfrey" }
         assertTrue(comfrey.dontUse)

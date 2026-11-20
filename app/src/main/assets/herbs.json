@@ -238,7 +238,7 @@
         "src": ["kitchen"]
       },
       "sources": [
-        {"id": "wikipedia", "title": "Wikipedia, Spearmint (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Spearmint&oldid=1375239769", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "wikipedia", "title": "Wikipedia, Spearmint (traditional use and preparation only)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Spearmint&oldid=1375239769", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["editorial"],
       "tasteSrc": ["kitchen"],
@@ -323,7 +323,7 @@
       },
       "sources": [
         {"id": "nccih", "title": "NCCIH, Lavender (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/lavender", "retrieved": "2026-11-20", "license": "public-domain"},
-        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "authors": "Grigoriu C, Varlas V, Călinescu G, et al.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
       ],
       "researchSrc": ["nccih"],
       "interactionsSrc": ["nccih"],
@@ -445,7 +445,7 @@
       },
       "sources": [
         {"id": "lactmed", "title": "LactMed (NICHD), Linden", "url": "https://www.ncbi.nlm.nih.gov/books/NBK625586/", "retrieved": "2026-11-20", "license": "public-domain"},
-        {"id": "wikipedia", "title": "Wikipedia, Tilia (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Tilia&oldid=1384691582", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "wikipedia", "title": "Wikipedia, Tilia (traditional use and preparation only)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Tilia&oldid=1384691582", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["editorial"],
       "tasteSrc": ["kitchen"],
@@ -483,7 +483,7 @@
         "src": ["kitchen"]
       },
       "sources": [
-        {"id": "wikipedia", "title": "Wikipedia, Catnip (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Catnip&oldid=1385991870", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "wikipedia", "title": "Wikipedia, Catnip (traditional use and preparation only)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Catnip&oldid=1385991870", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["editorial"],
       "tasteSrc": ["kitchen"],
@@ -601,7 +601,7 @@
       },
       "sources": [
         {"id": "nccih", "title": "NCCIH, Elderberry (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/elderberry", "retrieved": "2026-11-20", "license": "public-domain"},
-        {"id": "wikipedia", "title": "Wikipedia, Sambucus nigra (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Sambucus_nigra&oldid=1380322926", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "wikipedia", "title": "Wikipedia, Sambucus nigra (traditional use and preparation only)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Sambucus_nigra&oldid=1380322926", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["editorial"],
       "tasteSrc": ["kitchen"],
@@ -639,8 +639,8 @@
         "src": ["kitchen"]
       },
       "sources": [
-        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"},
-        {"id": "wikipedia", "title": "Wikipedia, Thyme (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Thyme&oldid=1368697748", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "authors": "Grigoriu C, Varlas V, Călinescu G, et al.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"},
+        {"id": "wikipedia", "title": "Wikipedia, Thyme (traditional use and preparation only)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Thyme&oldid=1368697748", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["editorial"],
       "tasteSrc": ["kitchen"],
@@ -681,7 +681,7 @@
       },
       "sources": [
         {"id": "nccih", "title": "NCCIH, Sage (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/sage", "retrieved": "2026-11-20", "license": "public-domain"},
-        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "authors": "Grigoriu C, Varlas V, Călinescu G, et al.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
       ],
       "researchSrc": ["nccih"],
       "tasteSrc": ["kitchen"],
@@ -722,7 +722,7 @@
       },
       "sources": [
         {"id": "lactmed", "title": "LactMed (NICHD), Marshmallow", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501839/", "retrieved": "2026-11-20", "license": "public-domain"},
-        {"id": "wikipedia", "title": "Wikipedia, Althaea officinalis (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Althaea_officinalis&oldid=1380184637", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "wikipedia", "title": "Wikipedia, Althaea officinalis (traditional use and preparation only)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Althaea_officinalis&oldid=1380184637", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["lactmed", "editorial"],
       "tasteSrc": ["kitchen"],
@@ -765,7 +765,7 @@
       },
       "sources": [
         {"id": "nccih", "title": "NCCIH, Licorice Root (Herbs at a Glance)", "url": "https://www.nccih.nih.gov/health/licorice-root", "retrieved": "2026-11-20", "license": "public-domain"},
-        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "authors": "Grigoriu C, Varlas V, Călinescu G, et al.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
       ],
       "researchSrc": ["nccih"],
       "interactionsSrc": ["nccih"],
@@ -807,7 +807,7 @@
       },
       "sources": [
         {"id": "lactmed", "title": "LactMed (NICHD), Fennel", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501793/", "retrieved": "2026-11-20", "license": "public-domain"},
-        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "authors": "Grigoriu C, Varlas V, Călinescu G, et al.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
       ],
       "researchSrc": ["lactmed"],
       "tasteSrc": ["kitchen"],
@@ -889,7 +889,7 @@
       "sources": [
         {"id": "livertox", "title": "LiverTox (NIDDK), Stinging Nettle", "url": "https://www.ncbi.nlm.nih.gov/books/NBK589898/", "retrieved": "2026-11-20", "license": "public-domain"},
         {"id": "lactmed", "title": "LactMed (NICHD), Stinging Nettle", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501777/", "retrieved": "2026-11-20", "license": "public-domain"},
-        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "authors": "Grigoriu C, Varlas V, Călinescu G, et al.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"}
       ],
       "researchSrc": ["livertox", "lactmed"],
       "tasteSrc": ["kitchen"],
@@ -929,9 +929,9 @@
       },
       "sources": [
         {"id": "lactmed", "title": "LactMed (NICHD), Hibiscus", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501882/", "retrieved": "2026-11-20", "license": "public-domain"},
-        {"id": "pmc-PMC10676230", "title": "Exploring the Health Benefits and Therapeutic Potential of Roselle (Hibiscus sabdariffa) in Human Studies (Cureus, 2023)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10676230/", "retrieved": "2026-11-20", "license": "cc-by-4.0", "licenseNote": "The article says it is distributed under the Creative Commons Attribution License without naming a version; recorded as 4.0, Cureus's usual license."},
-        {"id": "pmc-PMC12347892", "title": "Genomic and Cytotoxic Damage in Wistar Rats and Their Newborns After Transplacental Exposure to Hibiscus sabdariffa Hydroalcoholic Extract (International Journal of Molecular Sciences, 2025)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12347892/", "retrieved": "2026-11-20", "license": "cc-by-4.0"},
-        {"id": "wikipedia", "title": "Wikipedia, Hibiscus tea (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Hibiscus_tea&oldid=1385534293", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "pmc-PMC10676230", "title": "Exploring the Health Benefits and Therapeutic Potential of Roselle (Hibiscus sabdariffa) in Human Studies (Cureus, 2023)", "authors": "Almajid A, Bazroon A, AlAhmed A, Bakhurji O", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10676230/", "retrieved": "2026-11-20", "license": "cc-by-3.0", "licenseNote": "The article says it is distributed under the Creative Commons Attribution License without naming a version; recorded as 4.0, Cureus's usual license."},
+        {"id": "pmc-PMC12347892", "title": "Genomic and Cytotoxic Damage in Wistar Rats and Their Newborns After Transplacental Exposure to Hibiscus sabdariffa Hydroalcoholic Extract (International Journal of Molecular Sciences, 2025)", "authors": "Tobanche Mireles Y, Zamora-Pérez AL, Galván Valencia M, et al.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12347892/", "retrieved": "2026-11-20", "license": "cc-by-4.0"},
+        {"id": "wikipedia", "title": "Wikipedia, Hibiscus tea (traditional use and preparation only)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Hibiscus_tea&oldid=1385534293", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["editorial"],
       "interactionsSrc": ["pmc-PMC10676230"],
@@ -970,7 +970,7 @@
       },
       "sources": [
         {"id": "lactmed", "title": "LactMed (NICHD), Rooibos", "url": "https://www.ncbi.nlm.nih.gov/books/NBK625593/", "retrieved": "2026-11-20", "license": "public-domain"},
-        {"id": "wikipedia", "title": "Wikipedia, Rooibos (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Rooibos&oldid=1371970483", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "wikipedia", "title": "Wikipedia, Rooibos (traditional use and preparation only)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Rooibos&oldid=1371970483", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["editorial"],
       "tasteSrc": ["kitchen"],
@@ -1007,7 +1007,7 @@
         "src": ["kitchen", "wikipedia"]
       },
       "sources": [
-        {"id": "wikipedia", "title": "Wikipedia, Rose hip (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Rose_hip&oldid=1386640366", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "wikipedia", "title": "Wikipedia, Rose hip (traditional use and preparation only)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Rose_hip&oldid=1386640366", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["editorial"],
       "tasteSrc": ["kitchen"],
@@ -1047,8 +1047,8 @@
       },
       "sources": [
         {"id": "lactmed", "title": "LactMed (NICHD), Calendula", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501857/", "retrieved": "2026-11-20", "license": "public-domain"},
-        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"},
-        {"id": "wikipedia", "title": "Wikipedia, Calendula officinalis (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Calendula_officinalis&oldid=1370530450", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "authors": "Grigoriu C, Varlas V, Călinescu G, et al.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"},
+        {"id": "wikipedia", "title": "Wikipedia, Calendula officinalis (traditional use and preparation only)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Calendula_officinalis&oldid=1370530450", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["lactmed"],
       "tasteSrc": ["kitchen"],
@@ -1086,7 +1086,7 @@
       },
       "sources": [
         {"id": "lactmed", "title": "LactMed (NICHD), Lemongrass", "url": "https://www.ncbi.nlm.nih.gov/books/NBK625591/", "retrieved": "2026-11-20", "license": "public-domain"},
-        {"id": "wikipedia", "title": "Wikipedia, Cymbopogon citratus (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Cymbopogon_citratus&oldid=1365355224", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "wikipedia", "title": "Wikipedia, Cymbopogon citratus (traditional use and preparation only)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Cymbopogon_citratus&oldid=1365355224", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["editorial"],
       "tasteSrc": ["kitchen"],
@@ -1123,7 +1123,7 @@
         "src": ["kitchen"]
       },
       "sources": [
-        {"id": "wikipedia", "title": "Wikipedia, Ocimum tenuiflorum (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Ocimum_tenuiflorum&oldid=1382064459", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "wikipedia", "title": "Wikipedia, Ocimum tenuiflorum (traditional use and preparation only)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Ocimum_tenuiflorum&oldid=1382064459", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["editorial"],
       "tasteSrc": ["kitchen"],
@@ -1245,9 +1245,9 @@
       },
       "sources": [
         {"id": "lactmed", "title": "LactMed (NICHD), Raspberry", "url": "https://www.ncbi.nlm.nih.gov/books/NBK501785/", "retrieved": "2026-11-20", "license": "public-domain"},
-        {"id": "pmc-PMC11034164", "title": "Raspberry leaf (Rubus idaeus) use in pregnancy: a prospective observational study (BMC Complementary Medicine and Therapies, 2024)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11034164/", "retrieved": "2026-11-20", "license": "cc-by-4.0"},
-        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"},
-        {"id": "wikipedia", "title": "Wikipedia, Red raspberry leaf (traditional use and preparation only)", "url": "https://en.wikipedia.org/w/index.php?title=Red_raspberry_leaf&oldid=1334059217", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "pmc-PMC11034164", "title": "Raspberry leaf (Rubus idaeus) use in pregnancy: a prospective observational study (BMC Complementary Medicine and Therapies, 2024)", "authors": "Bowman RL, Taylor J, Davis DL", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11034164/", "retrieved": "2026-11-20", "license": "cc-by-4.0"},
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "authors": "Grigoriu C, Varlas V, Călinescu G, et al.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"},
+        {"id": "wikipedia", "title": "Wikipedia, Red raspberry leaf (traditional use and preparation only)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Red_raspberry_leaf&oldid=1334059217", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["lactmed", "pmc-PMC11034164"],
       "tasteSrc": ["kitchen"],
@@ -1287,8 +1287,8 @@
         "src": ["kitchen"]
       },
       "sources": [
-        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"},
-        {"id": "wikipedia", "title": "Wikipedia, Achillea millefolium (traditional use, preparation and the look-alike warning)", "url": "https://en.wikipedia.org/w/index.php?title=Achillea_millefolium&oldid=1383115478", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "pmc-PMC8811673", "title": "Phytotherapy in obstetrics: therapeutic indications, limits, and dangers (Journal of Medicine and Life, 2021)", "authors": "Grigoriu C, Varlas V, Călinescu G, et al.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8811673/", "retrieved": "2026-11-20", "license": "cc-by-3.0"},
+        {"id": "wikipedia", "title": "Wikipedia, Achillea millefolium (traditional use, preparation and the look-alike warning)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Achillea_millefolium&oldid=1383115478", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["editorial"],
       "tasteSrc": ["kitchen"],
@@ -1363,7 +1363,7 @@
         "src": ["kitchen"]
       },
       "sources": [
-        {"id": "wikipedia", "title": "Wikipedia, Arctium lappa (traditional use, preparation and the look-alike warning)", "url": "https://en.wikipedia.org/w/index.php?title=Arctium_lappa&oldid=1375558472", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
+        {"id": "wikipedia", "title": "Wikipedia, Arctium lappa (traditional use, preparation and the look-alike warning)", "authors": "Wikipedia contributors", "url": "https://en.wikipedia.org/w/index.php?title=Arctium_lappa&oldid=1375558472", "retrieved": "2026-11-20", "license": "cc-by-sa-4.0"}
       ],
       "researchSrc": ["editorial"],
       "tasteSrc": ["kitchen"],

@@ -22,6 +22,7 @@ Exits 1 and says what is wrong when any herb:
     cc-by-sa-4.0, own (text by the app's author) and none, or a text line (caution, use, research, preparation, taste, parts,
     also-called, interactions, don't-use reason) that doesn't name, in "src" or its field's
     "...Src", the sources it came from: ids of the entry's sources or of "sharedSources"
+  - has a Creative Commons source (cc-...) that names no "authors": the herb page credits them
 
 Default path: app/src/main/assets/herbs.json, next to this folder.
 """
@@ -79,6 +80,8 @@ def source_problems(book, herb, hid):
         ids.add(sid)
         if s.get("license") not in LICENSES:
             out.append(f"{hid}: source {sid or s.get('title')!r} has license {s.get('license')!r}")
+        if str(s.get("license", "")).startswith("cc-") and not str(s.get("authors") or "").strip():
+            out.append(f"{hid}: source {sid or s.get('title')!r} is {s.get('license')} but names no authors to credit")
     known = ids | set(shared)
 
     def check(what, src):
