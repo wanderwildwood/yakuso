@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Herbal</string>
+
+    <!-- Herbs: the start screen -->
+    <string name="herbs_title">Herbs</string>
+    <string name="herbs_search">Search herbs</string>
+    <string name="herbs_no_match">No herb by that name.</string>
+    <string name="herbs_cd_serious">Serious caution</string>
+    <string name="caution_mark">⚠</string>
+    <string name="cd_settings">Settings</string>
+    <string name="cd_about">About</string>
+    <string name="cd_back">Back</string>
+
+    <!-- One herb's page, in the order it is read -->
+    <string name="herb_draft">Draft text, not yet checked.</string>
+    <string name="herb_dont_take">Don\'t take this</string>
+    <string name="herb_cautions">Cautions</string>
+    <string name="severity_avoid">Avoid:</string>
+    <string name="severity_caution">Caution:</string>
+    <string name="severity_note">Note:</string>
+    <string name="herb_interacts_with">It may interact with</string>
+    <string name="herb_ask_pharmacist">If you take any medicine, ask your pharmacist or doctor before you use it.</string>
+    <string name="herb_traditionally">Traditionally used for</string>
+    <string name="herb_research">What the research says:</string>
+    <string name="herb_prepare">How to prepare</string>
+    <string name="prep_infusion">An infusion: pour the hot water over it and let it steep.</string>
+    <string name="prep_decoction">A decoction: simmer it in the water.</string>
+    <string name="prep_water">Water:</string>
+    <string name="prep_steep">Steep:</string>
+    <string name="prep_simmer">Simmer:</string>
+    <!-- Fahrenheit first, then Celsius: "212 °F (100 °C)". -->
+    <string name="prep_temp">%1$d °F (%2$d °C)</string>
+    <string name="prep_minutes">%1$d to %2$d minutes</string>
+    <string name="herb_about_plant">The plant</string>
+    <string name="herb_latin">Latin name:</string>
+    <string name="herb_parts">Parts used:</string>
+    <string name="herb_taste">Taste:</string>
+    <string name="herb_also_called">Also called:</string>
+    <string name="herb_sources">Sources</string>
+    <string name="list_and">and</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_dark">Dark mode</string>
+
+    <!-- About -->
+    <string name="about_title">薬草 Herbal %1$s</string>
+    <string name="about_what_it_is">A small book of herbs for tea: who should not take each one, what it is traditionally used for and what the research says, and how to make it. It works without a connection.</string>
+    <string name="about_safety_heading">Not medical advice</string>
+    <string name="safety_disclaimer">This app is a reference book, not medical advice. It cannot tell you that an herb is safe for you. Herbs can interact with medicines and can harm some people, in pregnancy and nursing especially. If you take any medicine, are pregnant or nursing, or are unwell, ask your doctor, midwife or pharmacist first. See a doctor for anything serious or lasting.</string>
+    <string name="about_sources_heading">Sources</string>
+    <string name="about_sources">The cautions and the research lines are written from the US National Center for Complementary and Integrative Health\'s Herbs at a Glance pages (nccih.nih.gov) and, for comfrey, from LiverTox (National Institute of Diabetes and Digestive and Kidney Diseases). Both are works of the US government and in the public domain; the wording in this app is its own. Each herb\'s page lists its sources. The herb text is still a draft.</string>
+    <string name="about_privacy_heading">Privacy</string>
+    <string name="about_privacy">Nothing you do in the app leaves this phone. The app has no internet permission and cannot go online. \"Feed the llamas\" in About, and a source\'s address on an herb page, open in your browser only when you press them.</string>
+    <string name="about_privacy_close">There are no ads, no analytics and no tracking.</string>
+    <string name="about_terms_heading">Terms</string>
+    <string name="about_terms_licence">This app is free software under the GNU General Public License, version 3 only. It comes with no warranty: use it at your own risk.</string>
+    <string name="about_terms">This book is information, not advice. You decide, and you are responsible for what you do with it. A donation through \"Feed the llamas\" is voluntary and unlocks nothing: the app is the same with or without one.</string>
+    <string name="about_feed_the_llamas">Feed the llamas</string>
+    <string name="about_no_browser_address">No browser is installed. The address is %1$s.</string>
+    <string name="about_close">Close</string>
+
+    <!-- Licenses -->
+    <string name="licences_title">Licenses</string>
+    <string name="licences_back">Back</string>
+    <string name="licences_source_head">Source code</string>
+    <string name="licences_no_text">%s needs no license text here.</string>
+    <string name="licences_licence">Herbal is free software: GPL-3.0-only, copyright wander wildwood. What it is built on keeps its own licenses, listed below.</string>
+    <string name="licences_full_head">Full texts</string>
+    <string name="licences_full_gpl">GNU General Public License v3 (full text)</string>
+    <string name="licences_full_apache">Apache License 2.0 (full text)</string>
+    <string name="licences_full_ofl">SIL Open Font License 1.1 (full text)</string>
+
+    <!-- shared-about: contact row + privacy section (edit in /opt/projects/shared-about) -->
+    <string name="about_write_to">Write to %1$s</string>
+    <string name="about_no_mail_app">No email app is installed. The address is %1$s.</string>
+    <!-- shared-about: what a screen reader says for an About drawer, the heading passed in -->
+    <string name="about_open_drawer">Open %1$s</string>
+    <string name="about_close_drawer">Close %1$s</string>
+    <string name="about_intro_head">What it does</string>
+    <string name="about_contact_head">Contact</string>
+    <string name="about_links_head">Links</string>
+    <string name="privacy_who_title">Who we are</string>
+    <string name="privacy_who">This app is made by wander wildwood, an independent developer: one person, not a company. That makes wander wildwood the data controller for anything the app itself handles, and that is very little: what you put in stays on this phone unless you send it somewhere yourself. The app sends nothing out: it has no internet permission. Nothing comes to the developer.</string>
+    <string name="privacy_contact_title">How to contact us</string>
+    <string name="privacy_contact">Write to email@wanderthe.dev, about your data or anything else.</string>
+    <string name="privacy_rights_title">Your rights</string>
+    <string name="privacy_rights">Under the GDPR you can ask to see the data held about you, to have it corrected or deleted, to limit or object to its use, to take a copy with you, to withdraw consent, and to complain to a data protection authority. Since the app keeps what it stores only on your phone, you can do most of this yourself: clear the app\'s data in Android\'s settings, or uninstall the app.</string>
+    <!-- /shared-about -->
+    <string name="page_arrow_previous">Previous page</string>
+    <string name="page_arrow_next">Next page</string>
+    <string name="selection_more">More</string>
+</resources>
