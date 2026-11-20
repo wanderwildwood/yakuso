@@ -48,7 +48,7 @@ data class LicencesLabels(
 )
 
 /** Family ids in the order their full texts are listed. */
-val licenceFamilies: List<String> = listOf("gpl", "gpl2-cpe", "lgpl", "apache", "mpl", "mit", "bsd", "ofl", "unicode", "cc-by", "cc0", "pd")
+val licenceFamilies: List<String> = listOf("gpl", "gpl2-cpe", "lgpl", "apache", "mpl", "mit", "bsd", "ofl", "unicode", "cc-by", "cc-by-3", "cc-by-sa", "cc0", "pd")
 
 /** The family a licence name belongs to ("GPL-3.0-or-later" is "gpl"), or null when it has no text to show. */
 fun licenceFamily(name: String): String? {
@@ -63,6 +63,9 @@ fun licenceFamily(name: String): String? {
         "mit" in n.split(Regex("[^a-z]+")) -> "mit"
         "bsd" in n -> "bsd"
         "ofl" in n || "open font" in n -> "ofl"
+        // Each Creative Commons licence has its own legal code: ShareAlike and 3.0 apart from 4.0.
+        "cc-by-sa" in n || "cc by-sa" in n || "attribution-sharealike" in n -> "cc-by-sa"
+        ("cc-by" in n || "cc by" in n) && "3.0" in n -> "cc-by-3"
         "cc-by" in n || "cc by" in n -> "cc-by"
         "cc0" in n -> "cc0"
         "public domain" in n || n.startsWith("pd") -> "pd"
@@ -137,7 +140,7 @@ fun groupByLicence(components: List<LicenceComponent>): Map<String, List<Licence
         .toSortedMap(compareBy { licenceFamilies.indexOf(it).let { i -> if (i < 0) Int.MAX_VALUE else i } })
 
 /** Licence families whose page says in one line that no text is needed (attribution or none at all). */
-val licenceFamiliesWithoutText: Set<String> = setOf("cc-by", "cc0", "pd")
+val licenceFamiliesWithoutText: Set<String> = setOf("cc0", "pd")
 
 /**
  * What is wrong with the data, as plain sentences; empty when it is fine. For the app's own test:

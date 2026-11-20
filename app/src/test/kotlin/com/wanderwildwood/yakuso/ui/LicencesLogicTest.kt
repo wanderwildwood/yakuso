@@ -17,6 +17,11 @@ class LicencesLogicTest {
         assertEquals("bsd", licenceFamily("BSD-3-Clause"))
         assertEquals("ofl", licenceFamily("OFL-1.1"))
         assertEquals("cc-by", licenceFamily("CC BY 4.0"))
+        assertEquals("cc-by", licenceFamily("CC-BY-4.0"))
+        assertEquals("cc-by-3", licenceFamily("CC-BY-3.0"))
+        assertEquals("cc-by-3", licenceFamily("CC BY 3.0"))
+        assertEquals("cc-by-sa", licenceFamily("CC-BY-SA-4.0"))
+        assertEquals("cc-by-sa", licenceFamily("CC BY-SA 4.0"))
         assertEquals("cc0", licenceFamily("CC0-1.0"))
         assertEquals("pd", licenceFamily("Public domain (PD-old-70-expired)"))
         assertEquals("gpl2-cpe", licenceFamily("GPL-2.0 with Classpath Exception"))
@@ -27,6 +32,7 @@ class LicencesLogicTest {
 
     @Test fun combinedLicencesNameEveryFamily() {
         assertEquals(listOf("apache", "bsd"), licenceFamilies("Apache-2.0 and BSD"))
+        assertEquals(listOf("cc-by", "cc-by-3"), licenceFamilies("CC-BY-4.0, CC-BY-3.0"))
         assertEquals(listOf("mit"), licenceFamilies("MIT"))
     }
 
@@ -191,5 +197,13 @@ class LicencesLogicTest {
         assertEquals(listOf(0, 1), licencePageStartsByHeight(listOf(250, 40, 200), 8, 300, listOf(false, true, false)))
         assertEquals(listOf(0, 1), licencePageStartsByHeight(listOf(100, 40, 200), 8, 300, listOf(false, true, false)))
         assertEquals(emptyList<Int>(), licencePageStartsByHeight(emptyList(), 8, 300))
+    }
+
+    @Test fun creativeCommonsTextsAreBundledNotExcused() {
+        // The CC BY, CC BY 3.0 and CC BY-SA texts ship in res/raw: a missing one is a problem.
+        assertEquals(setOf("cc0", "pd"), licenceFamiliesWithoutText)
+        val d = LicencesData("App", "https://github.com/x/y", "GPL-3.0-only", listOf(c("Wiki", "CC-BY-SA-4.0")), listOf(t("gpl")))
+        assertEquals(listOf("no full text for cc-by-sa"), licencesProblems(d))
+        assertTrue(licencesProblems(d.copy(texts = listOf(t("gpl"), t("cc-by-sa")))).isEmpty())
     }
 }

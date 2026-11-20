@@ -17,6 +17,9 @@ val LICENCE_RAW: List<Pair<String, Int>> = listOf(
     "gpl" to R.raw.gpl_3_0,
     "apache" to R.raw.apache_2_0,
     "ofl" to R.raw.ofl_1_1,
+    "cc-by" to R.raw.cc_by_4_0,
+    "cc-by-3" to R.raw.cc_by_3_0,
+    "cc-by-sa" to R.raw.cc_by_sa_4_0,
 )
 
 @Composable
@@ -31,6 +34,9 @@ fun rememberLicencesData(): LicencesData = LicencesData(
             "gpl" -> R.string.licences_full_gpl
             "apache" -> R.string.licences_full_apache
             "ofl" -> R.string.licences_full_ofl
+            "cc-by" -> R.string.licences_full_ccby
+            "cc-by-3" -> R.string.licences_full_ccby3
+            "cc-by-sa" -> R.string.licences_full_ccbysa
             else -> R.string.licences_full_head
         }), raw)
     },
