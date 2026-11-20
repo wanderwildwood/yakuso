@@ -46,7 +46,6 @@ fun HerbsScreen(
     onOpen: (Herb) -> Unit,
     onDoor: (Door) -> Unit,
     onSettings: () -> Unit,
-    onAbout: () -> Unit,
 ) {
     var query by rememberSaveable { mutableStateOf("") }
     val shown = remember(herbs, query) { HerbBook.matching(herbs, query) }
@@ -57,7 +56,6 @@ fun HerbsScreen(
     Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
         Bar(stringResource(R.string.herbs_title)) {
             BarButton(Icons.Settings, stringResource(R.string.cd_settings), onSettings)
-            BarButton(Icons.Info, stringResource(R.string.cd_about), onAbout)
         }
         Doors(onDoor)
         TextFieldMMD(

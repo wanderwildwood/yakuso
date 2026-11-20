@@ -126,7 +126,7 @@ private fun Herbal(herbs: List<Herb>, asked: String?, onAsked: () -> Unit) {
     val top = stack.lastOrNull()
     val (kind, arg) = top?.split(":", limit = 2)?.let { it[0] to it.getOrNull(1) } ?: (null to null)
     when (kind) {
-        "settings" -> SettingsScreen(onBack = { pop() })
+        "settings" -> SettingsScreen(onBack = { pop() }, onAbout = { about = true })
         "herb" -> {
             val herb = herbs.firstOrNull { it.id == arg }
             // An herb no longer in the book (a saved place from an older version): step back.
@@ -176,7 +176,6 @@ private fun Herbal(herbs: List<Herb>, asked: String?, onAsked: () -> Unit) {
                 )
             },
             onSettings = { push("settings") },
-            onAbout = { about = true },
         )
     }
 

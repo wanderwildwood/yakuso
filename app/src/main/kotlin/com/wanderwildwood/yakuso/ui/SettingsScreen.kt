@@ -33,7 +33,7 @@ import java.time.LocalDate
 
 /** Dark mode, then the copy of the journal, the cupboard and your own timer settings. */
 @Composable
-fun SettingsScreen(onBack: () -> Unit) {
+fun SettingsScreen(onBack: () -> Unit, onAbout: () -> Unit) {
     val context = LocalContext.current
     val db = remember { HerbalDatabase.get(context) }
     val scope = rememberCoroutineScope()
@@ -46,7 +46,10 @@ fun SettingsScreen(onBack: () -> Unit) {
     }
 
     Column(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)) {
-        Bar(stringResource(R.string.settings_title), onBack = onBack)
+        // About sits here, top right, as in the house's other apps; the home bar keeps only the cog.
+        Bar(stringResource(R.string.settings_title), onBack = onBack) {
+            BarButton(Icons.Info, stringResource(R.string.cd_about), onAbout)
+        }
         Box(Modifier.weight(1f)) {
             PagedColumn(contentPadding = PaddingValues(start = 20.dp, end = 12.dp)) {
                 item(key = "dark") {
