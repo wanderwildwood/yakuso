@@ -4,6 +4,7 @@ import com.wanderwildwood.yakuso.herbs.HerbBook
 import java.io.File
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -12,12 +13,19 @@ import org.robolectric.RobolectricTestRunner
 class HerbPageTest {
     private val herbs = HerbBook.parse(File("src/main/assets/herbs.json").readText())
 
-    @Test fun cautionsComeFirstOnAnOrdinaryPage() {
+    @Test fun cautionsComeAfterThePlantOnAnOrdinaryPage() {
         val chamomile = herbs.single { it.id == "chamomile" }
         assertEquals(
-            listOf(Section.CAUTIONS, Section.TRADITIONALLY, Section.PREPARE, Section.PLANT, Section.SOURCES),
+            listOf(Section.TRADITIONALLY, Section.PREPARE, Section.PLANT, Section.CAUTIONS, Section.SOURCES),
             sectionsOf(chamomile),
         )
+    }
+
+    @Test fun aSeriousHerbSaysSoAtTheTopButADontUsePageNeedsNoLine() {
+        assertTrue(herbs.filter { it.serious && !it.dontUse }.all { hasCautionLine(it) })
+        assertTrue(hasCautionLine(herbs.single { it.id == "st-johns-wort" }))
+        assertFalse(hasCautionLine(herbs.single { it.id == "comfrey" }))
+        assertFalse(herbs.filter { !it.serious }.any { hasCautionLine(it) })
     }
 
     @Test fun aDontUsePageOpensWithItAndHasNoPreparation() {

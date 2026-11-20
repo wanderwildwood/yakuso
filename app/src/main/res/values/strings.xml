@@ -24,6 +24,7 @@
     <string name="herb_draft">Draft text, not yet checked.</string>
     <string name="herb_dont_take">Don\'t take this</string>
     <string name="herb_cautions">Cautions</string>
+    <string name="herb_serious_cautions">⚠ This herb has serious cautions. Read them, near the end of this page, before you use it.</string>
     <string name="severity_avoid">Avoid:</string>
     <string name="severity_note">Note:</string>
     <string name="herb_interacts_with">It may interact with</string>

@@ -23,10 +23,10 @@ The book never says an herb cures or treats anything. It says what an herb is
 
 - **Herbs**, A to Z, with a search field. A row carries a ⚠ when the herb has a serious
   caution.
-- **An herb's page**, always in the same order, cautions first: who should not take it and
-  which medicines it may interact with; what it is traditionally used for and what the
+- **An herb's page**, always in the same order: what it is traditionally used for and what the
   research says; how to prepare it (temperatures in °F, then °C); the parts used, the taste
-  and other names; and its sources.
+  and other names; its cautions (who should not take it and which medicines it may interact
+  with); and its sources. An herb with a serious caution opens with a ⚠ line saying so.
 - **"Don't use" pages** for herbs that are not safe to take (comfrey, for one). They open
   with "Don't take this" and the reason, and have no preparation.
 - **A finder** by everyday need (sleep, calm, digestion, colds, sore throat, nausea, headache,

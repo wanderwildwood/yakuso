@@ -27,9 +27,10 @@ import com.wanderwildwood.yakuso.herbs.Preparation
 import com.wanderwildwood.yakuso.herbs.Severity
 
 /**
- * One herb. The sections always come in the same order, and cautions come first: who should not
- * take it is read before what it is used for. A "don't use" page opens with that and its reason,
- * and has no preparation.
+ * One herb. The sections always come in the same order: what it is used for, how to prepare it,
+ * the plant, then its cautions and sources. An herb with a serious caution opens with a line
+ * saying so, so nobody reads how to brew it without knowing the cautions are there. A "don't use"
+ * page opens with that, its reason and its cautions, and has no preparation.
  */
 @Composable
 fun HerbScreen(herb: Herb, cupboard: CupboardItem?, onBrew: () -> Unit, onBack: () -> Unit) {
@@ -58,6 +59,7 @@ fun HerbScreen(herb: Herb, cupboard: CupboardItem?, onBrew: () -> Unit, onBack: 
         alsoCalled = stringResource(R.string.herb_also_called),
         sources = stringResource(R.string.herb_sources),
         adapted = stringResource(R.string.herb_source_adapted),
+        seriousCautions = stringResource(R.string.herb_serious_cautions),
         and = stringResource(R.string.list_and),
         tempFormat = stringResource(R.string.prep_temp),
         minutesFormat = stringResource(R.string.prep_minutes),
@@ -91,7 +93,7 @@ internal data class HerbWords(
     val traditionally: String, val research: String, val prepare: String, val infusion: String,
     val decoction: String, val water: String, val steep: String, val simmer: String,
     val aboutPlant: String, val latin: String, val parts: String, val taste: String,
-    val alsoCalled: String, val sources: String, val adapted: String, val and: String,
+    val alsoCalled: String, val sources: String, val adapted: String, val seriousCautions: String, val and: String,
     val tempFormat: String, val minutesFormat: String,
     val inCupboard: String, val inCupboardLow: String, val brew: String,
 )
@@ -101,11 +103,15 @@ internal enum class Section { DONT_TAKE, CAUTIONS, TRADITIONALLY, PREPARE, PLANT
 
 /** Which sections a herb's page has, in the order they are shown. */
 internal fun sectionsOf(herb: Herb): List<Section> = buildList {
-    if (herb.dontUse) add(Section.DONT_TAKE)
-    add(Section.CAUTIONS)
+    if (herb.dontUse) {
+        // A herb not to take keeps its reason and cautions at the top.
+        add(Section.DONT_TAKE)
+        add(Section.CAUTIONS)
+    }
     if (herb.uses.isNotEmpty() || herb.research != null) add(Section.TRADITIONALLY)
     if (!herb.dontUse && herb.preparation != null) add(Section.PREPARE)
     add(Section.PLANT)
+    if (!herb.dontUse) add(Section.CAUTIONS)
     add(Section.SOURCES)
 }
 
@@ -135,6 +141,9 @@ internal fun cupboardLine(item: CupboardItem?, w: HerbWords): String? = when {
 }
 
 /** Only an ordinary page with a preparation has the Brew button; a "don't use" page never. */
+/** An herb with a serious caution, whose cautions sit at the end: its page says so at the top. */
+internal fun hasCautionLine(herb: Herb): Boolean = herb.serious && !herb.dontUse
+
 internal fun hasBrew(herb: Herb): Boolean = !herb.dontUse && herb.preparation != null
 
 private fun LazyListScope.herbPage(
@@ -145,6 +154,7 @@ private fun LazyListScope.herbPage(
     onLink: (String) -> Unit,
 ) {
     if (herb.draft) item(key = "draft") { Small(w.draft, Modifier.padding(top = 8.dp, bottom = 8.dp)) }
+    if (hasCautionLine(herb)) item(key = "warn") { Body(w.seriousCautions, bold = true) }
 
     sectionsOf(herb).forEach { section ->
         when (section) {
