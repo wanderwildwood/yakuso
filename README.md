@@ -95,6 +95,8 @@ should stop you rather than quietly hand you something installable.
 The debug build takes the same key when it is there. The first install of any variant fixes
 the signer for good, so a debug build put on a phone is not a throwaway.
 
+Questions, ideas, or just saying hello: the wander the dev Discord, <https://discord.gg/UMW8yJg7dQ>
+
 ## License
 
 The code is GPL-3.0-only. See [LICENSE](LICENSE). The herb text in
